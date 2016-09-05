@@ -1,10 +1,11 @@
 .header{
     background: #2196F3;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
 
     @include clearfix();
 
     .title{
-        color: #fff;
+        color: $header_baseTextColor;
         padding: 10px;
         font-size: 24px;
         display: inline-block;
@@ -33,7 +34,7 @@
                 display: block;
                 padding: 10px 5px;
                 text-decoration: none;
-                color: #fff;
+                color: $header_baseTextColor;
             }
         }
     }
