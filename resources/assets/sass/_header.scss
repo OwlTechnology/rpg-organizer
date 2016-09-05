@@ -1,0 +1,40 @@
+.header{
+    background: #2196F3;
+
+    @include clearfix();
+
+    .title{
+        color: #fff;
+        padding: 10px;
+        font-size: 24px;
+        display: inline-block;
+    }
+
+    .left{
+        float: left;
+    }
+
+    .nav{
+        float: right;
+    }
+
+    .nav-list{
+        font-size: 0;
+        display: block;
+        list-style-type: none;
+        white-space: nowrap;
+        margin: 0 $gutter 0 0;
+
+        li{
+            display: inline-block;
+
+            a{
+                font-size: 20px;
+                display: block;
+                padding: 10px 5px;
+                text-decoration: none;
+                color: #fff;
+            }
+        }
+    }
+}

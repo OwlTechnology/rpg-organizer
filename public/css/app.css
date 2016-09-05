@@ -5,4 +5,42 @@ body {
   margin: 0;
   font-family: sans-serif; }
 
+.header {
+  background: #2196F3; }
+  .header:after {
+    visibility: hidden;
+    display: block;
+    font-size: 0;
+    content: " ";
+    clear: both;
+    height: 0; }
+  .header .title {
+    color: #fff;
+    padding: 10px;
+    font-size: 24px;
+    display: inline-block; }
+  .header .left {
+    float: left; }
+  .header .nav {
+    float: right; }
+  .header .nav-list {
+    font-size: 0;
+    display: block;
+    list-style-type: none;
+    white-space: nowrap;
+    margin: 0 35px 0 0; }
+    .header .nav-list li {
+      display: inline-block; }
+      .header .nav-list li a {
+        font-size: 20px;
+        display: block;
+        padding: 10px 5px;
+        text-decoration: none;
+        color: #fff; }
+
+.content-body {
+  max-width: 950px;
+  width: 100%;
+  margin: 0 auto; }
+
 /*# sourceMappingURL=app.css.map */
