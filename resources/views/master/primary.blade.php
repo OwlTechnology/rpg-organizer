@@ -12,7 +12,7 @@
                 <span class="title">RPG Organizer</span>
             </div>
             <div class="nav">
-
+                
             </div>
         </div>
 
