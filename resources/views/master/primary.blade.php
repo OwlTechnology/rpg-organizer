@@ -19,6 +19,11 @@
                             My Account
                         </a>
                     </li>
+                    <li>
+                        <a href="{{ url('/logout') }}">
+                            Logout
+                        </a>
+                    </li>
                     @else
                     <li>
                         <a href="{{ url('/login') }}">

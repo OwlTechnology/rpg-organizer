@@ -6,7 +6,15 @@
     <div class="content-body">
         <h1>Sign Up</h1>
 
-        <form class="form login">
+        @if(session('error'))
+        <div class="error">
+            {{ session('message') }}
+        </div>
+        @endif
+
+        <form class="form login" method="post" action="{{ url('/signup') }}">
+            {{ csrf_field() }}
+
             <div class="form-element">
                 <label>
                     Username
