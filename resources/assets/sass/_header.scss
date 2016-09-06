@@ -1,0 +1,41 @@
+.header{
+    background: #2196F3;
+    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.4);
+
+    @include clearfix();
+
+    .title{
+        color: $header_baseTextColor;
+        padding: 10px;
+        font-size: 24px;
+        display: inline-block;
+    }
+
+    .left{
+        float: left;
+    }
+
+    .nav{
+        float: right;
+    }
+
+    .nav-list{
+        font-size: 0;
+        display: block;
+        list-style-type: none;
+        white-space: nowrap;
+        margin: 0 $gutter 0 0;
+
+        li{
+            display: inline-block;
+
+            a{
+                font-size: 20px;
+                display: block;
+                padding: 10px 5px;
+                text-decoration: none;
+                color: $header_baseTextColor;
+            }
+        }
+    }
+}
