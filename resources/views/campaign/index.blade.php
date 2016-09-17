@@ -23,8 +23,8 @@
             @endforeach
         </div>
 
-        <a href="{{ url("/campaigns/" . $campaign->id . "/notes/new") }}">
-            Write New Note
+        <a class="icon-button blue" href="{{ url("/campaigns/" . $campaign->id . "/notes/new") }}">
+            <i class="material-icons">add</i><span class="text">Write New Note</span>
         </a>
     </div>
   </div>

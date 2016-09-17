@@ -44,4 +44,48 @@ body {
   width: 100%;
   margin: 0 auto; }
 
+.button {
+  display: inline-block;
+  text-decoration: none;
+  background: #fff;
+  border: #efefef solid 1px;
+  border-radius: 5px;
+  padding: 5px;
+  color: #222;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6), 0 4px 5px rgba(0, 0, 0, 0.3); }
+  .button.blue {
+    background: #2196F3;
+    color: #fff;
+    border: none; }
+
+.icon-button {
+  display: inline-block;
+  text-decoration: none;
+  background: #fff;
+  border: #222 solid 1px;
+  border-radius: 5px;
+  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6), 0 4px 5px rgba(0, 0, 0, 0.3);
+  overflow: hidden; }
+  .icon-button i {
+    display: inline-block;
+    position: relative;
+    vertical-align: bottom;
+    background: #222;
+    color: #fff;
+    padding: 3px; }
+  .icon-button .text {
+    position: relative;
+    display: inline-block;
+    vertical-align: bottom;
+    padding: 6px;
+    color: #222; }
+  .icon-button.blue {
+    border: #2196F3 solid 1px; }
+    .icon-button.blue i {
+      color: #2196F3;
+      background: #fff; }
+    .icon-button.blue .text {
+      background: #2196F3;
+      color: #fff; }
+
 /*# sourceMappingURL=app.css.map */

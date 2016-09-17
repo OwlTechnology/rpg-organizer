@@ -1,0 +1,59 @@
+.button{
+    display: inline-block;
+    text-decoration: none;
+    background: #fff;
+    border: #efefef solid 1px;
+    border-radius: 5px;
+    padding: 5px;
+    color: #222;
+    box-shadow: $shadow_normal;
+
+    // Themes
+
+    &.blue{
+        background: $material_blue;
+        color: #fff;
+        border: none;
+    }
+}
+
+.icon-button{
+    display: inline-block;
+    text-decoration: none;
+    background: #fff;
+    border: #222 solid 1px;
+    border-radius: 5px;
+    box-shadow: $shadow_normal;
+    overflow: hidden;
+
+    i{
+        display: inline-block;
+        position: relative;
+        vertical-align: bottom;
+        background: #222;
+        color: #fff;
+        padding: 3px;
+    }
+
+    .text{
+        position: relative;
+        display: inline-block;
+        vertical-align: bottom;
+        padding: 6px;
+        color: #222;
+    }
+
+    // Themes
+    &.blue{
+        border: $material_blue solid 1px;
+
+        i{
+            color: $material_blue;
+            background: #fff;
+        }
+        .text{
+            background: $material_blue;
+            color: #fff;
+        }
+    }
+}
