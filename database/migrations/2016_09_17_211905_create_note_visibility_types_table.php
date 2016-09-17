@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCampaignsTable extends Migration
+class CreateNoteVisibilityTypesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,11 +12,11 @@ class CreateCampaignsTable extends Migration
      */
     public function up()
     {
-        Schema::create('campaigns', function (Blueprint $table) {
+        Schema::create('note_visibility_types', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name', 255);
-            $table->integer("dm")->unsigned();
-            $table->foreign('dm')->references('id')->on('users');
+
+            $table->string("name");
+            
             $table->timestamps();
         });
     }
@@ -28,6 +28,6 @@ class CreateCampaignsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('campaigns');
+        Schema::drop('note_visibility_types');
     }
 }
