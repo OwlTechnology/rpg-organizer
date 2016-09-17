@@ -5,6 +5,9 @@
         <title>RPG Organizer</title>
 
         <link rel='stylesheet' type='text/css' href='{{ url('css/app.css') }}' />
+
+        @yield("import")
+        
     </head>
     <body>
         <div class="header">

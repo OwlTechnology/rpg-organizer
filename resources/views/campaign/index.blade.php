@@ -13,7 +13,11 @@
         <div class="notes">
             @foreach($notes as $note)
             <div class="note">
-                <h3 class="title">{{ $note->name }}</h3>
+                <h3 class="title">
+                    <a href="{{ url('/campaign/' . $campaign->id . '/notes/' . $note->id) }}">
+                        {{ $note->name }}
+                    </a>
+                </h3>
                 <h4 class="subtitle">{{ $note->description }}</h4>
             </div>
             @endforeach
@@ -25,6 +29,4 @@
     </div>
   </div>
 </div>
-
-
 @endsection
