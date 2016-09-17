@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Campaign;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
@@ -92,6 +93,14 @@ class AccountsController extends Controller
 
         return redirect("/login")->with([
             "message" => "Account created successfully! Please login."
+        ]);
+    }
+
+    public function showHomePage(Request $request){
+        $campaigns = Campaign::where("dm", Auth::user()->id)->get();
+
+        return view("accounts.user.overview", [
+            "campaigns" => $campaigns
         ]);
     }
 }

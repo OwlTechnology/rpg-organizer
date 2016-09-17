@@ -6,7 +6,22 @@
     <div class="content-body">
         <h1>My Account</h1>
 
-        Name: {{ Auth::user()->name }}<br />
+        <div>
+            Name: {{ Auth::user()->name }}
+        </div>
+
+        <div class="campaigns collection">
+            @foreach($campaigns as $campaign)
+            <div class="campaign">
+                <div class="name">
+                    {{ $campaign->name }}
+                </div>
+            </div>
+            @endforeach
+        </div>
+        <div>
+            <a href="{{ url('/campaigns/new') }}">Create New Campaign</a>
+        </div>
 
     </div>
 </div>
