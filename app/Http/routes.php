@@ -23,4 +23,8 @@ Route::group(["middleware" => "auth"], function(){
     Route::get("/campaign/{id}", "CampaignsController@index");
 
     Route::get("/campaign/delete/{id}", "CampaignsController@delete");
+
+    // Notes
+    Route::get("/campaigns/{campaignID}/notes/new", "NotesController@showCreateNote");
+    Route::post("notes/new", "NotesController@createNote");
 });

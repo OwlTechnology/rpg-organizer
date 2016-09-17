@@ -20,7 +20,8 @@ class CreateNotesTable extends Migration
             $table->string("content");
 
             $table->integer("visible_to")->unsigned();
-            $table->foreign("visible_to")->references("id")->on("note_visibility_types");
+
+            $table->integer("campaign")->unsigned();
 
             $table->integer("visible_value")->unsigned();
 
