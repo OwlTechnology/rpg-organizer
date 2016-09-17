@@ -23,6 +23,12 @@
             </div>
             <div class="form-element">
                 <label>
+                    Email Address
+                    <input type="text" name="email" />
+                </label>
+            </div>
+            <div class="form-element">
+                <label>
                     Password
                     <input type="password" name="password" />
                 </label>
