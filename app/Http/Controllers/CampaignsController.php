@@ -23,5 +23,19 @@ class CampaignsController extends Controller
         return redirect("/me");
     }
 
+    public function index($id){
+
+      $campaign = Campaign::find($id);
+
+      return view("campaign.index", [
+        "campaign" => $campaign
+      ]);
+    }
+
+
+    public function delete($id){
+      return json_encode(Campaigns::find($id));
+    }
+
 
 }

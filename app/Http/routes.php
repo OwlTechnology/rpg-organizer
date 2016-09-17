@@ -17,7 +17,10 @@ Route::group(["middleware" => "auth"], function(){
     Route::get("/campaigns/new", function(){
         return view('campaigns.new');
     });
-    
+
     Route::post('/campaigns/new', 'CampaignsController@create');
     Route::get("/logout", 'AccountsController@logout');
+    Route::get("/campaign/{id}", "CampaignsController@index");
+
+    Route::get("/campaign/delete/{id}", "CampaignsController@delete");
 });

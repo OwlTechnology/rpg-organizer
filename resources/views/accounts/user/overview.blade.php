@@ -14,7 +14,7 @@
             @foreach($campaigns as $campaign)
             <div class="campaign">
                 <div class="name">
-                    {{ $campaign->name }}
+                <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
                 </div>
             </div>
             @endforeach
