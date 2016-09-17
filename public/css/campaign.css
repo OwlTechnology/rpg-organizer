@@ -1,0 +1,28 @@
+.campaign-header {
+  padding: 50px 0;
+  background: #ededed; }
+  .campaign-header .campaign-name {
+    font-size: 32px;
+    position: relative;
+    padding: 7.5px 0; }
+    .campaign-header .campaign-name .material-icons {
+      position: absolute;
+      right: calc(100% + 10px);
+      top: 0;
+      font-size: 30px;
+      background: #4CAF50;
+      color: #fff;
+      padding: 10px;
+      border-radius: 100%;
+      box-shadow: 0 2px rgba(0, 0, 0, 0.4); }
+  .campaign-header .campaign-dm {
+    margin: 5px 0 0; }
+    .campaign-header .campaign-dm .label {
+      background: #2196F3;
+      color: #fff;
+      padding: 2px 3px;
+      border-radius: 3px; }
+    .campaign-header .campaign-dm .name {
+      color: #333; }
+
+/*# sourceMappingURL=campaign.css.map */
