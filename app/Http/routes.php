@@ -21,7 +21,7 @@ Route::group(["middleware" => "auth"], function(){
     Route::post('/campaigns/new', 'CampaignsController@create');
     Route::get("/logout", 'AccountsController@logout');
     Route::get("/campaign/{id}", "CampaignsController@index");
-    
+
     //DungeonMaster Middleware.
     //@param campaign->id
     Route::group(["middleware" => "dm"], function(){
@@ -30,6 +30,8 @@ Route::group(["middleware" => "auth"], function(){
     });
 
     // Notes
+    Route::get("/campaign/{campaignID}/notes/", "CampaignsController@notes");
+
     Route::get("/campaigns/{campaignID}/notes/new", "NotesController@showCreateNote");
     Route::get("/campaign/{campaignID}/notes/{noteID}", "NotesController@showNote");
     Route::post("notes/new", "NotesController@createNote");

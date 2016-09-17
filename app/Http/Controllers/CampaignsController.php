@@ -30,8 +30,20 @@ class CampaignsController extends Controller
 
       return view("campaign.index", [
         "campaign" => $campaign,
-        "notes" => $notes
+        "notes" => $notes,
+        "activeTab" => "home"
       ]);
+    }
+
+    public function notes($id){
+        $campaign = Campaign::find($id);
+        $notes = Note::where("campaign", $campaign->id)->get();
+
+        return view("campaign.notes", [
+          "campaign" => $campaign,
+          "notes" => $notes,
+          "activeTab" => "notes"
+        ]);
     }
 
 

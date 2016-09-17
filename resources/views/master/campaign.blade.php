@@ -17,6 +17,22 @@
         </div>
     </div>
 </div>
+<div class="campaign-tabs">
+    <div class="tab-container">
+        <ul>
+            <li>
+                <a href="{{ url('/campaign/' . $campaign->id) }}" class='{{ $activeTab === "home" ? "active" : "" }}'>
+                    Home
+                </a>
+            </li>
+            <li>
+                <a href="{{ url('/campaign/' . $campaign->id . '/notes/') }}" class='{{ $activeTab === "notes" ? "active" : "" }}'>
+                    Notes
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
 <div class="campaign-content">
     @yield("campaign-content")
 </div>

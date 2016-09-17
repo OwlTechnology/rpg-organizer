@@ -25,4 +25,30 @@
     .campaign-header .campaign-dm .name {
       color: #333; }
 
+.campaign-tabs {
+  background: #eee;
+  margin: 0 0 15px 0; }
+  .campaign-tabs .tab-container {
+    max-width: 950px;
+    width: 100%;
+    margin: 0 auto; }
+    .campaign-tabs .tab-container ul {
+      padding: 0;
+      margin: 0;
+      list-style-type: none; }
+      .campaign-tabs .tab-container ul li {
+        display: inline-block; }
+        .campaign-tabs .tab-container ul li a {
+          display: block;
+          padding: 8px;
+          text-decoration: none;
+          background: #ccc;
+          border-radius: 5px 5px 0 0;
+          color: #fff;
+          border: 1px solid #aaa;
+          border-bottom: none; }
+          .campaign-tabs .tab-container ul li a.active {
+            background: #fff;
+            color: #333; }
+
 /*# sourceMappingURL=campaign.css.map */
