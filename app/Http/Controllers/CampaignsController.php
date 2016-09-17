@@ -38,8 +38,14 @@ class CampaignsController extends Controller
       return redirect("/me");
     }
 
-    public function update($id){
-      return json_encode(Campaign::find($id));
+    public function update(Request $request){
+
+      $campaign = Campaign::find($request->id);
+
+      $campaign->name = $request->input("name");
+      $campaign->save();
+
+      return redirect('/me');
     }
 
 

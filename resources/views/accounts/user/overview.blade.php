@@ -19,6 +19,11 @@
                   {{ csrf_field() }}
                   <button type="submit">Delete</button>
                 </form>
+                <form class="form campaignUpdate" method="post" action="{{url('/campaign/update?id='.$campaign->id)}}">
+                  {{ csrf_field() }}
+                  <input type="text" placeholder="{{$campaign->name}}"name="name"/>
+                  <button type="submit">Update Name</button>
+                </form>
                 </div>
             </div>
             @endforeach

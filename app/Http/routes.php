@@ -26,7 +26,7 @@ Route::group(["middleware" => "auth"], function(){
     //@param campaign->id
     Route::group(["middleware" => "dm"], function(){
       Route::post("/campaign/delete", "CampaignsController@delete");
-      Route::put("/campaign/update/{id}", "CampaignsController@update");
+      Route::post("/campaign/update", "CampaignsController@update");
     });
 
 });
