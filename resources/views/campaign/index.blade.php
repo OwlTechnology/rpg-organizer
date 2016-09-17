@@ -10,8 +10,13 @@
     <div>
         <h2>Notes</h2>
 
-        <div>
-            <!-- notes list -->
+        <div class="notes">
+            @foreach($notes as $note)
+            <div class="note">
+                <h3 class="title">{{ $note->name }}</h3>
+                <h4 class="subtitle">{{ $note->description }}</h4>
+            </div>
+            @endforeach
         </div>
 
         <a href="{{ url("/campaigns/" . $campaign->id . "/notes/new") }}">

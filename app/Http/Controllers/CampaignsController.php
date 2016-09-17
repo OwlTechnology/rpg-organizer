@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Campaign;
+use App\Note;
 
 class CampaignsController extends Controller
 {
@@ -24,11 +25,12 @@ class CampaignsController extends Controller
     }
 
     public function index($id){
-
       $campaign = Campaign::find($id);
+      $notes = Note::where("campaign", $campaign->id)->get();
 
       return view("campaign.index", [
-        "campaign" => $campaign
+        "campaign" => $campaign,
+        "notes" => $notes
       ]);
     }
 
