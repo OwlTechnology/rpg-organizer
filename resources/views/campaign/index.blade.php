@@ -1,13 +1,13 @@
-@extends('master.primary')
+@extends('master.campaign')
 
-@section("content")
+@section("import")
+<link rel="stylesheet" type="text/css" href="{{ url('/css/campaign.css') }}" />
+@endsection
 
+@section("campaign-content")
 <div class="content">
   <div class="content-body">
-    <div class="campaign-name">{{$campaign->name}}</div>
-    <div class="campaign-dm">{{ $campaign->dungeonMaster()->name }}</div>
-
-    <div>
+      <div class="section notes-wrapper">
         <h2>Notes</h2>
 
         <div class="notes">

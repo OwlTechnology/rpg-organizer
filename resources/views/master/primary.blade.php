@@ -4,10 +4,10 @@
     <head>
         <title>RPG Organizer</title>
 
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel='stylesheet' type='text/css' href='{{ url('css/app.css') }}' />
 
         @yield("import")
-        
     </head>
     <body>
         <div class="header">

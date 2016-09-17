@@ -1,0 +1,38 @@
+@import "variables";
+
+.campaign-header{
+    padding: 50px 0;
+    background: #ededed;
+
+    .campaign-name{
+        font-size: 32px;
+        position: relative;
+        padding: 7.5px 0;
+
+        .material-icons{
+            position: absolute;
+            right: calc(100% + 10px);
+            top: 0;
+            font-size: 30px;
+            background: $material_green;
+            color: #fff;
+            padding: 10px;
+            border-radius: 100%;
+            box-shadow: 0 2px rgba(0, 0, 0, 0.4);
+        }
+    }
+
+    .campaign-dm{
+        margin: 5px 0 0;
+
+        .label{
+            background: $material_blue;
+            color: #fff;
+            padding: 2px 3px;
+            border-radius: 3px;
+        }
+        .name{
+            color: #333;
+        }
+    }
+}
