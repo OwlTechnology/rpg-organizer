@@ -34,7 +34,7 @@ class CampaignsController extends Controller
 
 
     public function delete($id){
-      return json_encode(Campaigns::find($id));
+      return json_encode(Campaign::find($id));
     }
 
 
