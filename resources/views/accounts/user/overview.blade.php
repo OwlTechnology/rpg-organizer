@@ -15,6 +15,10 @@
             <div class="campaign">
                 <div class="name">
                 <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
+                <form class="form campaignDelete" method="post" action="{{url('/campaign/delete?id='.$campaign->id)}}">
+                  {{ csrf_field() }}
+                  <button type="submit">Delete</button>
+                </form>
                 </div>
             </div>
             @endforeach

@@ -33,7 +33,12 @@ class CampaignsController extends Controller
     }
 
 
-    public function delete($id){
+    public function delete(Request $request){
+      Campaign::find($request->id)->delete();
+      return redirect("/me");
+    }
+
+    public function update($id){
       return json_encode(Campaign::find($id));
     }
 

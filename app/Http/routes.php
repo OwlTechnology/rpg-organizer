@@ -25,7 +25,8 @@ Route::group(["middleware" => "auth"], function(){
     //DungeonMaster Middleware.
     //@param campaign->id
     Route::group(["middleware" => "dm"], function(){
-      Route::get("/campaign/delete/{id}", "CampaignsController@delete");
+      Route::post("/campaign/delete", "CampaignsController@delete");
+      Route::put("/campaign/update/{id}", "CampaignsController@update");
     });
 
 });
