@@ -52,7 +52,7 @@ body {
   border-radius: 5px;
   padding: 5px;
   color: #222;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6), 0 4px 5px rgba(0, 0, 0, 0.3); }
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 3px 5px rgba(0, 0, 0, 0.3); }
   .button.blue {
     background: #2196F3;
     color: #fff;
@@ -64,7 +64,7 @@ body {
   background: #fff;
   border: #222 solid 1px;
   border-radius: 5px;
-  box-shadow: 0 2px 3px rgba(0, 0, 0, 0.6), 0 4px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 3px 5px rgba(0, 0, 0, 0.3);
   overflow: hidden; }
   .icon-button i {
     display: inline-block;
