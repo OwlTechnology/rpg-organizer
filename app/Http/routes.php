@@ -15,6 +15,9 @@ Route::group(["middleware" => "auth"], function(){
     Route::get('/me', function(){
         return view("accounts.user.overview");
     });
-
+    Route::get("/campaigns/new", function(){
+        return view('campaigns.new');
+    });
+    Route::post('/campaigns/new', 'CampaignsController@create');
     Route::get("/logout", 'AccountsController@logout');
 });
