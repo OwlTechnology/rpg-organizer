@@ -70,7 +70,8 @@ class AccountsController extends Controller
      * @return View
      */
     public function signup(Request $request){
-        $username = $request->input("username");
+        $username = strtolower($request->input("username"));
+        $email = strtolower($request->input("email"));
         $password = $request->input("password");
         $password_confirm = $request->input("confirm-password");
 
@@ -86,6 +87,7 @@ class AccountsController extends Controller
         $user = new User;
 
         $user->name = $username;
+        $user->email = $email;
         $user->password = Hash::make($password);
 
         $user->save();
