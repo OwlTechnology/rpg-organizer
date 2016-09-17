@@ -22,5 +22,11 @@ Route::group(["middleware" => "auth"], function(){
     Route::get("/logout", 'AccountsController@logout');
     Route::get("/campaign/{id}", "CampaignsController@index");
 
-    Route::get("/campaign/delete/{id}", "CampaignsController@delete");
+    //DungeonMaster Middleware.
+    //@param campaign->id
+    Route::group(["middleware" => "dm"], function(){
+      Route::post("/campaign/delete", "CampaignsController@delete");
+      Route::post("/campaign/update", "CampaignsController@update");
+    });
+
 });

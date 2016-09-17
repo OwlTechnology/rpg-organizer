@@ -17,7 +17,7 @@ class DungeonMaster
     public function handle($request, Closure $next)
     {
 
-      $campaign = Campaign::find(2);
+      $campaign = Campaign::find($request->id);
 
       if($campaign){
 

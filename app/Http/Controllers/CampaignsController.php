@@ -33,8 +33,19 @@ class CampaignsController extends Controller
     }
 
 
-    public function delete($id){
-      return json_encode(Campaigns::find($id));
+    public function delete(Request $request){
+      Campaign::find($request->id)->delete();
+      return redirect("/me");
+    }
+
+    public function update(Request $request){
+
+      $campaign = Campaign::find($request->id);
+
+      $campaign->name = $request->input("name");
+      $campaign->save();
+
+      return redirect('/me');
     }
 
 
