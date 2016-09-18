@@ -4,6 +4,8 @@
     .notes{
         .note{
             display: inline-block;
+            position: relative;
+            vertical-align: top;
             width: 250px;
             border: 1px solid #ccc;
             box-shadow: $shadow_light;
