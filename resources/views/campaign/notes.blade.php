@@ -1,7 +1,7 @@
 @extends('master.campaign')
 
-@section("import")
-<link rel="stylesheet" type="text/css" href="{{ url('/css/campaign.css') }}" />
+@section("campaign-import")
+<link rel="stylesheet" type="text/css" href="{{ url('/css/notes.css') }}" />
 @endsection
 
 @section("campaign-content")
@@ -23,9 +23,11 @@
             @endforeach
         </div>
 
-        <a class="icon-button blue" href="{{ url("/campaigns/" . $campaign->id . "/notes/new") }}">
-            <i class="material-icons">add</i><span class="text">Write New Note</span>
-        </a>
+        <div class="actions">
+            <a class="icon-button blue" href="{{ url("/campaigns/" . $campaign->id . "/notes/new") }}">
+                <i class="material-icons">add</i><span class="text">Write New Note</span>
+            </a>
+        </div>
     </div>
   </div>
 </div>

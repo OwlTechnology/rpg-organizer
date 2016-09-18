@@ -1,7 +1,8 @@
 @extends('master.primary')
 
 @section("import")
-    @yield("import")
+    <link rel="stylesheet" type="text/css" href="{{ url('/css/campaign.css') }}" />
+    @yield("campaign-import")
 @endsection
 
 @section("content")

@@ -1,0 +1,33 @@
+@import "../../variables.scss";
+
+.notes-wrapper{
+    .notes{
+        .note{
+            display: inline-block;
+            width: 250px;
+            border: 1px solid #ccc;
+            box-shadow: $shadow_light;
+
+            .title{
+                margin: 0;
+                padding: 5px;
+                background: #eee;
+
+                a{
+                    text-decoration: none;
+                    color: #333;
+                }
+            }
+
+            .subtitle{
+                font-weight: normal;
+                padding: 5px;
+                margin: 0;
+            }
+        }
+    }
+
+    .actions{
+        margin: 15px 0 0;
+    }
+}
