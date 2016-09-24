@@ -31,6 +31,11 @@
                     Notes
                 </a>
             </li>
+            <li>
+                <a href="{{ url('/campaign/' . $campaign->id . '/locations/')}}" class='{{ $activeTab === "locations" ? "active" : "" }}'>
+                    Locations
+                </a>
+            </li>
         </ul>
     </div>
 </div>

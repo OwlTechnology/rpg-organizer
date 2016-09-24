@@ -37,4 +37,10 @@ Route::group(["middleware" => "auth"], function(){
     Route::post("notes/new", "NotesController@createNote");
     Route::get("/campaign/{campaignID}/notes/{noteID}/edit", "NotesController@showEditNote");
     Route::post("/campaign/{campaignID}/notes/{noteID}/edit" , "NotesController@updateNote");
+
+    // Locations
+    Route::get("/campaign/{campaignID}/locations", "LocationsController@showLocations");
+    Route::get("/campaigns/{campaignID}/locations/new", "LocationsController@showCreateLocation");
+    Route::post("/campaigns/{campaignID}/locations/new", "LocationsController@createLocation");
+    Route::get("/campaign/{campaignID}/location/{locationID}", "LocationsController@showLocation");
 });
