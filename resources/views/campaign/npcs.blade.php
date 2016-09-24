@@ -9,6 +9,12 @@
         <p>
             Yay npcs woo yay woo.
         </p>
+
+        <div class="actions">
+            <a href="{{ url("/campaigns/" . $campaign->id . "/npcs/new") }}" class="button blue">
+                Add New NPC
+            </a>
+        </div>
     </div>
   </div>
 </div>
