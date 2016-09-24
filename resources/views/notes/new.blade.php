@@ -28,6 +28,12 @@
                     <input type="text" name="description" />
                 </label>
             </div>
+            <div class="form-element">
+                <label>
+                    Content
+                    <input type="text" name="content" />
+                </label>
+            </div>
             <div class="submit">
                 <button type="submit">Create</button>
             </div>

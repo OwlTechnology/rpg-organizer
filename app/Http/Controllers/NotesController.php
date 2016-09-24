@@ -17,17 +17,11 @@ class NotesController extends Controller
 
     public function showNote($campaignID, $noteID){
         $note = Note::find($noteID);
+        $campaign = Campaign::find($campaignID);
 
         return view("notes.view", [
-            "note" => $note
-        ]);
-    }
-
-    public function showEditNote($noteID){
-        $note = Note::find($noteID);
-
-        return view("notes.edit", [
-            "note" => $note
+            "note" => $note,
+            "campaign" => $campaign
         ]);
     }
 
@@ -35,7 +29,7 @@ class NotesController extends Controller
         $name = $request->input("name");
         $description = $request->input("description");
         $campaignID = $request->input("_campaign_id");
-
+        $content = $request->input("content");
         // Find associated campaign
         $campaign = Campaign::find($campaignID);
 
@@ -46,22 +40,30 @@ class NotesController extends Controller
             $note->name = $name;
             $note->description = $description;
             $note->campaign = $campaign->id;
-
+            $note->content = $content;
+            
             $note->save();
 
             return redirect("/campaign/" . $campaign->id);
         }
     }
 
-    public function updateNote(Request $request){
+    public function showEditNote($campaignID, $noteID){
+        $note = Note::find($noteID);
+        $campaign = Campaign::find($campaignID);
+        return view("notes.edit", [
+            "currentNote" => $note,
+            "currentCampaign" => $campaign
+        ]);
+    }
+    public function updateNote(Request $request, $campaignID, $noteID){
         // Get data
-        $id = $request->input("id");
-        $name = $request->input("name");
-        $description = $request->input("description");
-        $content = $request->input("content");
+        $name = $request->input("newName");
+        $description = $request->input("newDescription");
+        $content = $request->input("newContent");
 
         // Update note
-        $note = Note::find($id);
+        $note = Note::find($noteID);
 
         $note->name = $name;
         $note->description = $description;

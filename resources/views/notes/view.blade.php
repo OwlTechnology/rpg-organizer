@@ -10,9 +10,11 @@
     <div class="content-body note">
         <h1 class="name">{{ $note->name }}</h1>
         <h3 class="description">{{ $note->description }}</h3>
-
+        <p class="content">
+            {{$note->content}}
+        </p>
         <div class="actions">
-            <a href="{{ url('/notes/' . $note->id . '/edit/') }}">
+            <a href="{{ url('/campaign/' . $campaign->id . '/notes/' . $note->id . '/edit/') }}">
                 Edit Note
             </a>
         </div>
