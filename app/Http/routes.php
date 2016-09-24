@@ -35,4 +35,7 @@ Route::group(["middleware" => "auth"], function(){
     Route::get("/campaigns/{campaignID}/notes/new", "NotesController@showCreateNote");
     Route::get("/campaign/{campaignID}/notes/{noteID}", "NotesController@showNote");
     Route::post("notes/new", "NotesController@createNote");
+
+    // NPCs
+    Route::get("/campaign/{campaignID}/npcs/", "NpcsController@npcs");
 });
