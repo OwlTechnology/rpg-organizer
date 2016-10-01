@@ -43,6 +43,34 @@ class LocationsController extends Controller
         return redirect('/campaign/' . $campaignID . '/location/' . $location->id);
 
     }
+
+    public function showEditLocation($campaignID, $locationID){
+        $location = Location::find($locationID);
+        $campaign = Campaign::find($campaignID);
+        return view("locations.edit", [
+            "currentLocation" => $location,
+            "currentCampaign" => $campaign
+        ]);
+    }
+
+    public function updateLocation(Request $request, $campaignID, $locationID){
+        $location = Location::find($locationID);
+        $campaign = Campaign::find($campaignID);
+
+        $name = $request->input("newName");
+        $content = $request->input("newContent");
+
+        $location->name = $name;
+        $location->content = $content;
+
+        $location->save();
+
+        return redirect("/campaign/" . $location->campaign . "/location/" . $location->id);
+
+
+
+    }
+
     public function showLocation($campaignID, $locationID){
         $location = Location::find($locationID);
         $campaign = Campaign::find($campaignID);

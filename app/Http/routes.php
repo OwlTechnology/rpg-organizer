@@ -43,4 +43,6 @@ Route::group(["middleware" => "auth"], function(){
     Route::get("/campaigns/{campaignID}/locations/new", "LocationsController@showCreateLocation");
     Route::post("/campaigns/{campaignID}/locations/new", "LocationsController@createLocation");
     Route::get("/campaign/{campaignID}/location/{locationID}", "LocationsController@showLocation");
+    Route::get("/campaign/{campaignID}/location/{locationID}/edit", "LocationsController@showEditLocation");
+    Route::post("/campaign/{campaignID}/location/{locationID}/edit", "LocationsController@updateLocation");
 });

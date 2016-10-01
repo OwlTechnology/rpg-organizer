@@ -16,6 +16,11 @@
             {{$location->content}}
         </p>
 
+        <div class="actions">
+            <a href="{{ url("/campaign/" . $campaign->id . "/location/" . $location->id . "/edit/") }}">
+                Edit Location
+            </a>
+        </div>
 
     </div>
 </div>
