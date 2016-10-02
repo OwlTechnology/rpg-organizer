@@ -10,8 +10,10 @@ use App\Http\Requests;
 class NotesController extends Controller
 {
     public function showCreateNote($campaignID){
+        $campaign = Campaign::find($campaignID);
+
         return view("notes.new", [
-            "campaignID" => $campaignID
+            "campaign" => $campaign
         ]);
     }
 

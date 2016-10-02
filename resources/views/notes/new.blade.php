@@ -8,6 +8,17 @@
 
 <div class="content">
     <div class="content-body">
+        <div class="breadcrumbs spaced">
+            /
+            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/") }}">{{ $campaign->name }}</a>
+            /
+            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/notes/") }}">Notes</a>
+            /
+            <span class="breadcrumb">
+                Create New Note
+            </span>
+        </div>
+
         <h1>Create New Note</h1>
 
         @if(session("message"))
@@ -18,7 +29,7 @@
 
         <form class="form create" method="post" action="{{ url('/notes/new') }}">
             {{ csrf_field() }}
-            <input type="hidden" name="_campaign_id" value="{{ $campaignID }}" />
+            <input type="hidden" name="_campaign_id" value="{{ $campaign->id }}" />
 
             <div class="form-element">
                 <div class="title">
