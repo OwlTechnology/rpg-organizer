@@ -2,6 +2,7 @@
 
 @section("import")
 <link rel="stylesheet" type="text/css" href="{{ url('/css/note.css') }}" />
+<script type="text/javascript" src="{{ url('/js/notes/viewNote.js') }}"></script>
 @endsection
 
 @section("content")
@@ -26,6 +27,25 @@
             <a href="{{ url('/campaign/' . $campaign->id . '/notes/' . $note->id . '/edit/') }}">
                 Edit Note
             </a>
+            <button onclick="toggleDeleteModal(true)">
+                Delete Note
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="modal-wrapper" id="delete-modal">
+    <div class="modal">
+        <p>
+            Are you sure you want to delete {{$note->name}}?
+        </p>
+        <div class="actions">
+            <a class="button" href="{{ url("/campaign/" . $campaign->id . "/note/" . $note->id . "/delete/") }}">
+                Yes
+            </a>
+            <button class="button" onclick="toggleDeleteModal(false)">
+                No
+            </button>
         </div>
     </div>
 </div>

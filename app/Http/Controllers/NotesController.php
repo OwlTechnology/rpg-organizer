@@ -56,6 +56,17 @@ class NotesController extends Controller
             "currentCampaign" => $campaign
         ]);
     }
+
+
+    public function deleteNote($campaignID, $noteID){
+        $note = Note::find($noteID);
+
+        $note->delete();
+
+        return redirect("/campaign/" . $campaignID . "/notes/");
+
+
+    }
     public function updateNote(Request $request, $campaignID, $noteID){
         // Get data
         $name = $request->input("newName");
