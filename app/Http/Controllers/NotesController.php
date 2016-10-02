@@ -41,10 +41,10 @@ class NotesController extends Controller
             $note->description = $description;
             $note->campaign = $campaign->id;
             $note->content = $content;
-            
+
             $note->save();
 
-            return redirect("/campaign/" . $campaign->id);
+            return redirect("/campaign/" . $campaign->id . "/notes/");
         }
     }
 

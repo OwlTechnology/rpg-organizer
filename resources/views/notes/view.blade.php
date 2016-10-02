@@ -6,8 +6,17 @@
 
 @section("content")
 
+
+
 <div class="content">
     <div class="content-body note">
+
+        <div class="breadcrumbs">
+            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/notes/") }}">
+                Back to Campaign
+            </a>
+        </div>
+
         <h1 class="name">{{ $note->name }}</h1>
         <h3 class="description">{{ $note->description }}</h3>
         <p class="content">

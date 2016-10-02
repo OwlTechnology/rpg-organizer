@@ -89,4 +89,26 @@ body {
       background: #2196F3;
       color: #fff; }
 
+.modal {
+  position: relative;
+  background: #fff;
+  margin: 30% auto 0;
+  width: 100%;
+  max-width: 450px;
+  display: block; }
+
+.modal-wrapper {
+  display: none;
+  position: relative;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9000; }
+  .modal-wrapper.open {
+    display: block; }
+
 /*# sourceMappingURL=app.css.map */
