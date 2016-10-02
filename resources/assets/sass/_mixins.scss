@@ -1,0 +1,17 @@
+@mixin clearfix(){
+    &:after{
+        visibility: hidden;
+        display: block;
+        font-size: 0;
+        content: " ";
+        clear: both;
+        height: 0;
+    }
+}
+
+@mixin textOutline($size, $color){
+    text-shadow: (-$size) (-$size) 0 $color,
+                 $size (-$size) 0 $color,
+                 (-$size) $size 0 $color,
+                 $size $size 0 $color;
+}

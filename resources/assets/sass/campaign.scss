@@ -1,0 +1,85 @@
+@import "variables";
+@import "mixins";
+
+.campaign-header-wrapper{
+    background: rgba(0, 0, 0, 0.6);
+    padding: 50px 0 0;
+}
+
+.campaign-header{
+    background: url("../img/campaign/header.gif");
+    background-size: cover;
+    background-position-y: center;
+
+    .campaign-name{
+        font-size: 32px;
+        position: relative;
+        color: #fff;
+        padding: 7.5px 0;
+        @include textOutline(1px, #000);
+
+        .material-icons{
+            position: absolute;
+            right: calc(100% + 10px);
+            top: 0;
+            font-size: 30px;
+            background: $material_green;
+            color: #fff;
+            padding: 10px;
+            border-radius: 100%;
+            text-shadow: none;
+            box-shadow: 0 2px rgba(0, 0, 0, 0.4);
+        }
+    }
+
+    .campaign-dm{
+        margin: 5px 0 0;
+
+        .label{
+            background: $material_blue;
+            color: #fff;
+            padding: 2px 3px;
+            border-radius: 3px;
+        }
+        .name{
+            color: #ccc;
+            @include textOutline(1px, #000);
+        }
+    }
+}
+
+.campaign-tabs{
+    margin: 30px 0 15px 0;
+
+    .tab-container{
+        max-width: $content_width;
+        width: 100%;
+        margin: 0 auto;
+
+        ul{
+            padding: 0;
+            margin: 0;
+            list-style-type: none;
+
+            li{
+                display: inline-block;
+
+                a{
+                    display: block;
+                    padding: 8px;
+                    text-decoration: none;
+                    background: #ccc;
+                    border-radius: 5px 5px 0 0;
+                    color: #fff;
+                    border: 1px solid #aaa;
+                    border-bottom: none;
+
+                    &.active{
+                        background: #fff;
+                        color: #333;
+                    }
+                }
+            }
+        }
+    }
+}
