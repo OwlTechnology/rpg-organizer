@@ -54,13 +54,19 @@ body {
   background: #fff;
   border: #efefef solid 1px;
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 10px;
   color: #222;
+  font-size: 14px;
+  cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 3px 5px rgba(0, 0, 0, 0.3); }
   .button.blue {
     background: #2196F3;
     color: #fff;
-    border: none; }
+    border: 1px solid #2196F3; }
+  .button.red {
+    background: #FF5252;
+    color: #fff;
+    border: 1px solid #FF5252; }
 
 .icon-button {
   display: inline-block;
@@ -69,7 +75,11 @@ body {
   border: #222 solid 1px;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 3px 5px rgba(0, 0, 0, 0.3);
-  overflow: hidden; }
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  vertical-align: top;
+  cursor: pointer; }
   .icon-button i {
     display: inline-block;
     position: relative;
@@ -82,7 +92,8 @@ body {
     display: inline-block;
     vertical-align: bottom;
     padding: 6px;
-    color: #222; }
+    color: #222;
+    font-size: 16px; }
   .icon-button.blue {
     border: #2196F3 solid 1px; }
     .icon-button.blue i {
@@ -91,14 +102,28 @@ body {
     .icon-button.blue .text {
       background: #2196F3;
       color: #fff; }
+  .icon-button.red {
+    border: #FF5252 solid 1px; }
+    .icon-button.red i {
+      color: #FF5252;
+      background: #fff; }
+    .icon-button.red .text {
+      background: #FF5252;
+      color: #fff; }
 
 .modal {
   position: relative;
   background: #fff;
-  margin: 30% auto 0;
+  margin: 30vh auto 0;
   width: 100%;
   max-width: 450px;
   display: block; }
+  .modal .content {
+    padding: 10px; }
+  .modal .actions {
+    padding: 10px;
+    background: #eee;
+    text-align: center; }
 
 .modal-wrapper {
   display: none;
@@ -113,5 +138,17 @@ body {
   z-index: 9000; }
   .modal-wrapper.open {
     display: block; }
+
+.breadcrumbs {
+  padding: 3px 5px;
+  background: #eee;
+  border: 1px solid #555;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 12px; }
+  .breadcrumbs.spaced {
+    margin: 10px 0; }
+  .breadcrumbs a.breadcrumb {
+    color: #0000ff; }
 
 /*# sourceMappingURL=app.css.map */

@@ -4,8 +4,10 @@
     background: #fff;
     border: #efefef solid 1px;
     border-radius: 5px;
-    padding: 5px;
+    padding: 5px 10px;
     color: #222;
+    font-size: 14px;
+    cursor: pointer;
     box-shadow: $shadow_normal;
 
     // Themes
@@ -13,7 +15,12 @@
     &.blue{
         background: $material_blue;
         color: #fff;
-        border: none;
+        border: 1px solid $material_blue;
+    }
+    &.red{
+        background: $material_red;
+        color: #fff;
+        border: 1px solid $material_red;
     }
 }
 
@@ -25,6 +32,10 @@
     border-radius: 5px;
     box-shadow: $shadow_normal;
     overflow: hidden;
+    padding: 0;
+    position: relative;
+    vertical-align: top;
+    cursor: pointer;
 
     i{
         display: inline-block;
@@ -41,6 +52,7 @@
         vertical-align: bottom;
         padding: 6px;
         color: #222;
+        font-size: 16px;
     }
 
     // Themes
@@ -53,6 +65,19 @@
         }
         .text{
             background: $material_blue;
+            color: #fff;
+        }
+    }
+
+    &.red{
+        border: $material_red solid 1px;
+
+        i{
+            color: $material_red;
+            background: #fff;
+        }
+        .text{
+            background: $material_red;
             color: #fff;
         }
     }
