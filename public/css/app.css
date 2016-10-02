@@ -5,6 +5,9 @@ body {
   margin: 0;
   font-family: sans-serif; }
 
+.text-center {
+  text-align: center; }
+
 .header {
   background: #2196F3;
   position: relative;

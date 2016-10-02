@@ -9,6 +9,10 @@ body{
     font-family: sans-serif;
 }
 
+.text-center{
+    text-align: center;
+}
+
 @import "header";
 @import "content";
 @import "parts/buttons";
