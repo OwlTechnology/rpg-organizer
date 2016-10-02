@@ -17,8 +17,10 @@
       color: #333; }
     .notes-wrapper .notes .note .description {
       font-weight: normal;
-      padding: 5px;
+      padding: 5px 10px;
       margin: 0;
+      height: 50px;
+      overflow: hidden;
       color: #565656;
       font-style: italic; }
     .notes-wrapper .notes .note .actions {
