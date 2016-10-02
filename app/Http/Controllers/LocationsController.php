@@ -55,7 +55,6 @@ class LocationsController extends Controller
 
     public function updateLocation(Request $request, $campaignID, $locationID){
         $location = Location::find($locationID);
-        $campaign = Campaign::find($campaignID);
 
         $name = $request->input("newName");
         $content = $request->input("newContent");
@@ -68,6 +67,15 @@ class LocationsController extends Controller
         return redirect("/campaign/" . $location->campaign . "/location/" . $location->id);
 
 
+
+    }
+
+    public function deleteLocation($campaignID, $locationID){
+        $location = Location::find($locationID);
+
+        $location->delete();
+
+        return redirect("/campaign/" . $campaignID . "/locations");
 
     }
 
