@@ -10,8 +10,10 @@ use App\Http\Requests;
 class NotesController extends Controller
 {
     public function showCreateNote($campaignID){
+        $campaign = Campaign::find($campaignID);
+
         return view("notes.new", [
-            "campaignID" => $campaignID
+            "campaign" => $campaign
         ]);
     }
 
@@ -55,6 +57,17 @@ class NotesController extends Controller
             "currentNote" => $note,
             "currentCampaign" => $campaign
         ]);
+    }
+
+
+    public function deleteNote($campaignID, $noteID){
+        $note = Note::find($noteID);
+
+        $note->delete();
+
+        return redirect("/campaign/" . $campaignID . "/notes/");
+
+
     }
     public function updateNote(Request $request, $campaignID, $noteID){
         // Get data

@@ -18,7 +18,7 @@
         <div class="section">
             <div class="notes">
                 @foreach($notes as $note)
-                <div class="note">
+                <div class="note card card-2">
                     <h3 class="title">
                         {{ $note->name }}
                     </h3>
