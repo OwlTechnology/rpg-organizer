@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Controllers\Controller;
+use App\CharacterSheet;
 
 class AccountsController extends Controller
 {
@@ -100,9 +101,10 @@ class AccountsController extends Controller
 
     public function showHomePage(Request $request){
         $campaigns = Campaign::where("dm", Auth::user()->id)->get();
-
+        $characters = CharacterSheet::where("player", Auth::user()->id)->get();
         return view("accounts.user.overview", [
-            "campaigns" => $campaigns
+            "campaigns" => $campaigns,
+            "characters" => $characters
         ]);
     }
 }

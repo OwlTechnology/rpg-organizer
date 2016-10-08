@@ -14,22 +14,35 @@
             @foreach($campaigns as $campaign)
             <div class="campaign">
                 <div class="name">
-                <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
-                <form class="form campaignDelete" method="post" action="{{url('/campaign/delete?id='.$campaign->id)}}">
-                  {{ csrf_field() }}
-                  <button type="submit">Delete</button>
-                </form>
-                <form class="form campaignUpdate" method="post" action="{{url('/campaign/update?id='.$campaign->id)}}">
-                  {{ csrf_field() }}
-                  <input type="text" placeholder="{{$campaign->name}}"name="name"/>
-                  <button type="submit">Update Name</button>
-                </form>
+                    <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
+                    <form class="form campaignDelete" method="post" action="{{url('/campaign/delete?id='.$campaign->id)}}">
+                      {{ csrf_field() }}
+                      <button type="submit">Delete</button>
+                    </form>
+                    <form class="form campaignUpdate" method="post" action="{{url('/campaign/update?id='.$campaign->id)}}">
+                      {{ csrf_field() }}
+                      <input type="text" placeholder="{{$campaign->name}}"name="name"/>
+                      <button type="submit">Update Name</button>
+                    </form>
                 </div>
             </div>
             @endforeach
         </div>
         <div>
             <a href="{{ url('/campaigns/new') }}">Create New Campaign</a>
+        </div>
+        <div class="characters collection">
+            @foreach($characters as $character)
+            <div class="character">
+                <div class="characterName">
+                    <a href ="{{ url('/me/character/' . $character->id) }}"> {{ $character->characterName}}</a>
+                </div>
+
+            </div>
+            @endforeach
+            <div>
+                <a href ="{{ url('/me/characters/new') }}">Create New Character</a>
+            </div>
         </div>
 
     </div>

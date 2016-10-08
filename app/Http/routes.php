@@ -47,4 +47,11 @@ Route::group(["middleware" => "auth"], function(){
     Route::get("/campaign/{campaignID}/location/{locationID}/edit", "LocationsController@showEditLocation");
     Route::post("/campaign/{campaignID}/location/{locationID}/edit", "LocationsController@updateLocation");
     Route::get("/campaign/{campaignID}/location/{locationID}/delete", "LocationsController@deleteLocation");
+
+    //charactersheets
+    Route::get("/me/character/{characterID}", "CharactersController@showCharacter");
+    Route::get("/me/characters/new", function(){
+        return view("characters.new");
+    });
+    Route::post("/me/characters/new", "CharactersController@create");
 });
