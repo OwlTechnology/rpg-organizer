@@ -1,13 +1,18 @@
 @extends('master.primary')
 
+@section("import")
+<link rel="stylesheet" type="text/css" href="{{ url('/css/me.css') }}" />
+@endsection
+
 @section("content")
 
-<div class="content">
+<div class="content me-page">
     <div class="content-body">
-        <h1>My Account</h1>
 
-        <div>
-            Name: {{ Auth::user()->name }}
+        <div class="me-header">
+            <div class="username">{{ Auth::user()->name }}</div>
+            <hr class="line" />
+            <div class="subtitle">My Account</div>
         </div>
 
         <div class="campaigns collection">
@@ -27,6 +32,10 @@
                 </div>
             </div>
             @endforeach
+
+            <div class="list">
+                <div class="letter">C</div>
+            </div>
         </div>
         <div>
             <a href="{{ url('/campaigns/new') }}">Create New Campaign</a>

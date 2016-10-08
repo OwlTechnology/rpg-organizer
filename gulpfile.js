@@ -16,13 +16,15 @@ elixir(function(mix) {
     mix.sass('sections/notes/note.scss');
     mix.sass('sections/notes/notes.scss');
     mix.sass('sections/notes/newNote.scss');
+    mix.sass('sections/me.scss');
     mix.sass('campaign.scss');
 
     mix.version([
         "css/app.css",
         "css/note.css",
         "css/notes.css",
-        "css/newNote.scss",
+        "css/newNote.css",
+        "css/me.css",
         "css/campaign.css"
     ]);
 });
