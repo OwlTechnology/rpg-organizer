@@ -46,7 +46,7 @@
                 Are you sure you want to delete {{$note->name}}?
             </p>
         </div>
-        <div class="actions">
+        <div class="actions top-line">
             <a class="button red" href="{{ url("/campaign/" . $campaign->id . "/note/" . $note->id . "/delete/") }}">
                 Delete
             </a>
