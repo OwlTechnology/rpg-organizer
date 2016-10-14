@@ -15,30 +15,40 @@
             <div class="subtitle">My Account</div>
         </div>
 
-        <div class="campaigns collection">
+        <div class="campaigns">
             @foreach($campaigns as $campaign)
-            <div class="campaign">
-                <div class="name">
-                <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
-                <form class="form campaignDelete" method="post" action="{{url('/campaign/delete?id='.$campaign->id)}}">
-                  {{ csrf_field() }}
-                  <button type="submit">Delete</button>
-                </form>
-                <form class="form campaignUpdate" method="post" action="{{url('/campaign/update?id='.$campaign->id)}}">
-                  {{ csrf_field() }}
-                  <input type="text" placeholder="{{$campaign->name}}"name="name"/>
-                  <button type="submit">Update Name</button>
-                </form>
+            <div class="collection">
+                <div class="sidebar">
+                    <div class="icon">C</div>
+                </div>
+                <div class="content">
+                    <div class="title">
+                        <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
+                    </div>
+                    <div class="description">
+                        This is a campaign that the player can play where they
+                        can campaign to their heart's content. Indeed, it is a
+                        true campaign. Very awesome.
+                    </div>
+                </div>
+                <div class="right-sidebar">
+                    <div class="actions">
+                        <button type="button"><i class="material-icons">share</i></button>
+                        <button type="button"><i class="material-icons">edit</i></button>
+                        <form class="form campaignDelete" method="post" action="{{url('/campaign/delete?id='.$campaign->id)}}">
+                          {{ csrf_field() }}
+                          <button type="submit"><i class="material-icons">delete</i></button>
+                        </form>
+                    </div>
                 </div>
             </div>
             @endforeach
-
-            <div class="list">
-                <div class="letter">C</div>
-            </div>
         </div>
+
         <div>
-            <a href="{{ url('/campaigns/new') }}">Create New Campaign</a>
+            <a class="icon-button blue" href="{{ url('/campaigns/new') }}">
+                <i class="material-icons">add</i><span class="text">Create New Campaign</span>
+            </a>
         </div>
 
     </div>

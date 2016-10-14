@@ -23,9 +23,88 @@
     color: #565656; }
   .me-page .collection {
     display: block;
+    box-sizing: border-box;
+    height: 400px;
     background: url("/img/campaign/header.gif");
     background-size: cover;
     background-position: center;
-    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.45); }
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.45);
+    margin: 35px 0;
+    position: relative; }
+    .me-page .collection:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0; }
+    .me-page .collection .sidebar {
+      background: #fff;
+      width: 50px;
+      height: 100%;
+      position: relative;
+      padding: 5px;
+      float: left;
+      box-sizing: border-box; }
+      .me-page .collection .sidebar .icon {
+        font-size: 16px;
+        font-family: "Slabo 27px", serif;
+        border: 1px solid #000;
+        padding: 3px 0 0 6px;
+        width: 25px;
+        height: 25px;
+        margin: 0 auto 10px;
+        box-sizing: border-box; }
+    .me-page .collection .right-sidebar {
+      width: 50px;
+      height: 100%;
+      float: left;
+      position: relative;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.3); }
+      .me-page .collection .right-sidebar .actions {
+        margin: 35px 0 0; }
+        .me-page .collection .right-sidebar .actions form {
+          width: 100%; }
+        .me-page .collection .right-sidebar .actions button, .me-page .collection .right-sidebar .actions a {
+          width: 36px;
+          height: 36px;
+          display: block;
+          margin: 0 auto;
+          text-decoration: none;
+          background: none;
+          color: #fff;
+          border: none;
+          box-sizing: border-box;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+          cursor: pointer; }
+    .me-page .collection .content {
+      width: calc(100% - 100px);
+      height: 100%;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.3);
+      float: left;
+      padding: 250px 0 0; }
+      .me-page .collection .content .title a {
+        text-decoration: none;
+        font-size: 42px;
+        letter-spacing: 10px;
+        font-family: "Josefin Slab", serif;
+        text-transform: uppercase;
+        text-align: right;
+        color: #fff;
+        display: block;
+        text-shadow: 0 2px 5px black; }
+      .me-page .collection .content .description {
+        color: #fff;
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        width: 50%;
+        text-align: right;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        margin: 0 0 0 50%;
+        box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.25);
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.55); }
 
 /*# sourceMappingURL=me.css.map */

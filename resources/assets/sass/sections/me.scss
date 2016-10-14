@@ -1,3 +1,6 @@
+@import "../mixins";
+@import "../variables";
+
 .me-page{
     background: #eee;
     padding: 35px 0 0;
@@ -34,10 +37,111 @@
 
     // COLLECTIONS
     .collection{
+        $sidebarSize: 50px;
+        $rightSidebarSize: 50px;
+
         display: block;
+        box-sizing: border-box;
+        height: 400px;
         background: url('/img/campaign/header.gif');
         background-size: cover;
         background-position: center;
         box-shadow: 0 8px 10px rgba(0, 0, 0, 0.45);
+        margin: 35px 0;
+        position: relative;
+
+        @include clearfix();
+
+        .sidebar{
+            background: #fff;
+            width: $sidebarSize;
+            height: 100%;
+            position: relative;
+            padding: 5px;
+            float: left;
+            box-sizing: border-box;
+
+            .icon{
+                $size: 25px;
+
+                font-size: 16px;
+                font-family: $font_serif_slabo;
+                border: 1px solid #000;
+                padding: 3px 0 0 6px;
+                width: $size;
+                height: $size;
+                margin: 0 auto 10px;
+                box-sizing: border-box;
+            }
+        }
+
+        .right-sidebar{
+            width: $rightSidebarSize;
+            height: 100%;
+            float: left;
+            position: relative;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.30);
+
+            .actions{
+                margin: 35px 0 0;
+
+                form{
+                    width: 100%;
+                }
+
+                button, a{
+                    $size: 36px;
+
+                    width: $size;
+                    height: $size;
+                    display: block;
+                    margin: 0 auto;
+                    text-decoration: none;
+                    background: none;
+                    color: #fff;
+                    border: none;
+                    box-sizing: border-box;
+                    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .content{
+            width: calc(100% - #{$sidebarSize + $rightSidebarSize});
+            height: 100%;
+            box-sizing: border-box;
+            background: rgba(0, 0, 0, 0.30);
+            float: left;
+            padding: 250px 0 0;
+
+            .title a{
+                text-decoration: none;
+                font-size: 42px;
+                letter-spacing: 10px;
+                font-family: $font_serif_josefinSlab;
+                text-transform: uppercase;
+                text-align: right;
+                color: #fff;
+                display: block;
+                text-shadow: 0 2px 5px rgba(0, 0, 0, 1);
+            }
+
+            .description{
+                $width: 50%;
+
+                color: #fff;
+                font-family: $font_sansserif_roboto;
+                font-size: 16px;
+                width: $width;
+                text-align: right;
+                text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+                margin: 0 0 0 #{100% - $width};
+                box-sizing: border-box;
+                background: rgba(0, 0, 0, 0.25);
+                box-shadow: 0 0 50px rgba(0, 0, 0, 0.55);
+            }
+        }
     }
 }
