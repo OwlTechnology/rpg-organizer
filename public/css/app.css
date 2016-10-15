@@ -28,6 +28,33 @@ body {
     float: left; }
   .header .nav {
     float: right; }
+    .header .nav:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0; }
+    .header .nav .notifications {
+      float: left;
+      padding: 10px 0 0; }
+      .header .nav .notifications .icon {
+        border: none;
+        padding: 0;
+        color: #fff;
+        background: none;
+        margin: 0 5px;
+        position: relative;
+        display: inline-block; }
+        .header .nav .notifications .icon .indicator:not(:empty) {
+          background: #ff0000;
+          border-radius: 40px;
+          color: #fff;
+          position: absolute;
+          top: -5px;
+          left: calc(100% - 10px);
+          display: block;
+          padding: 1px 5px; }
   .header .nav-list {
     font-size: 0;
     display: block;

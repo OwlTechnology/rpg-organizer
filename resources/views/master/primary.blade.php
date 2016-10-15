@@ -7,6 +7,12 @@
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel='stylesheet' type='text/css' href='{{ url('css/app.css') }}' />
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+
+        @if(Auth::user())
+        <script src="{{ url('/js/UserController.js') }}"></script>
+        @endif
+
         @yield("import")
     </head>
     <body>
@@ -15,6 +21,18 @@
                 <span class="title">RPG Organizer</span>
             </div>
             <div class="nav">
+                @if(Auth::user())
+                <div class="notifications">
+                    <div class="tray" id="notifications_invites_tray">
+                        <button class="icon" onclick="userController.openNotifications('invites', this)">
+                            <i class="material-icons">notifications_none</i>
+                            <span class="indicator"></span>
+                        </button>
+
+                    </div>
+                </div>
+                @endif
+
                 <ul class="nav-list">
                     @if(Auth::user())
                     <li>
