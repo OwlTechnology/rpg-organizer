@@ -11,11 +11,12 @@
         $textSpacing: 5px;
 
         .username{
-            font-size: 20px;
+            font-size: 22px;
             font-weight: normal;
             color: #565656;
             text-transform: uppercase;
             margin: 0 0 $textSpacing 0;
+            font-family: $font_sansserif_roboto;
         }
 
         .line{
@@ -28,10 +29,11 @@
 
         .subtitle{
             margin: $textSpacing 0 0;
-            font-size: 14px;
+            font-size: 16px;
             text-transform: uppercase;
             font-weight: normal;
             color: #565656;
+            font-family: $font_sansserif_roboto;
         }
     }
 

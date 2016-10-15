@@ -4,7 +4,7 @@
     <head>
         <title>RPG Organizer</title>
 
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Slabo+27px|Josefin+Slab|Roboto" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Slabo+27px|Josefin+Slab|Roboto|Cutive+Mono" rel="stylesheet">
         <link rel='stylesheet' type='text/css' href='{{ url('css/app.css') }}' />
 
         @yield("import")
