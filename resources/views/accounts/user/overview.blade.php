@@ -19,7 +19,7 @@
             @foreach($campaigns as $campaign)
             <div class="collection">
                 <div class="sidebar">
-                    <div class="icon">C</div>
+                    <div class="icon"><i class="material-icons">map</i></div>
                 </div>
                 <div class="content">
                     <div class="title">

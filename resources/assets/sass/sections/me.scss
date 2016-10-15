@@ -62,16 +62,23 @@
             box-sizing: border-box;
 
             .icon{
-                $size: 25px;
+                $size: 30px;
 
                 font-size: 16px;
                 font-family: $font_serif_slabo;
-                border: 1px solid #000;
-                padding: 3px 0 0 6px;
+                border: 1px solid #444;
+                box-shadow: 0 1px #666;
+                padding: 2px 0 0 2px;
+                border-radius: $size;
                 width: $size;
                 height: $size;
                 margin: 0 auto 10px;
                 box-sizing: border-box;
+                background: #eee;
+
+                i{
+                    color: #444;
+                }
             }
         }
 
