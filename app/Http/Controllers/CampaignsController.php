@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Campaign;
 use App\Note;
+use App\Location;
 
 class CampaignsController extends Controller
 {
@@ -48,8 +49,17 @@ class CampaignsController extends Controller
 
 
     public function delete(Request $request){
-      Campaign::find($request->id)->delete();
-      return redirect("/me");
+        $campaign = Campaign::find($request->id);
+
+        // We need to also delete anything that is campaign-only, like
+        // notes and locations
+        Note::where("campaign", $campaign->id)->delete();
+        Location::where("campaign", $campaign->id)->delete();
+
+        // And then we can delete the campaign
+        $campaign->delete();
+
+        return redirect("/me");
     }
 
     public function update(Request $request){
