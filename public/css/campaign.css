@@ -75,5 +75,11 @@
       font-style: italic; }
     .players .player:nth-of-type(2n) {
       background: #eee; }
+    .players .player .delete {
+      float: right;
+      color: #FF5252;
+      text-decoration: none; }
+      .players .player .delete .material-icons {
+        font-size: 18px; }
 
 /*# sourceMappingURL=campaign.css.map */

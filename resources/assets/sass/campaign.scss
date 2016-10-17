@@ -107,5 +107,15 @@
         &:nth-of-type(2n){
             background: #eee;
         }
+
+        .delete{
+            float: right;
+            color: $material_red;
+            text-decoration: none;
+
+            .material-icons{
+                font-size: 18px;
+            }
+        }
     }
 }

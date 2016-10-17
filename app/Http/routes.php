@@ -25,6 +25,7 @@ Route::group(["middleware" => "auth"], function(){
     Route::get("/campaign/{id}", "CampaignsController@index");
 
     Route::post("/campaign/invite", "InviteController@createCampaignInvite");
+    Route::get("/campaign/{campaignID}/kick-player/{playerID}", "CampaignsController@kickPlayer");
 
     // Invites
     Route::get("/invites", "InviteController@getInvitesForCurrentUser");

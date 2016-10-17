@@ -9,8 +9,16 @@ use App\Campaign;
 use App\Note;
 use App\Location;
 
+use App\Business\CampaignBusiness;
+
 class CampaignsController extends Controller
 {
+    protected $business;
+
+    public function __construct(CampaignBusiness $business){
+        $this->business = $business;
+    }
+
     public function create(Request $request){
         $name = $request->input("campaignName");
 
@@ -23,6 +31,12 @@ class CampaignsController extends Controller
         $campaign->save();
 
         return redirect("/me");
+    }
+
+    public function kickPlayer(Request $request, $campaignID, $playerID){
+        $this->business->kickPlayer($playerID, $campaignID);
+
+        return redirect("/campaign/" . $campaignID);
     }
 
     public function index($id){

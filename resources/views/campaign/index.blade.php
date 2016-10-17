@@ -41,6 +41,9 @@
                     @foreach($associations as $association)
                     <div class="player">
                         {{ $association->user->name }}
+                        <a class="delete" href="{{ url('/campaign/' . $campaign->id . '/kick-player/' . $association->user->id) }}">
+                            <i class="material-icons">cancel</i>
+                        </a>
                     </div>
                     @endforeach
                 @endif
