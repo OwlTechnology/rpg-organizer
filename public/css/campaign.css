@@ -73,5 +73,7 @@
     .players .player.empty {
       color: #333;
       font-style: italic; }
+    .players .player:nth-of-type(2n) {
+      background: #eee; }
 
 /*# sourceMappingURL=campaign.css.map */

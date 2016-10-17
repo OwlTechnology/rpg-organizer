@@ -103,5 +103,9 @@
             color: #333;
             font-style: italic;
         }
+
+        &:nth-of-type(2n){
+            background: #eee;
+        }
     }
 }

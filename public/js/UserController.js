@@ -87,7 +87,7 @@ InviteNotification.prototype.buildHTML = function(){
 
     this.acceptButton.innerHTML = "<i class='material-icons'>done</i>";
     this.acceptButton.className = "accept";
-    this.acceptButton.href = "/invites/accept/" + this.invite.targetObject.id;
+    this.acceptButton.href = "/invites/accept/" + this.invite.inviteID;
 
     this.rejectButton.innerHTML = "<i class='material-icons'>close</i>";
     this.rejectButton.className = "reject";

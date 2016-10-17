@@ -81,7 +81,7 @@ class InviteController extends Controller{
         $invites = Invite::where("FK_userSentTo", $userID)->get();
 
         foreach($invites as $invite){
-            $newObject = [];
+            $newObject = ["inviteID" => $invite->id];
 
             switch($invite->inviteType){
                 case InviteType::Campaign:
