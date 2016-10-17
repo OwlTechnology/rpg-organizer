@@ -28,6 +28,7 @@ Route::group(["middleware" => "auth"], function(){
 
     // Invites
     Route::get("/invites", "InviteController@getInvitesForCurrentUser");
+    Route::get("/invites/accept/{inviteID}", "InviteController@acceptInvite");
 
     //DungeonMaster Middleware.
     //@param campaign->id

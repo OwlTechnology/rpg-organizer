@@ -8,12 +8,19 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Invite;
 use App\User;
+use App\Campaign;
 
-abstract class InviteType{
-    const Campaign = 0;
-}
+use App\Utility\InviteType;
+
+use App\Business\InviteBusiness;
 
 class InviteController extends Controller{
+
+    protected $_invites;
+
+    public function __construct(InviteBusiness $business){
+        $this->_invites = $business;
+    }
 
     protected function create($userID, $targetUserID, $inviteType, $targetObjectID){
         $invite = new Invite;
@@ -24,6 +31,12 @@ class InviteController extends Controller{
         $invite->FK_targetObject = $targetObjectID;
 
         $invite->save();
+    }
+
+    public function acceptInvite(Request $request, $inviteID){
+        $this->_invites->acceptInvite($inviteID);
+
+        return redirect("/me");
     }
 
     public function createCampaignInvite(Request $request){
@@ -53,11 +66,31 @@ class InviteController extends Controller{
     }
 
     public function getInvitesForCurrentUser(){
+        $output = [];
         $userID = Auth::user()->id;
 
         $invites = Invite::where("FK_userSentTo", $userID)->get();
 
-        return response()->json($invites);
+        foreach($invites as $invite){
+            $newObject = [];
+
+            switch($invite->inviteType){
+                case InviteType::Campaign:
+                    $campaign = Campaign::find($invite->FK_targetObject);
+
+                    $newObject["targetObject"] = $campaign;
+                    $newObject["message"] = "You have been invited by " . $invite->playerFrom->name .
+                        " to their campaign, '" . $campaign->name . "'.";
+                    break;
+                default:
+                    $newObject["message"] = "";
+                    break;
+            }
+
+            array_push($output, $newObject);
+        }
+
+        return response()->json($output);
     }
 
 }

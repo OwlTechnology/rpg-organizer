@@ -27,7 +27,14 @@
             </form>
         </div>
 
-    This is the campaign homepage!
+        <div class="players">
+            <?php $associations = $campaign->playerAssociations; ?>
+            @foreach($associations as $association)
+                {{ "User: " . $association->user->name }}
+            @endforeach
+        </div>
+
+        This is the campaign homepage!
     </div>
 </div>
 @endsection

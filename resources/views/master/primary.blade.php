@@ -29,6 +29,11 @@
                             <span class="indicator"></span>
                         </button>
 
+                        <div class="list">
+                            <div class="title">
+                                Invites
+                            </div>
+                        </div>
                     </div>
                 </div>
                 @endif
