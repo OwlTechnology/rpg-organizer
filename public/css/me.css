@@ -68,7 +68,7 @@
       float: left;
       position: relative;
       box-sizing: border-box;
-      background: rgba(0, 0, 0, 0.3); }
+      background: rgba(0, 0, 0, 0.4); }
       .me-page .collection .right-sidebar .actions {
         margin: 35px 0 0; }
         .me-page .collection .right-sidebar .actions form {
@@ -89,7 +89,7 @@
       width: calc(100% - 100px);
       height: 100%;
       box-sizing: border-box;
-      background: rgba(0, 0, 0, 0.3);
+      background: rgba(0, 0, 0, 0.4);
       float: left;
       padding: 250px 0 0; }
       .me-page .collection .content .title a {
