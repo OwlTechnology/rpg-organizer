@@ -9,6 +9,7 @@ use App\Http\Requests;
 use App\Invite;
 use App\User;
 use App\Campaign;
+use App\PlayerInCampaign;
 
 use App\Utility\InviteType;
 
@@ -55,6 +56,14 @@ class InviteController extends Controller{
         }
 
         $user = $possibleUsers[0];
+
+        // Make sure the user isn't already in the campaign
+        if(PlayerInCampaign::where("FK_user", $user->id)->count() > 0){
+            return redirect("/campaign/" . $campaignID)->with([
+                "invite.error" => true,
+                "invite.error.msg" => "That user is already in this campaign!"
+            ]);
+        }
 
         // create new invite
         $this->create(Auth::user()->id, $user->id, InviteType::Campaign, $campaignID);
