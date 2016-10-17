@@ -28,10 +28,23 @@
         </div>
 
         <div class="players">
-            <?php $associations = $campaign->playerAssociations; ?>
-            @foreach($associations as $association)
-                {{ "User: " . $association->user->name }}
-            @endforeach
+            <div class="name">
+                Players
+            </div>
+            <div class="list">
+                <?php $associations = $campaign->playerAssociations; ?>
+                @if(count($associations) < 1)
+                <div class="player empty">
+                    No players invited yet...
+                </div>
+                @else
+                    @foreach($associations as $association)
+                    <div class="player">
+                        {{ $association->user->name }}
+                    </div>
+                    @endforeach
+                @endif
+            </div>
         </div>
 
         This is the campaign homepage!
