@@ -1,27 +1,37 @@
-# Laravel PHP Framework
+# RPG Organizer
 
-[![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
-[![Total Downloads](https://poser.pugx.org/laravel/framework/d/total.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Stable Version](https://poser.pugx.org/laravel/framework/v/stable.svg)](https://packagist.org/packages/laravel/framework)
-[![Latest Unstable Version](https://poser.pugx.org/laravel/framework/v/unstable.svg)](https://packagist.org/packages/laravel/framework)
-[![License](https://poser.pugx.org/laravel/framework/license.svg)](https://packagist.org/packages/laravel/framework)
+RPG Organizer is a web application for keeping track of tabletop RPG games, and
+performing common actions that Game Masters and players may need while playing,
+organizing, or preparing for a tabletop RPG session/campaign.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable, creative experience to be truly fulfilling. Laravel attempts to take the pain out of development by easing common tasks used in the majority of web projects, such as authentication, routing, sessions, queueing, and caching.
+## System Support
 
-Laravel is accessible, yet powerful, providing tools needed for large, robust applications. A superb inversion of control container, expressive migration system, and tightly integrated unit testing support give you the tools you need to build any application with which you are tasked.
+The first system we are developing this app for is D&D 5. This is partially due
+to the popularity of D&D, and also because D&D's publisher, Wizards of the Coast,
+provides what they call an
+[Open Game License](http://media.wizards.com/2016/downloads/SRD-OGL_V1.1.pdf)
+for the game, allowing developers
+like us to create free systems like this for D&D without paying any royalties
+or explicitly licensing the game from Wizards (which we are very thankful for).
 
-## Official Documentation
+We will eventually add support for more systems as we find the time and the legal
+ability to add support for those systems. If you have a system you would like to
+see supported, open an issue for it and we'll look into it.
 
-Documentation for the framework can be found on the [Laravel website](http://laravel.com/docs).
+We're still working on getting the project off the ground and an alpha ready, so
+we won't be ready for new systems for some time.
 
-## Contributing
+## Running the Application Locally
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](http://laravel.com/docs/contributions).
+If you wish to run this application yourself, it is a standard Laravel app, please
+see the [Laravel documentation](https://laravel.com/docs/5.3) for more information.
 
-## Security Vulnerabilities
+## Bugs, Feature Requests
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell at taylor@laravel.com. All security vulnerabilities will be promptly addressed.
+If you encounter any bugs with the system, or wish to see some feature
+implemented, please open an issue on our GitHub's issue tracker.
 
-## License
+## Legal
 
-The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT).
+The names "Dungeons and Dragons", "D&D", and "Wizards of the Coast" are Copyright
+2000 Wizards of the Coast, Inc.

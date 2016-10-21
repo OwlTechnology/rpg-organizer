@@ -7,10 +7,13 @@
 @section("content")
 <div class="content">
     <div class="content-body note">
-        <div class="breadcrumbs">
-            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/locations/") }}">
-                Back to Campaign
-            </a>
+        <div class="breadcrumbs spaced">
+            /
+            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id) }}">{{ $campaign->name }}</a>
+            /
+            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/locations/") }}">Locations</a>
+            /
+            <span class="breadcrumb">{{ $location->name }}</span>
         </div>
 
         <h1 class="name">
@@ -21,11 +24,11 @@
         </p>
 
         <div class="actions">
-            <a href="{{ url("/campaign/" . $campaign->id . "/location/" . $location->id . "/edit/") }}">
-                Edit Location
+            <a class="icon-button blue" href="{{ url("/campaign/" . $campaign->id . "/location/" . $location->id . "/edit/") }}">
+                <i class="material-icons">edit</i><span class="text">Edit Location</span>
             </a>
-            <button onclick="toggleDeleteModal(true)">
-                Delete Location
+            <button class="icon-button red" onclick="toggleDeleteModal(true)">
+                <i class="material-icons">delete</i><span class="text">Delete Location</span>
             </button>
         </div>
 

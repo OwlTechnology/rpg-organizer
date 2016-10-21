@@ -7,9 +7,18 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Requests;
 use App\Campaign;
 use App\Note;
+use App\Location;
+
+use App\Business\CampaignBusiness;
 
 class CampaignsController extends Controller
 {
+    protected $business;
+
+    public function __construct(CampaignBusiness $business){
+        $this->business = $business;
+    }
+
     public function create(Request $request){
         $name = $request->input("campaignName");
 
@@ -22,6 +31,12 @@ class CampaignsController extends Controller
         $campaign->save();
 
         return redirect("/me");
+    }
+
+    public function kickPlayer(Request $request, $campaignID, $playerID){
+        $this->business->kickPlayer($playerID, $campaignID);
+
+        return redirect("/campaign/" . $campaignID);
     }
 
     public function index($id){
@@ -48,8 +63,17 @@ class CampaignsController extends Controller
 
 
     public function delete(Request $request){
-      Campaign::find($request->id)->delete();
-      return redirect("/me");
+        $campaign = Campaign::find($request->id);
+
+        // We need to also delete anything that is campaign-only, like
+        // notes and locations
+        Note::where("campaign", $campaign->id)->delete();
+        Location::where("campaign", $campaign->id)->delete();
+
+        // And then we can delete the campaign
+        $campaign->delete();
+
+        return redirect("/me");
     }
 
     public function update(Request $request){

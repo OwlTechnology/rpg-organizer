@@ -19,15 +19,84 @@ body {
     content: " ";
     clear: both;
     height: 0; }
-  .header .title {
-    color: #fff;
-    padding: 10px;
-    font-size: 24px;
-    display: inline-block; }
   .header .left {
     float: left; }
+    .header .left .title {
+      color: #fff;
+      padding: 10px;
+      font-size: 24px;
+      display: inline-block; }
   .header .nav {
     float: right; }
+    .header .nav:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0; }
+    .header .nav .notifications {
+      float: left;
+      padding: 10px 0 0; }
+      .header .nav .notifications .tray {
+        position: relative; }
+        .header .nav .notifications .tray .list {
+          position: absolute;
+          display: none;
+          top: 100%;
+          right: 0;
+          width: 175px;
+          background: #fff;
+          border: 1px solid #eee;
+          box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35); }
+          .header .nav .notifications .tray .list .title {
+            background: #2196F3;
+            padding: 5px;
+            font-size: 14px;
+            color: #fff; }
+          .header .nav .notifications .tray .list .notification {
+            width: 100%;
+            box-sizing: border-box;
+            margin: 5px 0; }
+            .header .nav .notifications .tray .list .notification .message {
+              padding: 5px;
+              font-size: 12px;
+              box-sizing: border-box; }
+            .header .nav .notifications .tray .list .notification .actions > button, .header .nav .notifications .tray .list .notification .actions a {
+              width: 40%;
+              margin: 0 5%;
+              padding: 3px 0 2px 0;
+              text-align: center;
+              border: none;
+              color: #fff;
+              border-radius: 3px;
+              text-decoration: none;
+              display: inline-block; }
+              .header .nav .notifications .tray .list .notification .actions > button.reject, .header .nav .notifications .tray .list .notification .actions a.reject {
+                background: #FF5252; }
+              .header .nav .notifications .tray .list .notification .actions > button.accept, .header .nav .notifications .tray .list .notification .actions a.accept {
+                background: #4CAF50; }
+              .header .nav .notifications .tray .list .notification .actions > button .material-icons, .header .nav .notifications .tray .list .notification .actions a .material-icons {
+                font-size: 16px; }
+            .header .nav .notifications .tray .list .notification:not(:last-of-type) {
+              border-bottom: 1px solid #aaa; }
+      .header .nav .notifications .icon {
+        border: none;
+        padding: 0;
+        color: #fff;
+        background: none;
+        margin: 0 5px;
+        position: relative;
+        display: inline-block; }
+        .header .nav .notifications .icon .indicator:not(:empty) {
+          background: #ff0000;
+          border-radius: 40px;
+          color: #fff;
+          position: absolute;
+          top: -5px;
+          left: calc(100% - 10px);
+          display: block;
+          padding: 1px 5px; }
   .header .nav-list {
     font-size: 0;
     display: block;

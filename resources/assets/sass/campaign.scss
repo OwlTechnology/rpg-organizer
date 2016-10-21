@@ -83,3 +83,39 @@
         }
     }
 }
+
+.players{
+    margin: 10px 0;
+    width: 100%;
+    max-width: 350px;
+    border: 1px solid $material_blue;
+
+    .name{
+        background: $material_blue;
+        color: #fff;
+        padding: 3px 5px;
+    }
+
+    .player{
+        padding: 3px;
+
+        &.empty{
+            color: #333;
+            font-style: italic;
+        }
+
+        &:nth-of-type(2n){
+            background: #eee;
+        }
+
+        .delete{
+            float: right;
+            color: $material_red;
+            text-decoration: none;
+
+            .material-icons{
+                font-size: 18px;
+            }
+        }
+    }
+}

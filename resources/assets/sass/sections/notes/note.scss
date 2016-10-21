@@ -10,4 +10,11 @@
         color: #444;
         font-style: italic;
     }
+
+    .actions{
+        &.top-line{
+            padding: 10px 0;
+            border-top: 1px dashed #444;
+        }
+    }
 }

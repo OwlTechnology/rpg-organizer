@@ -6,5 +6,8 @@
     margin: 0;
     color: #444;
     font-style: italic; }
+  .note .actions.top-line {
+    padding: 10px 0;
+    border-top: 1px dashed #444; }
 
 /*# sourceMappingURL=note.css.map */
