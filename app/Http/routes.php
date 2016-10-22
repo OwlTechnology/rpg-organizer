@@ -59,8 +59,6 @@ Route::group(["middleware" => "auth"], function(){
 
     //charactersheets
     Route::get("/me/character/{characterID}", "CharactersController@showCharacter");
-    Route::get("/me/characters/new", function(){
-        return view("characters.new");
-    });
+    Route::get("/me/characters/new", "CharactersController@showCreateCharacter");
     Route::post("/me/characters/new", "CharactersController@create");
 });

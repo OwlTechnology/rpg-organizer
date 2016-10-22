@@ -18,9 +18,30 @@
                 @endforeach
             </div>
         @endif
-        <div class="skills">
-            
+
+        <div class="personality">
+            <div class=alignment>
+                Alignment
+                {{$alignment->name}}
+            </div>
+            <div class="personalityTraits">
+                Personality Traits
+                {{$personalityTraits}}
+            </div>
+            <div class="ideals">
+                Ideals
+                {{$ideals}}
+            </div>
+            <div class="bonds">
+                Bonds
+                {{$bonds}}
+            </div>
+            <div class="flaws">
+                Flaws
+                {{$flaws}}
+            </div>
         </div>
+
     </div>
 </div>
 

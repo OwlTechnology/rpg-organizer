@@ -14,6 +14,8 @@
                     Character Name
                     <input type="text" name="characterName"/>
                 </label>
+
+                <!-- Get the attributes -->
                 <div class="attributes">
                     <div class="strength">
                         Strength: <input type="number" name="strength"/>
@@ -34,6 +36,34 @@
                         Charisma: <input type="number" name="charisma"/>
                     </div>
                 </div>
+
+                <!-- Get the personality -->
+                <div class="personality">
+                    <div class="alignment">
+                        <select name="alignment">
+                            @foreach($alignmentOptions as $alignmentOption)
+                            <option value="{{ $alignmentOption->id }}">{{ $alignmentOption->name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                    <div class="personalityTraits">
+                        Personality Traits
+                        <input type="text" name="personalityTraits"/>
+                    </div>
+                    <div class="ideals">
+                        Ideals
+                        <input type="text" name="ideals"/>
+                    </div>
+                    <div class="bonds">
+                        Bonds
+                        <input type="text" name="bonds"/>
+                    </div>
+                    <div class="flaws">
+                        Flaws
+                        <input type="text" name="flaws"/>
+                    </div>
+                </div>
+
             </div>
             <div class="submit">
                 <button type="submit">Create Character</button>
