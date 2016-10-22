@@ -33,14 +33,20 @@
             <h4>Campaigns You Are In</h4>
 
             <?php $campaignsUserIsIn = Auth::user()->campaignsUserIsIn; ?>
-            @foreach($campaignsUserIsIn as $campaignAssociation)
-                <?php $campaign = $campaignAssociation->campaign; ?>
-                <div class="campaign">
-                    <div class="name">
-                        <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
+            @if(count($campaignsUserIsIn) > 0)
+                @foreach($campaignsUserIsIn as $campaignAssociation)
+                    <?php $campaign = $campaignAssociation->campaign; ?>
+                    <div class="campaign">
+                        <div class="name">
+                            <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
+                        </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            @else
+            <div class="info-panel info">
+                You are not in anyone else's campaigns at the moment!
+            </div>
+            @endif
         </div>
         <div>
             <a href="{{ url('/campaigns/new') }}">Create New Campaign</a>
