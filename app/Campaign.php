@@ -12,6 +12,10 @@ class Campaign extends Model
       return User::find($this->dm);
     }
 
+    public function isOwnedByCurrentUser(){
+        return Auth::user() && Auth::user()->id == $this->dm;
+    }
+
     public function playerAssociations(){
         return $this->hasMany('App\PlayerInCampaign', 'FK_campaign', 'id');
     }
