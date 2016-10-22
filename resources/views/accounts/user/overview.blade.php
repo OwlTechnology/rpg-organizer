@@ -43,9 +43,9 @@
                     </div>
                 @endforeach
             @else
-            <div class="info-panel info">
+            <p class="info-panel info">
                 You are not in anyone else's campaigns at the moment!
-            </div>
+            </p>
             @endif
         </div>
         <div>
