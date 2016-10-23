@@ -5,20 +5,112 @@
 
     @include clearfix();
 
-    .title{
-        color: $header_baseTextColor;
-        padding: 10px;
-        font-size: 24px;
-        font-family: $font_monospace_cutive;
-        display: inline-block;
-    }
-
     .left{
         float: left;
+
+        .title{
+            color: $header_baseTextColor;
+            padding: 10px;
+            font-size: 24px;
+            font-family: $font_monospace_cutive;
+            display: inline-block;
+        }
     }
 
     .nav{
         float: right;
+
+        @include clearfix();
+
+        .notifications{
+            float: left;
+            padding: 10px 0 0;
+
+            .tray{
+                position: relative;
+
+                .list{
+                    position: absolute;
+                    display: none;
+                    top: 100%;
+                    right: 0;
+                    width: 175px;
+                    background: #fff;
+                    border: 1px solid #eee;
+                    box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35);
+
+                    .title{
+                        background: $material_blue;
+                        padding: 5px;
+                        font-size: 14px;
+                        color: #fff;
+                    }
+
+                    .notification{
+                        width: 100%;
+                        box-sizing: border-box;
+                        margin: 5px 0;
+
+                        .message{
+                            padding: 5px;
+                            font-size: 12px;
+                            box-sizing: border-box;
+                        }
+
+                        .actions{
+                            > button, a{
+                                width: 40%;
+                                margin: 0 5%;
+                                padding: 3px 0 2px 0;
+                                text-align: center;
+                                border: none;
+                                color: #fff;
+                                border-radius: 3px;
+                                text-decoration: none;
+                                display: inline-block;
+
+                                &.reject{
+                                    background: $material_red;
+                                }
+
+                                &.accept{
+                                    background: $material_green;
+                                }
+
+                                .material-icons{
+                                    font-size: 16px;
+                                }
+                            }
+                        }
+
+                        &:not(:last-of-type){
+                            border-bottom: 1px solid #aaa;
+                        }
+                    }
+                }
+            }
+
+            .icon{
+                border: none;
+                padding: 0;
+                color: #fff;
+                background: none;
+                margin: 0 5px;
+                position: relative;
+                display: inline-block;
+
+                .indicator:not(:empty){
+                    background: #ff0000;
+                    border-radius: 40px;
+                    color: #fff;
+                    position: absolute;
+                    top: -5px;
+                    left: calc(100% - 10px);
+                    display: block;
+                    padding: 1px 5px;
+                }
+            }
+        }
     }
 
     .nav-list{

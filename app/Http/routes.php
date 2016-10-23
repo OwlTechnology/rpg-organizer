@@ -14,13 +14,24 @@ Route::post('/signup', 'AccountsController@signup');
 Route::group(["middleware" => "auth"], function(){
     Route::get('/me', 'AccountsController@showHomePage');
 
+    // Campaigns
+
     Route::get("/campaigns/new", function(){
         return view('campaigns.new');
     });
 
     Route::post('/campaigns/new', 'CampaignsController@create');
     Route::get("/logout", 'AccountsController@logout');
-    Route::get("/campaign/{id}", "CampaignsController@index");
+
+    // Campaigns
+    Route::get("/campaign/{id}", "CampaignsController@index")->middleware("IsInCampaign");
+
+    Route::post("/campaign/invite", "InviteController@createCampaignInvite");
+    Route::get("/campaign/{campaignID}/kick-player/{playerID}", "CampaignsController@kickPlayer")->middleware("dm");
+
+    // Invites
+    Route::get("/invites", "InviteController@getInvitesForCurrentUser");
+    Route::get("/invites/accept/{inviteID}", "InviteController@acceptInvite");
 
     //DungeonMaster Middleware.
     //@param campaign->id

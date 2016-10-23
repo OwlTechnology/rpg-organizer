@@ -15,6 +15,8 @@
             <div class="subtitle">My Account</div>
         </div>
 
+        <h4>Your Campaigns</h4>
+
         <div class="campaigns">
             @foreach($campaigns as $campaign)
             <div class="collection">
@@ -44,6 +46,24 @@
             </div>
             @endforeach
         </div>
+
+        <h4>Campaigns You Are In</h4>
+
+        <?php $campaignsUserIsIn = Auth::user()->campaignsUserIsIn; ?>
+        @if(count($campaignsUserIsIn) > 0)
+            @foreach($campaignsUserIsIn as $campaignAssociation)
+                <?php $campaign = $campaignAssociation->campaign; ?>
+                <div class="_campaign">
+                    <div class="name">
+                        <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
+                    </div>
+                </div>
+            @endforeach
+        @else
+        <p class="info-panel info">
+            You are not in anyone else's campaigns at the moment.
+        </p>
+        @endif
 
         <div>
             <a class="icon-button blue" href="{{ url('/campaigns/new') }}">
