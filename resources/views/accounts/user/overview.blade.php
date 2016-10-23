@@ -15,7 +15,7 @@
             <div class="subtitle">My Account</div>
         </div>
 
-        <h4>Your Campaigns</h4>
+        <h4 class="section-header">Your Campaigns</h4>
 
         <div class="campaigns">
             @foreach($campaigns as $campaign)
@@ -47,7 +47,7 @@
             @endforeach
         </div>
 
-        <h4>Campaigns You Are In</h4>
+        <h4 class="section-header">Campaigns You Are In</h4>
 
         <?php $campaignsUserIsIn = Auth::user()->campaignsUserIsIn; ?>
         @if(count($campaignsUserIsIn) > 0)
@@ -60,7 +60,7 @@
                 </div>
             @endforeach
         @else
-        <p class="info-panel info">
+        <p class="info-panel info spaced medium">
             You are not in anyone else's campaigns at the moment.
         </p>
         @endif
