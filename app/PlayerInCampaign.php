@@ -11,4 +11,8 @@ class PlayerInCampaign extends Model
     public function user(){
         return $this->hasOne('App\User', 'id', 'FK_user');
     }
+
+    public function campaign(){
+        return $this->hasOne('App\Campaign', 'id', 'FK_campaign');
+    }
 }
