@@ -5,6 +5,9 @@ body {
   margin: 0;
   font-family: sans-serif; }
 
+.text-center {
+  text-align: center; }
+
 .header {
   background: #2196F3;
   position: relative;
@@ -16,15 +19,84 @@ body {
     content: " ";
     clear: both;
     height: 0; }
-  .header .title {
-    color: #fff;
-    padding: 10px;
-    font-size: 24px;
-    display: inline-block; }
   .header .left {
     float: left; }
+    .header .left .title {
+      color: #fff;
+      padding: 10px;
+      font-size: 24px;
+      display: inline-block; }
   .header .nav {
     float: right; }
+    .header .nav:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0; }
+    .header .nav .notifications {
+      float: left;
+      padding: 10px 0 0; }
+      .header .nav .notifications .tray {
+        position: relative; }
+        .header .nav .notifications .tray .list {
+          position: absolute;
+          display: none;
+          top: 100%;
+          right: 0;
+          width: 175px;
+          background: #fff;
+          border: 1px solid #eee;
+          box-shadow: 0 2px 3px rgba(0, 0, 0, 0.35); }
+          .header .nav .notifications .tray .list .title {
+            background: #2196F3;
+            padding: 5px;
+            font-size: 14px;
+            color: #fff; }
+          .header .nav .notifications .tray .list .notification {
+            width: 100%;
+            box-sizing: border-box;
+            margin: 5px 0; }
+            .header .nav .notifications .tray .list .notification .message {
+              padding: 5px;
+              font-size: 12px;
+              box-sizing: border-box; }
+            .header .nav .notifications .tray .list .notification .actions > button, .header .nav .notifications .tray .list .notification .actions a {
+              width: 40%;
+              margin: 0 5%;
+              padding: 3px 0 2px 0;
+              text-align: center;
+              border: none;
+              color: #fff;
+              border-radius: 3px;
+              text-decoration: none;
+              display: inline-block; }
+              .header .nav .notifications .tray .list .notification .actions > button.reject, .header .nav .notifications .tray .list .notification .actions a.reject {
+                background: #FF5252; }
+              .header .nav .notifications .tray .list .notification .actions > button.accept, .header .nav .notifications .tray .list .notification .actions a.accept {
+                background: #4CAF50; }
+              .header .nav .notifications .tray .list .notification .actions > button .material-icons, .header .nav .notifications .tray .list .notification .actions a .material-icons {
+                font-size: 16px; }
+            .header .nav .notifications .tray .list .notification:not(:last-of-type) {
+              border-bottom: 1px solid #aaa; }
+      .header .nav .notifications .icon {
+        border: none;
+        padding: 0;
+        color: #fff;
+        background: none;
+        margin: 0 5px;
+        position: relative;
+        display: inline-block; }
+        .header .nav .notifications .icon .indicator:not(:empty) {
+          background: #ff0000;
+          border-radius: 40px;
+          color: #fff;
+          position: absolute;
+          top: -5px;
+          left: calc(100% - 10px);
+          display: block;
+          padding: 1px 5px; }
   .header .nav-list {
     font-size: 0;
     display: block;
@@ -45,19 +117,33 @@ body {
   width: 100%;
   margin: 0 auto; }
 
+.info-panel {
+  margin: 5px 0;
+  display: block;
+  padding: 5px; }
+  .info-panel.info {
+    color: #333;
+    font-style: italic; }
+
 .button {
   display: inline-block;
   text-decoration: none;
   background: #fff;
   border: #efefef solid 1px;
   border-radius: 5px;
-  padding: 5px;
+  padding: 5px 10px;
   color: #222;
+  font-size: 14px;
+  cursor: pointer;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 3px 5px rgba(0, 0, 0, 0.3); }
   .button.blue {
     background: #2196F3;
     color: #fff;
-    border: none; }
+    border: 1px solid #2196F3; }
+  .button.red {
+    background: #FF5252;
+    color: #fff;
+    border: 1px solid #FF5252; }
 
 .icon-button {
   display: inline-block;
@@ -66,7 +152,11 @@ body {
   border: #222 solid 1px;
   border-radius: 5px;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 3px 5px rgba(0, 0, 0, 0.3);
-  overflow: hidden; }
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  vertical-align: top;
+  cursor: pointer; }
   .icon-button i {
     display: inline-block;
     position: relative;
@@ -79,7 +169,8 @@ body {
     display: inline-block;
     vertical-align: bottom;
     padding: 6px;
-    color: #222; }
+    color: #222;
+    font-size: 16px; }
   .icon-button.blue {
     border: #2196F3 solid 1px; }
     .icon-button.blue i {
@@ -88,5 +179,75 @@ body {
     .icon-button.blue .text {
       background: #2196F3;
       color: #fff; }
+  .icon-button.red {
+    border: #FF5252 solid 1px; }
+    .icon-button.red i {
+      color: #FF5252;
+      background: #fff; }
+    .icon-button.red .text {
+      background: #FF5252;
+      color: #fff; }
+
+.modal {
+  position: relative;
+  background: #fff;
+  margin: 30vh auto 0;
+  width: 100%;
+  max-width: 450px;
+  display: block; }
+  .modal .content {
+    padding: 10px; }
+  .modal .actions {
+    padding: 10px;
+    background: #eee;
+    text-align: center; }
+
+.modal-wrapper {
+  display: none;
+  position: relative;
+  position: fixed;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  box-sizing: border-box;
+  background: rgba(0, 0, 0, 0.4);
+  z-index: 9000; }
+  .modal-wrapper.open {
+    display: block; }
+
+.card {
+  background: #fff;
+  border-radius: 2px;
+  display: inline-block;
+  margin: 1rem;
+  position: relative;
+  width: 300px;
+  vertical-align: top; }
+  .card.card-1 {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1); }
+  .card.card-1:hover {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .card.card-2 {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  .card.card-3 {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
+  .card.card-4 {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22); }
+  .card.card-5 {
+    box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22); }
+
+.breadcrumbs {
+  padding: 3px 5px;
+  background: #eee;
+  border: 1px solid #555;
+  border-radius: 3px;
+  display: inline-block;
+  font-size: 12px; }
+  .breadcrumbs.spaced {
+    margin: 10px 0; }
+  .breadcrumbs a.breadcrumb {
+    color: #0000ff; }
 
 /*# sourceMappingURL=app.css.map */

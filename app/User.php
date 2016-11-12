@@ -23,4 +23,8 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function campaignsUserIsIn(){
+        return $this->hasMany('App\PlayerInCampaign', 'FK_user', 'id');
+    }
 }

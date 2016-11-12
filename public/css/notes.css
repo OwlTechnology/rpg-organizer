@@ -1,23 +1,31 @@
-.notes-wrapper .notes .note {
-  display: inline-block;
-  position: relative;
-  vertical-align: top;
-  width: 250px;
-  border: 1px solid #ccc;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2); }
+.notes-wrapper {
+  background: #eee;
+  margin: 10px 0;
+  padding: 15px 0; }
   .notes-wrapper .notes .note .title {
     margin: 0;
     padding: 5px;
-    background: #eee; }
-    .notes-wrapper .notes .note .title a {
-      text-decoration: none;
-      color: #333; }
-  .notes-wrapper .notes .note .subtitle {
+    color: #333; }
+  .notes-wrapper .notes .note .description {
     font-weight: normal;
-    padding: 5px;
-    margin: 0; }
-
-.notes-wrapper .actions {
-  margin: 15px 0 0; }
+    padding: 5px 10px;
+    margin: 0;
+    height: 50px;
+    overflow: hidden;
+    color: #565656;
+    font-style: italic; }
+  .notes-wrapper .notes .note .actions {
+    padding: 10px 5px; }
+    .notes-wrapper .notes .note .actions a {
+      text-decoration: none;
+      background: #ececec;
+      border: 1px solid #888;
+      border-radius: 3px;
+      color: #333;
+      padding: 3px 5px; }
+      .notes-wrapper .notes .note .actions a:hover {
+        background: #aaa; }
+  .notes-wrapper .actions {
+    margin: 15px 0 0; }
 
 /*# sourceMappingURL=notes.css.map */

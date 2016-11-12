@@ -1,0 +1,45 @@
+@import "../../mixins";
+
+.form.create{
+
+    .form-element{
+        padding: 10px 0;
+        border-bottom: 1px dashed #555;
+        @include clearfix();
+
+        &.last{
+            border-bottom: none;
+        }
+    }
+
+    .title{
+        float: left;
+        width: 30%;
+        position: relative;
+        vertical-align: top;
+    }
+
+    .input{
+        float: left;
+        width: 70%;
+        position: relative;
+        vertical-align: top;
+
+        input, textarea{
+            padding: 3px 5px;
+            border-radius: 3px;
+            border: 1px solid #777;
+
+            &.fullwidth{
+                width: 100%;
+            }
+            &.halfwidth{
+                width: 50%;
+            }
+        }
+
+        .textarea{
+            min-height: 4em;
+        }
+    }
+}
