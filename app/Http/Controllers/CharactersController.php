@@ -61,14 +61,13 @@ class CharactersController extends Controller
     //showing character sheet
     public function showCharacter($characterID){
         $character = CharacterSheet::find($characterID);
-        $attributes = DndAttributes::where("charactersheetID", $characterID)->get();
+        $attributes = $character->getAttributes();
         $player = User::find($character->player);
-        $personality = DndPersonality::where("charactersheetID", $characterID)->get()[0];
-        $personality = $personality == null ? new DndPersonality : $personality;
+        $personality = $character->getPersonality();
 
-        return view("/characters/view", [
+        return view("characters.view", [
             "character" => $character,
-            "attributes" => $attributes->count() > 0 ? $attributes[0] : null,
+            "attributes" => $attributes,
             "player" => $player,
             "personalityTraits" => $personality->personality_traits,
             "ideals" => $personality->ideals,
