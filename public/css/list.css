@@ -1,0 +1,30 @@
+.npcs-list {
+  display: block;
+  margin: 35px 0; }
+  .npcs-list .npc {
+    width: 120px;
+    display: inline-block;
+    box-sizing: border-box;
+    position: relative;
+    vertical-align: top;
+    margin: 0 20px; }
+    .npcs-list .npc .name {
+      text-align: center; }
+    .npcs-list .npc .image {
+      width: 120px;
+      height: 120px;
+      padding: 3px;
+      box-sizing: border-box;
+      border-radius: 100%;
+      border: 3px solid #aaa;
+      box-shadow: 0 3px #777;
+      position: relative;
+      overflow: hidden;
+      margin: 0 0 10px 0; }
+      .npcs-list .npc .image img {
+        width: 85%;
+        position: absolute;
+        bottom: 0%;
+        left: 0%; }
+
+/*# sourceMappingURL=list.css.map */

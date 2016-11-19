@@ -14,10 +14,12 @@ class NpcsController extends Controller
 {
     public function npcs($campaignID){
         $campaign = Campaign::find($campaignID);
+        $npcs = Npc::where("campaign_id", "=", $campaignID)->get();
 
         return view("campaign.npcs", [
             "campaign" => $campaign,
-            "activeTab" => "npcs"
+            "activeTab" => "npcs",
+            "npcs" => $npcs
         ]);
     }
 
