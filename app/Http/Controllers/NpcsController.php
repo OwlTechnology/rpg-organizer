@@ -62,7 +62,7 @@ class NpcsController extends Controller
         $npc = Npc::find($npcID);
 
         if(!$campaign || !$npc || $npc->campaign_id != $campaign->id){
-            return response(404);
+            abort(404);
         }
 
         return view("npcs.view")->with([
@@ -76,7 +76,7 @@ class NpcsController extends Controller
         $npc = Npc::find($npcID);
 
         if(!$campaign || !$npc || $npc->campaign_id != $campaign->id){
-            return response(404);
+            abort(404);
         }
 
         $npc->name = $request->input("name");
@@ -92,7 +92,7 @@ class NpcsController extends Controller
         $npc = Npc::find($npcID);
 
         if(!$campaign || !$npc || $npc->campaign_id != $campaign->id){
-            return response(404);
+            abort(404);
         }
 
         return view("npcs.edit")->with([
