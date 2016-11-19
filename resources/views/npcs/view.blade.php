@@ -9,6 +9,10 @@
             <p>
                 {{ $npc->short_description }}
             </p>
+
+            <a href="{{ url('/campaign/' . $campaign->id . '/npc/' . $npc->id . '/edit') }}" class="button blue">
+                Edit
+            </a>
         </div>
     </div>
 </div>

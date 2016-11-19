@@ -70,4 +70,34 @@ class NpcsController extends Controller
             "npc" => $npc
         ]);
     }
+
+    public function update(Request $request, $campaignID, $npcID){
+        $campaign = Campaign::find($campaignID);
+        $npc = Npc::find($npcID);
+
+        if(!$campaign || !$npc || $npc->campaign_id != $campaign->id){
+            return response(404);
+        }
+
+        $npc->name = $request->input("name");
+        $npc->short_description = $request->input("short_description");
+
+        $npc->save();
+
+        return redirect("/campaign/" . $campaign->id . "/npc/" . $npc->id . "/");
+    }
+
+    public function editView(Request $request, $campaignID, $npcID){
+        $campaign = Campaign::find($campaignID);
+        $npc = Npc::find($npcID);
+
+        if(!$campaign || !$npc || $npc->campaign_id != $campaign->id){
+            return response(404);
+        }
+
+        return view("npcs.edit")->with([
+            "campaign" => $campaign,
+            "npc" => $npc
+        ]);
+    }
 }
