@@ -63,6 +63,14 @@
                         <input type="text" name="flaws"/>
                     </div>
                 </div>
+                <!-- Get the Skills -->
+                <div class="skills">
+                    @foreach($skills as $skill)
+                        {{$skill}}
+                        <input type="checkbox" name="{{ $skill }}proficiency">
+                        <input type="number" step="0.25" name="{{ $skill }}proficiencyMultiplier">
+                    @endforeach
+                </div>
 
             </div>
             <div class="submit">

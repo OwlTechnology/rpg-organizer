@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class DndCharacterSkills extends Model
 {
-    protected $tables = 'dnd_skills';
+    protected $table = 'dnd_skills';
 
-    
+
 }

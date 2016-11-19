@@ -42,6 +42,14 @@
             </div>
         </div>
 
+        <div class="skills">
+            @foreach($skills as $skill)
+                <div>
+                    {{ $skill->name }} ({{$skill->baseAttribute}})
+                </div>
+            @endforeach
+        </div>
+
     </div>
 </div>
 

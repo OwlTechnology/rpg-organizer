@@ -11,17 +11,24 @@ use Illuminate\Support\Facades\Auth;
 use App\User;
 use App\dndAlignments;
 use App\DndPersonality;
+use App\Business\dnd\CharacterBusiness;
 
-class CharactersController extends Controller
-{
-    //
+class CharactersController extends Controller{
+
+    private $characterBusiness;
+
+    public function __construct(){
+        $this->characterBusiness = new CharacterBusiness;
+    }
     public function showCreateCharacter(){
         $alignmentOptions = dndAlignments::all();
-
+        $skills = $this->characterBusiness->getDefaultSkillList();
         return view("characters.new", [
-            "alignmentOptions" => $alignmentOptions
+            "alignmentOptions" => $alignmentOptions,
+            "skills" => $skills
         ]);
     }
+
 
 
     public function create(Request $request){
@@ -54,6 +61,14 @@ class CharactersController extends Controller
             $personality->alignmentID = $request->input("alignment");
             $personality->save();
 
+            //get skills
+            foreach ($this->characterBusiness->getDefaultSkillList() as $skillName){
+                $skill = $this->characterBusiness->getSkill($character->id,$skillName);
+                $skill->isProficient = $request->input($skillName . "proficiency");
+                $skill->proficiencyMultiplier = $request->input($skillName . "proficiencyMultiplier");
+                $skill->save();
+            }
+
 
             return redirect("me/character/" . $character->id);
     }
@@ -73,9 +88,9 @@ class CharactersController extends Controller
             "ideals" => $personality->ideals,
             "flaws" => $personality->flaws,
             "bonds" => $personality->bonds,
-            "alignment" => dndAlignments::find($personality->alignmentID)
+            "alignment" => dndAlignments::find($personality->alignmentID),
+            "skills" => $this->characterBusiness->getCharacterSkills($characterID)
         ]);
-
 
     }
 }
