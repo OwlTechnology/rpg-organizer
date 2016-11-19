@@ -21,6 +21,13 @@ Route::group(["middleware" => "auth"], function(){
             return view("campaigns.new");
         }]);
         Route::post('/new', ["as" => "new.post", "uses" => "CampaignsController@create"]);
+
+        //DungeonMaster Middleware.
+        //@param campaign->id
+        Route::group(["middleware" => "dm"], function(){
+            Route::post("/delete", ["as" => "delete.post", "uses" => "CampaignsController@delete"]);
+            Route::post("/update", ["as" => "update.post", "uses" => "CampaignsController@update"]);
+        });
     });
 
     // Campaigns
@@ -32,13 +39,6 @@ Route::group(["middleware" => "auth"], function(){
     // Invites
     Route::get("/invites", "InviteController@getInvitesForCurrentUser");
     Route::get("/invites/accept/{inviteID}", "InviteController@acceptInvite");
-
-    //DungeonMaster Middleware.
-    //@param campaign->id
-    Route::group(["middleware" => "dm"], function(){
-      Route::post("/campaign/delete", "CampaignsController@delete");
-      Route::post("/campaign/update", "CampaignsController@update");
-    });
 
     // Notes
     Route::get("/campaign/{campaignID}/notes/", "CampaignsController@notes");
