@@ -9,9 +9,9 @@
             /
             <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/npcs/") }}">NPCs</a>
             /
-            <span class="breadcrumb">
+            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/npc/" . $npc->id . "/") }}">
                 {{ $npc->name }}
-            </span>
+            </a>
             /
             <span class="breadcrumb">
                 Edit
