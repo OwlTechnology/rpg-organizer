@@ -51,6 +51,7 @@ Route::group(["middleware" => "auth"], function(){
     Route::get("/campaign/{campaignID}/npcs/", "NpcsController@npcs");
     Route::get('/campaigns/{campaignID}/npcs/new', 'NpcsController@createPage');
     Route::post('/campaigns/{campaignID}/npcs/new', 'NpcsController@create');
+    Route::get('/campaign/{campaignID}/npc/{npcID}/', 'NpcsController@view');
 
     // Notes
     Route::get("/campaign/{campaignID}/notes/{noteID}/edit", "NotesController@showEditNote");

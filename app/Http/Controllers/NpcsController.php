@@ -56,4 +56,18 @@ class NpcsController extends Controller
 
         return redirect('/campaign/' . $campaignID . '/npcs/');
     }
+
+    public function view(Request $request, $campaignID, $npcID){
+        $campaign = Campaign::find($campaignID);
+        $npc = Npc::find($npcID);
+
+        if(!$campaign || !$npc || $npc->campaign_id != $campaign->id){
+            return response(404);
+        }
+
+        return view("npcs.view")->with([
+            "campaign" => $campaign,
+            "npc" => $npc
+        ]);
+    }
 }

@@ -17,7 +17,9 @@
                         <img title="NPC picture" src="/img/npc/head-outline.png" />
                     </div>
                     <div class="name">
-                        {{ $npc->name }}
+                        <a href="{{ url('/campaign/' . $campaign->id . '/npc/' . $npc->id . '/') }}">
+                            {{ $npc->name }}
+                        </a>
                     </div>
                 </div>
             @endforeach
