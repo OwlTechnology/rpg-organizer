@@ -13,15 +13,15 @@ Route::post('/signup', 'AccountsController@signup');
 // Secure Routes
 Route::group(["middleware" => "auth"], function(){
     Route::get('/me', 'AccountsController@showHomePage');
+    Route::get("/logout", 'AccountsController@logout');
 
     // Campaigns
-
-    Route::get("/campaigns/new", function(){
-        return view('campaigns.new');
+    Route::group(["prefix" => "campaign", "as" => "campaign::"], function(){
+        Route::get('/new', ["as" => "new", "uses" => function(){
+            return view("campaigns.new");
+        }]);
+        Route::post('/new', ["as" => "new.post", "uses" => "CampaignsController@create"]);
     });
-
-    Route::post('/campaigns/new', 'CampaignsController@create');
-    Route::get("/logout", 'AccountsController@logout');
 
     // Campaigns
     Route::get("/campaign/{id}", "CampaignsController@index")->middleware("IsInCampaign");

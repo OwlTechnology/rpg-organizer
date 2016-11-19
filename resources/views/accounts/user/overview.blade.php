@@ -49,7 +49,7 @@
             @endif
         </div>
         <div>
-            <a href="{{ url('/campaigns/new') }}">Create New Campaign</a>
+            <a href="{{ route('campaign::new') }}">Create New Campaign</a>
         </div>
 
     </div>

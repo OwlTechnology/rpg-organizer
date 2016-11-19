@@ -6,7 +6,7 @@
     <div class="content-body">
         <h1>Create Campaign</h1>
 
-        <form class="form campaigns" method="post" action="{{ url('/campaigns/new/') }}">
+        <form class="form campaigns" method="post" action="{{ route('campaign::new.post') }}">
             {{ csrf_field() }}
 
             <div class="form-element">
