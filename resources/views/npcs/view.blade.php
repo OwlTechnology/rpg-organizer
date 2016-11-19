@@ -3,6 +3,17 @@
 @section("content")
 <div class="content">
     <div class="content-body">
+        <div class="breadcrumbs spaced">
+            /
+            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/") }}">{{ $campaign->name }}</a>
+            /
+            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/npcs/") }}">NPCs</a>
+            /
+            <span class="breadcrumb">
+                {{ $npc->name }}
+            </span>
+        </div>
+
         <div class="section">
             <h2>{{ $npc->name }}</h2>
 

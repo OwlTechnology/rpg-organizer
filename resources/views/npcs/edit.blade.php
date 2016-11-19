@@ -3,6 +3,21 @@
 @section("content")
 <div class="content">
     <div class="content-body">
+        <div class="breadcrumbs spaced">
+            /
+            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/") }}">{{ $campaign->name }}</a>
+            /
+            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/npcs/") }}">NPCs</a>
+            /
+            <span class="breadcrumb">
+                {{ $npc->name }}
+            </span>
+            /
+            <span class="breadcrumb">
+                Edit
+            </span>
+        </div>
+
         <div class="section">
             <form action="{{ '/campaign/' . $campaign->id . '/npc/' . $npc->id . '/edit' }}" method="post">
                 {{ csrf_field() }}
