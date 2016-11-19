@@ -1,0 +1,44 @@
+.npcs-list{
+    $_size: 120px;
+
+    display: block;
+    margin: 35px 0;
+
+    .npc{
+        width: $_size;
+        display: inline-block;
+        box-sizing: border-box;
+        position: relative;
+        vertical-align: top;
+        margin: 0 20px;
+
+        .name{
+            text-align: center;
+
+            a{
+                color: #0000ff;
+                text-decoration: none;
+            }
+        }
+
+        .image{
+            width: $_size;
+            height: $_size;
+            padding: 3px;
+            box-sizing: border-box;
+            border-radius: 100%;
+            border: 3px solid #aaa;
+            box-shadow: 0 3px #777;
+            position: relative;
+            overflow: hidden;
+            margin: 0 0 10px 0;
+
+            img{
+                width: 85%;
+                position: absolute;
+                bottom: 0%;
+                left: 0%;
+            }
+        }
+    }
+}
