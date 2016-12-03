@@ -25,6 +25,7 @@ body {
       color: #fff;
       padding: 10px;
       font-size: 24px;
+      font-family: "Cutive Mono", monospace;
       display: inline-block; }
   .header .nav {
     float: right; }
@@ -124,6 +125,14 @@ body {
   .info-panel.info {
     color: #333;
     font-style: italic; }
+  .info-panel.spaced {
+    margin: 2em 0; }
+  .info-panel.small {
+    font-size: 12px; }
+  .info-panel.medium {
+    font-size: 18px; }
+  .info-panel.large {
+    font-size: 22px; }
 
 .button {
   display: inline-block;

@@ -15,6 +15,11 @@ Route::group(["middleware" => "auth"], function(){
     Route::get('/me', 'AccountsController@showHomePage');
     Route::get("/logout", 'AccountsController@logout');
 
+    Route::group(["prefix" => "/me"], function(){
+        Route::get('/', 'AccountsController@showHomePage');
+        Route::get('/campaigns', 'AccountsController@showCampaigns');
+    });
+
     // Campaigns
     Route::group(["prefix" => "campaign", "as" => "campaign::"], function(){
         Route::get('/new', ["as" => "new", "uses" => function(){

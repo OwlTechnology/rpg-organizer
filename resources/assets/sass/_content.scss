@@ -16,4 +16,21 @@
         color: #333;
         font-style: italic;
     }
+
+    &.spaced{
+        margin: 2em 0;
+    }
+
+    // Sizes
+    &.small{
+        font-size: 12px;
+    }
+
+    &.medium{
+        font-size: 18px;
+    }
+
+    &.large{
+        font-size: 22px;
+    }
 }

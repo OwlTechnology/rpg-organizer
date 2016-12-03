@@ -1,0 +1,140 @@
+.me-page {
+  background: url("/img/sayagata-400px.png");
+  padding: 35px 0 0;
+  min-height: 100vh;
+  box-sizing: border-box; }
+  .me-page .home-links {
+    margin: 15px 0; }
+    .me-page .home-links .link {
+      display: block;
+      text-decoration: none;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+      padding: 10px 15px;
+      color: #333;
+      background: #fff;
+      will-change: box-shadow;
+      transition: box-shadow 250ms ease-out;
+      border-bottom: 1px solid #eee; }
+      .me-page .home-links .link:hover {
+        z-index: 3;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2); }
+      .me-page .home-links .link:last-of-type {
+        border-bottom: none; }
+  .me-page .me-header .username {
+    font-size: 22px;
+    font-weight: normal;
+    color: #565656;
+    text-transform: uppercase;
+    margin: 0 0 5px 0;
+    font-family: "Roboto", sans-serif; }
+  .me-page .me-header .line {
+    max-width: 50px;
+    height: 3px;
+    background: #666;
+    border: none;
+    margin: 0; }
+  .me-page .me-header .subtitle {
+    margin: 5px 0 0;
+    font-size: 16px;
+    text-transform: uppercase;
+    font-weight: normal;
+    color: #565656;
+    font-family: "Roboto", sans-serif; }
+  .me-page .section-header {
+    font-size: 32px;
+    letter-spacing: 4px;
+    color: #333; }
+  .me-page .collection {
+    display: block;
+    box-sizing: border-box;
+    height: 400px;
+    background: url("/img/campaign/header.gif");
+    background-size: cover;
+    background-position: center;
+    box-shadow: 0 8px 10px rgba(0, 0, 0, 0.45);
+    margin: 35px 0;
+    position: relative; }
+    .me-page .collection:after {
+      visibility: hidden;
+      display: block;
+      font-size: 0;
+      content: " ";
+      clear: both;
+      height: 0; }
+    .me-page .collection .sidebar {
+      background: #fff;
+      width: 50px;
+      height: 100%;
+      position: relative;
+      padding: 5px;
+      float: left;
+      box-sizing: border-box; }
+      .me-page .collection .sidebar .icon {
+        font-size: 16px;
+        font-family: "Slabo 27px", serif;
+        border: 1px solid #444;
+        box-shadow: 0 1px #666;
+        padding: 2px 0 0 2px;
+        border-radius: 30px;
+        width: 30px;
+        height: 30px;
+        margin: 0 auto 10px;
+        box-sizing: border-box;
+        background: #eee; }
+        .me-page .collection .sidebar .icon i {
+          color: #444; }
+    .me-page .collection .right-sidebar {
+      width: 50px;
+      height: 100%;
+      float: left;
+      position: relative;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.4); }
+      .me-page .collection .right-sidebar .actions {
+        margin: 35px 0 0; }
+        .me-page .collection .right-sidebar .actions form {
+          width: 100%; }
+        .me-page .collection .right-sidebar .actions button, .me-page .collection .right-sidebar .actions a {
+          width: 36px;
+          height: 36px;
+          display: block;
+          margin: 0 auto;
+          text-decoration: none;
+          background: none;
+          color: #fff;
+          border: none;
+          box-sizing: border-box;
+          text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+          cursor: pointer; }
+    .me-page .collection .content {
+      width: calc(100% - 100px);
+      height: 100%;
+      box-sizing: border-box;
+      background: rgba(0, 0, 0, 0.4);
+      float: left;
+      padding: 250px 0 0; }
+      .me-page .collection .content .title a {
+        text-decoration: none;
+        font-size: 42px;
+        letter-spacing: 10px;
+        font-family: "Josefin Slab", serif;
+        text-transform: uppercase;
+        text-align: right;
+        color: #fff;
+        display: block;
+        text-shadow: 0 2px 5px black; }
+      .me-page .collection .content .description {
+        color: #fff;
+        font-family: "Roboto", sans-serif;
+        font-size: 16px;
+        width: 50%;
+        text-align: right;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+        margin: 0 0 0 50%;
+        box-sizing: border-box;
+        background: rgba(0, 0, 0, 0.25);
+        box-shadow: 0 0 50px rgba(0, 0, 0, 0.55); }
+
+/*# sourceMappingURL=me.css.map */
