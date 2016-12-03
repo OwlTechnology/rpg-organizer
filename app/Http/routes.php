@@ -12,7 +12,11 @@ Route::post('/signup', 'AccountsController@signup');
 
 // Secure Routes
 Route::group(["middleware" => "auth"], function(){
-    Route::get('/me', 'AccountsController@showHomePage');
+
+    Route::group(["prefix" => "/me"], function(){
+        Route::get('/', 'AccountsController@showHomePage');
+        Route::get('/campaigns', 'AccountsController@showCampaigns');
+    });
 
     // Campaigns
 

@@ -3,6 +3,25 @@
   padding: 35px 0 0;
   min-height: 100vh;
   box-sizing: border-box; }
+  .me-page .home-links {
+    margin: 15px 0; }
+    .me-page .home-links .link {
+      display: block;
+      text-decoration: none;
+      box-sizing: border-box;
+      position: relative;
+      z-index: 2;
+      padding: 10px 15px;
+      color: #333;
+      background: #fff;
+      will-change: box-shadow;
+      transition: box-shadow 250ms ease-out;
+      border-bottom: 1px solid #eee; }
+      .me-page .home-links .link:hover {
+        z-index: 3;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2); }
+      .me-page .home-links .link:last-of-type {
+        border-bottom: none; }
   .me-page .me-header .username {
     font-size: 22px;
     font-weight: normal;
