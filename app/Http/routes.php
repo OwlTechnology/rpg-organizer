@@ -28,26 +28,30 @@ Route::group(["middleware" => "auth"], function(){
         Route::get("/{id}", ["as" => "view", "uses" => "CampaignsController@index"])->middleware("IsInCampaign");
         Route::post("/invite", ["as" => "invite", "uses" => "InviteController@createCampaignInvite"]);
 
+        Route::get("/{campaignID}/kick-player/{playerID}", ["as" => "kick-player", "uses" => "CampaignsController@kickPlayer"])->middleware("dm");
+
         //DungeonMaster Middleware.
         //@param campaign->id
         Route::group(["middleware" => "dm"], function(){
             Route::post("/delete", ["as" => "delete.post", "uses" => "CampaignsController@delete"]);
             Route::post("/update", ["as" => "update.post", "uses" => "CampaignsController@update"]);
         });
+
+        // Notes
+        Route::group(["prefix" => "/{campaignID}/notes", "as" => "notes::"], function(){
+            Route::get("/", ["as" => "list", "uses" => "CampaignsController@notes"]);
+            Route::get("/new", ["as" => "new", "uses" => "NotesController@showCreateNote"]);
+            Route::get("/{noteID}", ["as" => "view", "uses" => "NotesController@showNote"]);
+        });
     });
 
-    // Campaigns
-    Route::get("/campaign/{campaignID}/kick-player/{playerID}", "CampaignsController@kickPlayer")->middleware("dm");
-
     // Invites
-    Route::get("/invites", "InviteController@getInvitesForCurrentUser");
-    Route::get("/invites/accept/{inviteID}", "InviteController@acceptInvite");
+    Route::group(["prefix" => "invites", "as" => "invites::"], function(){
+        Route::get('/', ["as" => "list", "uses" => "InviteController@getInvitesForCurrentUser"]);
+        Route::get("/invites/accept/{inviteID}", ["as" => "accept", "uses" => "InviteController@acceptInvite"]);
+    });
 
     // Notes
-    Route::get("/campaign/{campaignID}/notes/", "CampaignsController@notes");
-
-    Route::get("/campaigns/{campaignID}/notes/new", "NotesController@showCreateNote");
-    Route::get("/campaign/{campaignID}/notes/{noteID}", "NotesController@showNote");
     Route::post("notes/new", "NotesController@createNote");
 
     // NPCs

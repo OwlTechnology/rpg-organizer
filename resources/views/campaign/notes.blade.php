@@ -40,7 +40,7 @@
   <div class="content-body">
       <div class="section">
         <div class="actions">
-            <a class="icon-button blue" href="{{ url("/campaigns/" . $campaign->id . "/notes/new") }}">
+            <a class="icon-button blue" href="{{ route("campaign::notes::new", $campaign->id) }}">
                 <i class="material-icons">add</i><span class="text">Write New Note</span>
             </a>
         </div>
