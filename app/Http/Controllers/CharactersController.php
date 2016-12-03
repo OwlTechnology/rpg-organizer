@@ -62,10 +62,12 @@ class CharactersController extends Controller{
             $personality->save();
 
             //get skills
-            foreach ($this->characterBusiness->getDefaultSkillList() as $skillName){
-                $skill = $this->characterBusiness->getSkill($character->id,$skillName);
-                $skill->isProficient = $request->input($skillName . "proficiency");
-                $skill->proficiencyMultiplier = $request->input($skillName . "proficiencyMultiplier");
+            foreach ($this->characterBusiness->createDefaultSkills() as $skill){
+                $skill->characterId = $character->id;
+                $skill->isProficient = !!$request->input($skill->name . "proficiency");
+                echo $skill->name;
+                echo var_dump($request->except("_token"));
+                $skill->proficiencyMultiplier = $request->input($skill->name . "proficiencyMultiplier");
                 $skill->save();
             }
 

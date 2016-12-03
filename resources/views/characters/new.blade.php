@@ -68,7 +68,8 @@
                     @foreach($skills as $skill)
                         {{$skill}}
                         <input type="checkbox" name="{{ $skill }}proficiency">
-                        <input type="number" step="0.25" name="{{ $skill }}proficiencyMultiplier">
+                        Multiplier:
+                        <input type="number" value="1" step="0.25" name="{{ $skill }}proficiencyMultiplier">
                     @endforeach
                 </div>
 

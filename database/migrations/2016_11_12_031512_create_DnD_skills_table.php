@@ -18,7 +18,7 @@ class CreateDnDSkillsTable extends Migration
             $table->boolean("isProficient");
             $table->string("name");
             $table->float("proficiencyMultiplier");
-            $table->integer("baseAttribute");
+            $table->string("baseAttribute");
             $table->integer("temporaryModifier");
 
             $table->timestamps();

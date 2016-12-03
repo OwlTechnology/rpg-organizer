@@ -13,7 +13,7 @@ class CharacterBusiness{
             $skill->characterId = $characterId;
             $skill->name = $name;
             $skill->proficiencyMultiplier = 1;
-            $skill->baseAttribute = 0;
+            $skill->baseAttribute = "strength";
             $skill->temporaryModifier = 1;
             $skill->save();
 
@@ -21,11 +21,42 @@ class CharacterBusiness{
         return $skill;
     }
     public function getDefaultSkillList(){
-        $skills = ["Acrobats", "Animal Handling", "Arcana", "Athletics",
+        $skills = ["Acrobatics", "Animal Handling", "Arcana", "Athletics",
          "Deception", "History", "Insight", "Intimidation", "Investigation",
          "Medicine", "Nature", "Perception", "Performance", "Persuasion",
          "Religion", "Sleight of Hand", "Stealth", "Survival"];
          return $skills;
+    }
+
+    public function createDefaultSkills(){
+        $skills = [
+            $this->createDefaultSkill("Acrobatics", "dexterity"),
+            $this->createDefaultSkill("Animal Handling", "wisdom"),
+            $this->createDefaultSkill("Arcana", "intelligence"),
+            $this->createDefaultSkill("Athletics", "strength"),
+            $this->createDefaultSkill("Deception", "charisma"),
+            $this->createDefaultSkill("History", "intelligence"),
+            $this->createDefaultSkill("Insight", "wisdom"),
+            $this->createDefaultSkill("Intimidation", "charisma"),
+            $this->createDefaultSkill("Investigation", "intelligence"),
+            $this->createDefaultSkill("Medicine", "wisdom"),
+            $this->createDefaultSkill("Nature", "intelligence"),
+            $this->createDefaultSkill("Perception", "wisdom"),
+            $this->createDefaultSkill("Performance", "charisma"),
+            $this->createDefaultSkill("Persuasion", "charisma"),
+            $this->createDefaultSkill("Religion", "intelligence"),
+            $this->createDefaultSkill("Sleight of Hand", "dexterity"),
+            $this->createDefaultSkill("Stealth", "dexterity"),
+            $this->createDefaultSkill("Survival", "wisdom")
+        ];
+        return $skills;
+    }
+
+    protected function createDefaultSkill($name, $baseAttribute){
+        $skill = new DndCharacterSkills;
+        $skill->name = $name;
+        $skill->baseAttribute = $baseAttribute;
+        return $skill;
     }
 
     public function getCharacterSkills($characterId){
