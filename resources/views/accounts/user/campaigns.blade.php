@@ -19,7 +19,7 @@
                     </div>
                     <div class="content">
                         <div class="title">
-                            <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
+                            <a href="{{ route("campaign::view", $campaign->id) }}">{{ $campaign->name }}</a>
                         </div>
                         <div class="description">
                             This is a campaign that the player can play where they

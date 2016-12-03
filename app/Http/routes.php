@@ -12,12 +12,11 @@ Route::post('/signup', 'AccountsController@signup');
 
 // Secure Routes
 Route::group(["middleware" => "auth"], function(){
-    Route::get('/me', 'AccountsController@showHomePage');
     Route::get("/logout", 'AccountsController@logout');
 
-    Route::group(["prefix" => "/me"], function(){
-        Route::get('/', 'AccountsController@showHomePage');
-        Route::get('/campaigns', 'AccountsController@showCampaigns');
+    Route::group(["as" => "profile::", "prefix" => "/me"], function(){
+        Route::get('/', ['as' => 'overview', 'uses' => 'AccountsController@showHomePage']);
+        Route::get('/campaigns', ['as' => 'campaigns', 'uses' => 'AccountsController@showCampaigns']);
     });
 
     // Campaigns
@@ -26,6 +25,8 @@ Route::group(["middleware" => "auth"], function(){
             return view("campaigns.new");
         }]);
         Route::post('/new', ["as" => "new.post", "uses" => "CampaignsController@create"]);
+        Route::get("/{id}", ["as" => "view", "uses" => "CampaignsController@index"])->middleware("IsInCampaign");
+        Route::post("/invite", ["as" => "invite", "uses" => "InviteController@createCampaignInvite"]);
 
         //DungeonMaster Middleware.
         //@param campaign->id
@@ -36,9 +37,6 @@ Route::group(["middleware" => "auth"], function(){
     });
 
     // Campaigns
-    Route::get("/campaign/{id}", "CampaignsController@index")->middleware("IsInCampaign");
-
-    Route::post("/campaign/invite", "InviteController@createCampaignInvite");
     Route::get("/campaign/{campaignID}/kick-player/{playerID}", "CampaignsController@kickPlayer")->middleware("dm");
 
     // Invites

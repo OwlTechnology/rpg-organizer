@@ -42,7 +42,7 @@
                 <ul class="nav-list">
                     @if(Auth::user())
                     <li>
-                        <a href="{{ url('/me') }}">
+                        <a href="{{ route('profile::overview') }}">
                             My Account
                         </a>
                     </li>
