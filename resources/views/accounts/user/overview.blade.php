@@ -18,33 +18,39 @@
         <h4 class="section-header">Your Campaigns</h4>
 
         <div class="campaigns">
-            @foreach($campaigns as $campaign)
-            <div class="collection">
-                <div class="sidebar">
-                    <div class="icon"><i class="material-icons">map</i></div>
-                </div>
-                <div class="content">
-                    <div class="title">
-                        <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
+            @if(count($campaigns))
+                @foreach($campaigns as $campaign)
+                <div class="collection">
+                    <div class="sidebar">
+                        <div class="icon"><i class="material-icons">map</i></div>
                     </div>
-                    <div class="description">
-                        This is a campaign that the player can play where they
-                        can campaign to their heart's content. Indeed, it is a
-                        true campaign. Very awesome.
+                    <div class="content">
+                        <div class="title">
+                            <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
+                        </div>
+                        <div class="description">
+                            This is a campaign that the player can play where they
+                            can campaign to their heart's content. Indeed, it is a
+                            true campaign. Very awesome.
+                        </div>
+                    </div>
+                    <div class="right-sidebar">
+                        <div class="actions">
+                            <button type="button"><i class="material-icons">share</i></button>
+                            <button type="button"><i class="material-icons">edit</i></button>
+                            <form class="form campaignDelete" method="post" action="{{url('/campaign/delete?id='.$campaign->id)}}">
+                              {{ csrf_field() }}
+                              <button type="submit"><i class="material-icons">delete</i></button>
+                            </form>
+                        </div>
                     </div>
                 </div>
-                <div class="right-sidebar">
-                    <div class="actions">
-                        <button type="button"><i class="material-icons">share</i></button>
-                        <button type="button"><i class="material-icons">edit</i></button>
-                        <form class="form campaignDelete" method="post" action="{{url('/campaign/delete?id='.$campaign->id)}}">
-                          {{ csrf_field() }}
-                          <button type="submit"><i class="material-icons">delete</i></button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            @endforeach
+                @endforeach
+            @else
+                <p class="info-panel info spaced medium">
+                    You have not created any campaigns yet!
+                </p>
+            @endif
         </div>
 
         <h4 class="section-header">Campaigns You Are In</h4>
@@ -53,9 +59,24 @@
         @if(count($campaignsUserIsIn) > 0)
             @foreach($campaignsUserIsIn as $campaignAssociation)
                 <?php $campaign = $campaignAssociation->campaign; ?>
-                <div class="_campaign">
-                    <div class="name">
-                        <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
+                <div class="collection">
+                    <div class="sidebar">
+                        <div class="icon"><i class="material-icons">map</i></div>
+                    </div>
+                    <div class="content">
+                        <div class="title">
+                            <a href="{{ url('/campaign/' . $campaign->id) }}">{{ $campaign->name }}</a>
+                        </div>
+                        <div class="description">
+                            This is a campaign that the player can play where they
+                            can campaign to their heart's content. Indeed, it is a
+                            true campaign. Very awesome.
+                        </div>
+                    </div>
+                    <div class="right-sidebar">
+                        <div class="actions">
+                            <button type="button"><i class="material-icons">share</i></button>
+                        </div>
                     </div>
                 </div>
             @endforeach
