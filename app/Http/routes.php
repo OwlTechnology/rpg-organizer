@@ -52,3 +52,8 @@ Route::group(["middleware" => "auth"], function(){
     // Static Content
     include "Routes/StaticContent.php";
 });
+
+// Google API.AI
+Route::group(["prefix" => "/api/ai", "as" => "ai::", "namespace" => "ai"], function() {
+    Route::get('/handle', ["as" => "default", "uses" => "ApiAiController@handle"]);
+});
