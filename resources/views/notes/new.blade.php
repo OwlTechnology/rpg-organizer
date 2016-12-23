@@ -27,9 +27,8 @@
         </div>
         @endif
 
-        <form class="form create" method="post" action="{{ url('/notes/new') }}">
+        <form class="form create" method="post" action="{{ route('campaign::notes::new.post', $campaign->id) }}">
             {{ csrf_field() }}
-            <input type="hidden" name="_campaign_id" value="{{ $campaign->id }}" />
 
             <div class="form-element">
                 <div class="title">

@@ -38,10 +38,11 @@ Route::group(["middleware" => "auth"], function(){
         });
 
         // Notes
-        Route::group(["prefix" => "/{campaignID}/notes", "as" => "notes::"], function(){
+        Route::group(["prefix" => "/{campaign}/notes", "as" => "notes::"], function(){
             Route::get("/", ["as" => "list", "uses" => "CampaignsController@notes"]);
             Route::get("/new", ["as" => "new", "uses" => "NotesController@showCreateNote"]);
-            Route::get("/{noteID}", ["as" => "view", "uses" => "NotesController@showNote"]);
+            Route::post("/new", ["as" => "new.post", "uses" => "NotesController@createNote"]);
+            Route::get("/{note}", ["as" => "view", "uses" => "NotesController@showNote"]);
         });
     });
 
@@ -50,9 +51,6 @@ Route::group(["middleware" => "auth"], function(){
         Route::get('/', ["as" => "list", "uses" => "InviteController@getInvitesForCurrentUser"]);
         Route::get("/invites/accept/{inviteID}", ["as" => "accept", "uses" => "InviteController@acceptInvite"]);
     });
-
-    // Notes
-    Route::post("notes/new", "NotesController@createNote");
 
     // NPCs
     Route::get("/campaign/{campaignID}/npcs/", "NpcsController@npcs");

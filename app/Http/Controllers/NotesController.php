@@ -9,17 +9,17 @@ use App\Http\Requests;
 
 class NotesController extends Controller
 {
-    public function showCreateNote($campaignID){
-        $campaign = Campaign::find($campaignID);
-
+    public function showCreateNote(Campaign $campaign){
         return view("notes.new", [
             "campaign" => $campaign
         ]);
     }
 
-    public function showNote($campaignID, $noteID){
-        $note = Note::find($noteID);
-        $campaign = Campaign::find($campaignID);
+    public function showNote(Campaign $campaign, Note $note){
+        // make sure note is actually owned by this campaign
+        if($note->campaign != $campaign->id){
+            abort(404);
+        }
 
         return view("notes.view", [
             "note" => $note,
@@ -27,13 +27,10 @@ class NotesController extends Controller
         ]);
     }
 
-    public function createNote(Request $request){
+    public function createNote(Request $request, Campaign $campaign){
         $name = $request->input("name");
         $description = $request->input("description");
-        $campaignID = $request->input("_campaign_id");
         $content = $request->input("content");
-        // Find associated campaign
-        $campaign = Campaign::find($campaignID);
 
         if($campaign){
             // create note
@@ -47,12 +44,14 @@ class NotesController extends Controller
             $note->save();
 
             return redirect("/campaign/" . $campaign->id . "/notes/");
+        }else{
+            abort(404);
         }
     }
 
-    public function showEditNote($campaignID, $noteID){
+    public function showEditNote(Campaign $campaign, $noteID){
         $note = Note::find($noteID);
-        $campaign = Campaign::find($campaignID);
+
         return view("notes.edit", [
             "currentNote" => $note,
             "currentCampaign" => $campaign
@@ -60,7 +59,7 @@ class NotesController extends Controller
     }
 
 
-    public function deleteNote($campaignID, $noteID){
+    public function deleteNote(Campaign $campaign, $noteID){
         $note = Note::find($noteID);
 
         $note->delete();
@@ -69,7 +68,7 @@ class NotesController extends Controller
 
 
     }
-    public function updateNote(Request $request, $campaignID, $noteID){
+    public function updateNote(Request $request, Campaign $campaign, $noteID){
         // Get data
         $name = $request->input("newName");
         $description = $request->input("newDescription");
