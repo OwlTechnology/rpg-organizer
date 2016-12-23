@@ -37,37 +37,10 @@ Route::group(["middleware" => "auth"], function(){
             Route::post("/update", ["as" => "update.post", "uses" => "CampaignsController@update"]);
         });
 
-        // Notes
-        Route::group(["prefix" => "/{campaign}/notes", "as" => "notes::"], function(){
-            Route::get("/", ["as" => "list", "uses" => "CampaignsController@notes"]);
-            Route::get("/new", ["as" => "new", "uses" => "NotesController@showCreateNote"]);
-            Route::post("/new", ["as" => "new.post", "uses" => "NotesController@createNote"]);
-            Route::get("/{note}", ["as" => "view", "uses" => "NotesController@showNote"]);
-            Route::get("/{note}/edit", ["as" => "edit", "uses" => "NotesController@showEditNote"]);
-            Route::post("/{note}/edit" , ["as" => "edit.post", "uses" => "NotesController@updateNote"]);
-            Route::get("/{note}/delete", ["as" => "delete", "uses" => "NotesController@deleteNote"]);
-        });
-
-        // NPCs
-        Route::group(["prefix" => "/{campaign}/npcs", "as" => "npcs::"], function() {
-            Route::get("/", ["as" => "list", "uses" => "NpcsController@npcs"]);
-            Route::get('/new', ["as" => "new", "uses" => 'NpcsController@createPage']);
-            Route::post('/new', ["as" => "new.post", "uses" => 'NpcsController@create']);
-            Route::get('/{npc}', ["as" => "view", "uses" => 'NpcsController@view']);
-            Route::get('/{npc}/edit', ["as" => "edit", "uses" => 'NpcsController@editView']);
-            Route::post('/{npc}/edit', ["as" => "edit.post", "uses" => 'NpcsController@update']);
-        });
-
-        // Locations
-        Route::group(["prefix" => "/{campaign}/locations", "as" => "locations::"], function() {
-            Route::get("/", ["as" => "list", "uses" => "LocationsController@showLocations"]);
-            Route::get("/new", ["as" => "new", "uses" => "LocationsController@showCreateLocation"]);
-            Route::post("/new", ["as" => "new.post", "uses" => "LocationsController@createLocation"]);
-            Route::get("/{location}", ["as" => "view", "uses" => "LocationsController@showLocation"]);
-            Route::get("/{location}/edit", ["as" => "edit", "uses" => "LocationsController@showEditLocation"]);
-            Route::post("/{location}/edit", ["as" => "edit.post", "uses" => "LocationsController@updateLocation"]);
-            Route::get("/{location}/delete", ["as" => "delete", "uses" => "LocationsController@deleteLocation"]);
-        });
+        // Extra routes for campaign resources
+        include "Routes/Notes.php";
+        include "Routes/Npcs.php";
+        include "Routes/Locations.php";
     });
 
     // Invites
