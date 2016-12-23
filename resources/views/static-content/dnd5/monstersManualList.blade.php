@@ -16,7 +16,12 @@
         </div>
 
         <div class="home-links">
-            <a class="link" href="#">Add New Monster</a>
+            <a class="link" href="{{ route('static::dnd5::monsters-manual::new') }}">Add New Monster</a>
+            @foreach($monsters as $monster)
+                <a class="link" href="{{ route('static::dnd5::monsters-manual::view', $monster->id) }}">
+                    {{ $monster->name }}
+                </a>
+            @endforeach
         </div>
 
     </div>
