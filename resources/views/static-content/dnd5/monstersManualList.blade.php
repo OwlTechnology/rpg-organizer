@@ -12,16 +12,11 @@
         <div class="me-header">
             <div class="username">{{ Auth::user()->name }}</div>
             <hr class="line" />
-            <div class="subtitle">D&amp;D 5 | Static Content</div>
+            <div class="subtitle">D&amp;D 5 | Monster's Manual</div>
         </div>
 
         <div class="home-links">
-            <a class="link" href="{{ route('static::dnd5::monsters-manual') }}">Monster's Manual</a>
-            <a class="link" href="#">Classes</a>
-            <a class="link" href="#">Races</a>
-            <a class="link" href="#">Weapons</a>
-            <a class="link" href="#">Armor/Shields</a>
-            <a class="link" href="#">Items</a>
+            <a class="link" href="#">Add New Monster</a>
         </div>
 
     </div>

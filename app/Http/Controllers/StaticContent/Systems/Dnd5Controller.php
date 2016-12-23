@@ -12,5 +12,9 @@ class Dnd5Controller extends Controller{
     public function overview() {
     	return view("static-content.dnd5.overview");
     }
-    
+
+    public function monstersManualList() {
+    	return view("static-content.dnd5.monstersManualList");
+    }
+
 }
