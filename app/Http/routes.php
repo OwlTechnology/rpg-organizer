@@ -55,5 +55,5 @@ Route::group(["middleware" => "auth"], function(){
 
 // Google API.AI
 Route::group(["prefix" => "/api/ai", "as" => "ai::", "namespace" => "ai"], function() {
-    Route::get('/handle', ["as" => "default", "uses" => "ApiAiController@handle"]);
+    Route::any('/handle', ["as" => "default", "uses" => "ApiAiController@handle"]);
 });
