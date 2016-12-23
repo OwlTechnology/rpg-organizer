@@ -5,6 +5,7 @@ elixir(function(mix) {
     mix.sass('sections/notes/note.scss');
     mix.sass('sections/notes/notes.scss');
     mix.sass('sections/notes/newNote.scss');
+    mix.sass('sections/me.scss');
     mix.sass('sections/npcs/list.scss');
     mix.sass('campaign.scss');
 
@@ -12,7 +13,8 @@ elixir(function(mix) {
         "css/app.css",
         "css/note.css",
         "css/notes.css",
-        "css/newNote.scss",
+        "css/newNote.css",
+        "css/me.css",
         "css/list.css",
         "css/campaign.css"
     ]);

@@ -10,7 +10,7 @@
                     @foreach($locations as $location)
                     <div class="location">
                         <h3 class="title">
-                            <a href="{{ url('/campaign/' . $campaign->id . '/location/' . $location->id) }}">
+                            <a href="{{ route('campaign::locations::view', [$campaign->id, $location->id]) }}">
                                 {{ $location->name }}
                             </a>
                         </h3>
@@ -22,7 +22,7 @@
                 </div>
 
                 <div class="actions">
-                    <a class="icon-button blue" href="{{ url("/campaigns/" . $campaign->id . "/locations/new") }}">
+                    <a class="icon-button blue" href="{{ route('campaign::locations::new', $campaign->id) }}">
                         <i class="material-icons">add</i><span class="text">Add New Location</span>
                     </a>
                 </div>

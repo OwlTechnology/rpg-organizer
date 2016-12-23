@@ -11,9 +11,8 @@ use App\Location;
 class LocationsController extends Controller
 {
     //
-    public function showLocations($campaignID){
-        $campaign = Campaign::find($campaignID);
-        $locations = Location::where("campaign", $campaignID)->get();
+    public function showLocations(Campaign $campaign){
+        $locations = Location::where("campaign", $campaign->id)->get();
 
         return view("campaign.Locations", [
             "activeTab" => "locations",
@@ -22,40 +21,31 @@ class LocationsController extends Controller
         ]);
     }
 
-    public function showCreateLocation($campaignID){
-        $campaign = Campaign::find($campaignID);
-
+    public function showCreateLocation(Campaign $campaign){
         return view("locations.new",[
             "campaign" => $campaign
         ]);
     }
 
-    public function createLocation(Request $request, $campaignID){
-        $campaign = Campaign::find($campaignID);
-
+    public function createLocation(Request $request, Campaign $campaign){
         $location = new Location;
 
-        $location->campaign = $campaignID;
+        $location->campaign = $campaign->id;
         $location->name = $request->input("name");
         $location->content = $request->input("content");
         $location->save();
 
-        return redirect('/campaign/' . $campaignID . '/location/' . $location->id);
-
+        return redirect()->route('campaign::locations::view', [$campaign->id, $location->id]);
     }
 
-    public function showEditLocation($campaignID, $locationID){
-        $location = Location::find($locationID);
-        $campaign = Campaign::find($campaignID);
+    public function showEditLocation(Campaign $campaign, Location $location){
         return view("locations.edit", [
-            "currentLocation" => $location,
-            "currentCampaign" => $campaign
+            "location" => $location,
+            "campaign" => $campaign
         ]);
     }
 
-    public function updateLocation(Request $request, $campaignID, $locationID){
-        $location = Location::find($locationID);
-
+    public function updateLocation(Request $request, Campaign $campaign, Location $location){
         $name = $request->input("newName");
         $content = $request->input("newContent");
 
@@ -64,25 +54,17 @@ class LocationsController extends Controller
 
         $location->save();
 
-        return redirect("/campaign/" . $location->campaign . "/location/" . $location->id);
-
-
-
+        return redirect()->route('campaign::locations::view', [$campaign->id, $location->id]);
     }
 
-    public function deleteLocation($campaignID, $locationID){
-        $location = Location::find($locationID);
-
+    public function deleteLocation(Campaign $campaign, Location $location){
         $location->delete();
 
-        return redirect("/campaign/" . $campaignID . "/locations");
+        return redirect()->route("campaign::locations::list", $campaign->id);
 
     }
 
-    public function showLocation($campaignID, $locationID){
-        $location = Location::find($locationID);
-        $campaign = Campaign::find($campaignID);
-
+    public function showLocation(Campaign $campaign, Location $location){
         return view("locations.view", [
             "location" => $location,
             "campaign" => $campaign

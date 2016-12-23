@@ -28,7 +28,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('/campaign/' . $campaign->id . '/notes/') }}" class='{{ $activeTab === "notes" ? "active" : "" }}'>
+                        <a href="{{ route('campaign::notes::list', $campaign->id) }}" class='{{ $activeTab === "notes" ? "active" : "" }}'>
                             Notes
                         </a>
                     </li>
@@ -38,7 +38,7 @@
                         </a>
                     </li>
                     <li>
-                        <a href="{{ url('/campaign/' . $campaign->id . '/npcs/') }}" class='{{ $activeTab === "npcs" ? "active" : "" }}'>
+                        <a href="{{ route('campaign::npcs::list', $campaign->id) }}" class='{{ $activeTab === "npcs" ? "active" : "" }}'>
                             NPCs
                         </a>
                     </li>

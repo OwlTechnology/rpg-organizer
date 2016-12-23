@@ -12,7 +12,7 @@
         </div>
         @endif
 
-        <form class="form create" method="post" action="{{url('/campaigns/' . $campaign->id . '/locations/new/')}}">
+        <form class="form create" method="post" action="{{ route('campaign::locations::new.post', $campaign->id) }}">
             {{ csrf_field() }}
 
             <div class="form-element">

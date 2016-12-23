@@ -99,10 +99,17 @@ class AccountsController extends Controller
     }
 
     public function showHomePage(Request $request){
-        $campaigns = Campaign::where("dm", Auth::user()->id)->get();
 
-        return view("accounts.user.overview", [
-            "campaigns" => $campaigns
+        return view("accounts.user.overview");
+    }
+
+    public function showCampaigns(){
+        $campaigns = Campaign::where("dm", Auth::user()->id)->get();
+        $campaignsUserIsIn = Auth::user()->campaignsUserIsIn;
+
+        return view("accounts.user.campaigns")->with([
+            "campaigns" => $campaigns,
+            "campaignsUserIsIn" => $campaignsUserIsIn
         ]);
     }
 }

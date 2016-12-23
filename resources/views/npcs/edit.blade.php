@@ -5,11 +5,11 @@
     <div class="content-body">
         <div class="breadcrumbs spaced">
             /
-            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/") }}">{{ $campaign->name }}</a>
+            <a class="breadcrumb" href="{{ route('campaign::view', $campaign->id) }}">{{ $campaign->name }}</a>
             /
-            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/npcs/") }}">NPCs</a>
+            <a class="breadcrumb" href="{{ route('campaign::npcs::list', $campaign->id) }}">NPCs</a>
             /
-            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/npc/" . $npc->id . "/") }}">
+            <a class="breadcrumb" href="{{ route('campaign::npcs::view', [$campaign->id, $npc->id]) }}">
                 {{ $npc->name }}
             </a>
             /
@@ -19,7 +19,7 @@
         </div>
 
         <div class="section">
-            <form action="{{ '/campaign/' . $campaign->id . '/npc/' . $npc->id . '/edit' }}" method="post">
+            <form action="{{ route('campaign::npcs::edit.post', [$campaign->id, $npc->id]) }}" method="post">
                 {{ csrf_field() }}
 
                 <h2>
