@@ -57,6 +57,17 @@ Route::group(["middleware" => "auth"], function(){
             Route::get('/{npc}/edit', ["as" => "edit", "uses" => 'NpcsController@editView']);
             Route::post('/{npc}/edit', ["as" => "edit.post", "uses" => 'NpcsController@update']);
         });
+
+        // Locations
+        Route::group(["prefix" => "/{campaign}/locations", "as" => "locations::"], function() {
+            Route::get("/", ["as" => "list", "uses" => "LocationsController@showLocations"]);
+            Route::get("/new", ["as" => "new", "uses" => "LocationsController@showCreateLocation"]);
+            Route::post("/new", ["as" => "new.post", "uses" => "LocationsController@createLocation"]);
+            Route::get("/{location}", ["as" => "view", "uses" => "LocationsController@showLocation"]);
+            Route::get("/{location}/edit", ["as" => "edit", "uses" => "LocationsController@showEditLocation"]);
+            Route::post("/{location}/edit", ["as" => "edit.post", "uses" => "LocationsController@updateLocation"]);
+            Route::get("/{location}/delete", ["as" => "delete", "uses" => "LocationsController@deleteLocation"]);
+        });
     });
 
     // Invites
@@ -64,13 +75,4 @@ Route::group(["middleware" => "auth"], function(){
         Route::get('/', ["as" => "list", "uses" => "InviteController@getInvitesForCurrentUser"]);
         Route::get("/invites/accept/{inviteID}", ["as" => "accept", "uses" => "InviteController@acceptInvite"]);
     });
-
-    // Locations
-    Route::get("/campaign/{campaignID}/locations", "LocationsController@showLocations");
-    Route::get("/campaigns/{campaignID}/locations/new", "LocationsController@showCreateLocation");
-    Route::post("/campaigns/{campaignID}/locations/new", "LocationsController@createLocation");
-    Route::get("/campaign/{campaignID}/location/{locationID}", "LocationsController@showLocation");
-    Route::get("/campaign/{campaignID}/location/{locationID}/edit", "LocationsController@showEditLocation");
-    Route::post("/campaign/{campaignID}/location/{locationID}/edit", "LocationsController@updateLocation");
-    Route::get("/campaign/{campaignID}/location/{locationID}/delete", "LocationsController@deleteLocation");
 });
