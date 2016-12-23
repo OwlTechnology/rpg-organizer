@@ -9,17 +9,17 @@
 <div class="content">
     <div class="content-body note edit">
 
-        <form method="post" action="{{ url('/campaign/' . $currentCampaign->id . '/notes/' . $currentNote->id . '/edit')}}">
+        <form method="post" action="{{ route('campaign::notes::edit.post', [$campaign->id, $note->id]) }}">
             {{ csrf_field() }}
 
             <div class="edit-group">
-                <input type="text" value="{{ $currentNote->name }}" name="newName"/>
+                <input type="text" value="{{ $note->name }}" name="newName"/>
             </div>
             <div class="edit-group">
-                <input type="text" value="{{$currentNote->description}}" name="newDescription"/>
+                <input type="text" value="{{$note->description}}" name="newDescription"/>
             </div>
             <div class="edit-group">
-                <input type="text" value="{{$currentNote->content}}" name="newContent"/>
+                <input type="text" value="{{$note->content}}" name="newContent"/>
             </div>
             <button type="submit" class="button">
                 Submit

@@ -14,9 +14,9 @@
 
         <div class="breadcrumbs spaced">
             /
-            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/") }}">{{ $campaign->name }}</a>
+            <a class="breadcrumb" href="{{ route('campaign::view', $campaign->id) }}">{{ $campaign->name }}</a>
             /
-            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/notes/") }}">Notes</a>
+            <a class="breadcrumb" href="{{ route('campaign::notes::list', $campaign->id) }}">Notes</a>
             /
             <span class="breadcrumb">
                 {{ $note->name }}
@@ -29,7 +29,7 @@
             {{$note->content}}
         </p>
         <div class="actions">
-            <a class="icon-button blue" href="{{ url('/campaign/' . $campaign->id . '/notes/' . $note->id . '/edit/') }}">
+            <a class="icon-button blue" href="{{ route('campaign::notes::edit', [$campaign->id, $note->id]) }}">
                 <i class="material-icons">edit</i><span class="text">Edit Note</span>
             </a>
             <button class="icon-button red" onclick="toggleDeleteModal(true)">
@@ -47,7 +47,7 @@
             </p>
         </div>
         <div class="actions top-line">
-            <a class="button red" href="{{ url("/campaign/" . $campaign->id . "/note/" . $note->id . "/delete/") }}">
+            <a class="button red" href="{{ route('campaign::notes::delete', [$campaign->id, $note->id]) }}">
                 Delete
             </a>
             <button class="button" onclick="toggleDeleteModal(false)">

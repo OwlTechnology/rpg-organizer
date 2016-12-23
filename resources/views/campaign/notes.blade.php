@@ -24,7 +24,7 @@
                     </h3>
                     <p class="description">{{ $note->description }}</p>
                     <div class="actions">
-                        <a href="{{ url('/campaign/' . $campaign->id . '/notes/' . $note->id) }}">
+                        <a href="{{ route('campaign::notes::view', [$campaign->id, $note->id]) }}">
                             View
                         </a>
                     </div>
@@ -40,7 +40,7 @@
   <div class="content-body">
       <div class="section">
         <div class="actions">
-            <a class="icon-button blue" href="{{ route("campaign::notes::new", $campaign->id) }}">
+            <a class="icon-button blue" href="{{ route('campaign::notes::new', $campaign->id) }}">
                 <i class="material-icons">add</i><span class="text">Write New Note</span>
             </a>
         </div>

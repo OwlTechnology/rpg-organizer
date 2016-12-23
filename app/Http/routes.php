@@ -43,6 +43,19 @@ Route::group(["middleware" => "auth"], function(){
             Route::get("/new", ["as" => "new", "uses" => "NotesController@showCreateNote"]);
             Route::post("/new", ["as" => "new.post", "uses" => "NotesController@createNote"]);
             Route::get("/{note}", ["as" => "view", "uses" => "NotesController@showNote"]);
+            Route::get("/{note}/edit", ["as" => "edit", "uses" => "NotesController@showEditNote"]);
+            Route::post("/{note}/edit" , ["as" => "edit.post", "uses" => "NotesController@updateNote"]);
+            Route::get("/{note}/delete", ["as" => "delete", "uses" => "NotesController@deleteNote"]);
+        });
+
+        // NPCs
+        Route::group(["prefix" => "/{campaign}/npcs", "as" => "npcs::"], function() {
+            Route::get("/", ["as" => "list", "uses" => "NpcsController@npcs"]);
+            Route::get('/new', ["as" => "new", "uses" => 'NpcsController@createPage']);
+            Route::post('/new', ["as" => "new.post", "uses" => 'NpcsController@create']);
+            Route::get('/{npc}', ["as" => "view", "uses" => 'NpcsController@view']);
+            Route::get('/{npc}/edit', ["as" => "edit", "uses" => 'NpcsController@editView']);
+            Route::post('/{npc}/edit', ["as" => "edit.post", 'NpcsController@update']);
         });
     });
 
@@ -51,19 +64,6 @@ Route::group(["middleware" => "auth"], function(){
         Route::get('/', ["as" => "list", "uses" => "InviteController@getInvitesForCurrentUser"]);
         Route::get("/invites/accept/{inviteID}", ["as" => "accept", "uses" => "InviteController@acceptInvite"]);
     });
-
-    // NPCs
-    Route::get("/campaign/{campaignID}/npcs/", "NpcsController@npcs");
-    Route::get('/campaigns/{campaignID}/npcs/new', 'NpcsController@createPage');
-    Route::post('/campaigns/{campaignID}/npcs/new', 'NpcsController@create');
-    Route::get('/campaign/{campaignID}/npc/{npcID}/', 'NpcsController@view');
-    Route::get('/campaign/{campaignID}/npc/{npcID}/edit', 'NpcsController@editView');
-    Route::post('/campaign/{campaignID}/npc/{npcID}/edit', 'NpcsController@update');
-
-    // Notes
-    Route::get("/campaign/{campaignID}/notes/{noteID}/edit", "NotesController@showEditNote");
-    Route::post("/campaign/{campaignID}/notes/{noteID}/edit" , "NotesController@updateNote");
-    Route::get("/campaign/{campaignID}/note/{noteID}/delete", "NotesController@deleteNote");
 
     // Locations
     Route::get("/campaign/{campaignID}/locations", "LocationsController@showLocations");

@@ -49,34 +49,28 @@ class NotesController extends Controller
         }
     }
 
-    public function showEditNote(Campaign $campaign, $noteID){
-        $note = Note::find($noteID);
-
+    public function showEditNote(Campaign $campaign, Note $note){
         return view("notes.edit", [
-            "currentNote" => $note,
-            "currentCampaign" => $campaign
+            "note" => $note,
+            "campaign" => $campaign
         ]);
     }
 
 
-    public function deleteNote(Campaign $campaign, $noteID){
-        $note = Note::find($noteID);
-
+    public function deleteNote(Campaign $campaign, Note $note){
         $note->delete();
 
-        return redirect("/campaign/" . $campaignID . "/notes/");
+        return redirect("/campaign/" . $campaign->id . "/notes/");
 
 
     }
-    public function updateNote(Request $request, Campaign $campaign, $noteID){
+    public function updateNote(Request $request, Campaign $campaign, Note $note){
         // Get data
         $name = $request->input("newName");
         $description = $request->input("newDescription");
         $content = $request->input("newContent");
 
         // Update note
-        $note = Note::find($noteID);
-
         $note->name = $name;
         $note->description = $description;
         $note->content = $content;

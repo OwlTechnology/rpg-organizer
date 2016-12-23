@@ -10,9 +10,9 @@
     <div class="content-body">
         <div class="breadcrumbs spaced">
             /
-            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/") }}">{{ $campaign->name }}</a>
+            <a class="breadcrumb" href="{{ route('campaign::view', $campaign->id) }}">{{ $campaign->name }}</a>
             /
-            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/notes/") }}">Notes</a>
+            <a class="breadcrumb" href="{{ route('campaign::notes::list', $campaign->id) }}">Notes</a>
             /
             <span class="breadcrumb">
                 Create New Note
