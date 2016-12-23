@@ -29,17 +29,17 @@ class CreateDnd5MonstersTable extends Migration
             $table->integer("base_intelligence");
             $table->integer("base_wisdom");
             $table->integer("base_charisma");
-            $table->json("saving_throws");
-            $table->json("skills");
-            $table->json("senses");
-            $table->json("languages");
+            $table->string("saving_throws", 512);
+            $table->string("skills", 512);
+            $table->string("senses", 512);
+            $table->string("languages", 256);
             $table->integer("challenge_rating");
             $table->integer("average_exp");
-            $table->json("features");
+            $table->string("features", 65535);
             $table->string("legendary_actions_description", 1024);
-            $table->json("legendary_actions");
-            $table->json("damage_resistances");
-            $table->json("condition_immunities");
+            $table->string("legendary_actions", 65535);
+            $table->string("damage_resistances", 512);
+            $table->string("condition_immunities", 512);
 
             $table->timestamps();
         });
