@@ -12,14 +12,12 @@
         <div class="me-header">
             <div class="username">{{ Auth::user()->name }}</div>
             <hr class="line" />
-            <div class="subtitle">My Account</div>
+            <div class="subtitle">Static Content</div>
         </div>
 
         <div class="home-links">
-            <a class="link" href="{{ route('profile::campaigns') }}">My Campaigns</a>
-            <a class="link" href="#">Character Sheets</a>
-            <a class="link" href="{{  route('static::systems') }}">Static Content</a>
-            <a class="link" href="#">Settings</a>
+            <a class="link" href="{{ route('static::dnd5::overview') }}">D&amp;D 5</a>
+            <a class="link" href="#">More Coming Soon...</a>
         </div>
 
     </div>

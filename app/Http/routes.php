@@ -48,4 +48,7 @@ Route::group(["middleware" => "auth"], function(){
         Route::get('/', ["as" => "list", "uses" => "InviteController@getInvitesForCurrentUser"]);
         Route::get("/invites/accept/{inviteID}", ["as" => "accept", "uses" => "InviteController@acceptInvite"]);
     });
+
+    // Static Content
+    include "Routes/StaticContent.php";
 });
