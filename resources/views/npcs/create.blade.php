@@ -6,9 +6,9 @@
     <div class="content-body">
         <div class="breadcrumbs spaced">
             /
-            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id) }}">{{ $campaign->name }}</a>
+            <a class="breadcrumb" href="{{ route('campaign::view', $campaign->id) }}">{{ $campaign->name }}</a>
             /
-            <a class="breadcrumb" href="{{ url("/campaign/" . $campaign->id . "/npcs/") }}">NPCs</a>
+            <a class="breadcrumb" href="{{ route('campaign::npcs::list', $campaign->id) }}">NPCs</a>
             /
             <span class="breadcrumb">Add New NPC</span>
         </div>
@@ -21,7 +21,7 @@
         </div>
         @endif
 
-        <form class="form create" method="post" action="{{url('/campaigns/' . $campaign->id . '/npcs/new/')}}">
+        <form class="form create" method="post" action="{{ route('campaign::npcs::new.post', $campaign->id) }}">
             {{ csrf_field() }}
 
             <div class="form-element">
@@ -40,6 +40,7 @@
                 Location:
                 @if(count($locations) < 1)
                     <i>None Available</i>
+                    <input type="hidden" name="location_id" value="0" />
                 @else
                     <select name="location_id">
                         <option value="0">None</option>

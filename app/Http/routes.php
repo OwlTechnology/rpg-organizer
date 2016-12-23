@@ -55,7 +55,7 @@ Route::group(["middleware" => "auth"], function(){
             Route::post('/new', ["as" => "new.post", "uses" => 'NpcsController@create']);
             Route::get('/{npc}', ["as" => "view", "uses" => 'NpcsController@view']);
             Route::get('/{npc}/edit', ["as" => "edit", "uses" => 'NpcsController@editView']);
-            Route::post('/{npc}/edit', ["as" => "edit.post", 'NpcsController@update']);
+            Route::post('/{npc}/edit', ["as" => "edit.post", "uses" => 'NpcsController@update']);
         });
     });
 

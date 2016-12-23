@@ -17,7 +17,7 @@
                         <img title="NPC picture" src="/img/npc/head-outline.png" />
                     </div>
                     <div class="name">
-                        <a href="{{ url('/campaign/' . $campaign->id . '/npc/' . $npc->id . '/') }}">
+                        <a href="{{ route('campaign::npcs::view', [$campaign->id, $npc->id]) }}">
                             {{ $npc->name }}
                         </a>
                     </div>
@@ -26,7 +26,7 @@
         </div>
 
         <div class="actions">
-            <a href="{{ url("/campaigns/" . $campaign->id . "/npcs/new") }}" class="button blue">
+            <a href="{{ route('campaign::npcs::new', $campaign->id) }}" class="button blue">
                 Add New NPC
             </a>
         </div>
