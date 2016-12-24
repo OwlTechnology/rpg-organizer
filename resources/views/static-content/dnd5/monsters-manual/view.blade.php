@@ -7,6 +7,12 @@
         <h1>{{ $monster->name }}</h1>
 
         <div>
+            <a href="{{ route('static::dnd5::monsters-manual::edit', $monster->id) }}">
+                Edit {{ $monster->name }}
+            </a>
+        </div>
+
+        <div>
         	<strong>Classification:</strong>
         	<span>{{ $monster->classification }}</span>
         </div>

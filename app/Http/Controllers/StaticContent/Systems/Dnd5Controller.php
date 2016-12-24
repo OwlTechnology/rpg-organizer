@@ -59,4 +59,10 @@ class Dnd5Controller extends Controller{
     	return redirect()->route("static::dnd5::monsters-manual::list");
     }
 
+    public function editMonsterView(Monster $monster) {
+        return view("static-content.dnd5.monsters-manual.edit")->with([
+            "monster" => $monster
+        ]);
+    }
+
 }

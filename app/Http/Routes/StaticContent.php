@@ -10,6 +10,8 @@ Route::group(["prefix" => "static", "as" => "static::", "namespace" => "StaticCo
 			Route::get('/', ["as" => "list", "uses" => "Dnd5Controller@monstersManualList"]);
 			Route::get('/new', ["as" => "new", "uses" => "Dnd5Controller@newMonsterView"]);
 			Route::post('/new', ["as" => "new.post", "uses" => "Dnd5Controller@newMonster"]);
+			Route::get('/{monster}/edit', ["as" => "edit", "uses" => "Dnd5Controller@editMonsterView"]);
+			Route::post('/{monster}/edit', ["as" => "edit.post", "uses" => "Dnd5Controller@editMonster"]);
 			Route::get('/{monster}', ["as" => "view", "uses" => "Dnd5Controller@viewMonster"]);
 		});
 	});
