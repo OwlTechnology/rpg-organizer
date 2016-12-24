@@ -7,6 +7,8 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+use App\Models\StaticContent\Dnd5\Monster;
+
 class ApiAiController extends Controller{
     
     /**
@@ -75,16 +77,12 @@ class ApiAiController extends Controller{
 		$monsterName = $req->result->parameters->monster_name;
 		$output = "";
 
-		switch($monsterName){
-			case "bear":
-				$output = "Bears are pretty neat.";
-				break;
-			case "beholder":
-				$output = "Ah, beholders are scary.";
-				break;
-			default:
-				$output = "I'm not sure I know much about that monster!";
-				break;
+		$monster = Monster::where("ai_name_key", $monsterName)->first();
+
+		if($monster){
+			$output = "A {$monster->name} is a {$monster->classification}.";
+		}else{
+			$output = "I don't know much about that monster right now!";
 		}
 
 		return [

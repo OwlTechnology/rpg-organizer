@@ -16,6 +16,7 @@ class CreateDnd5MonstersTable extends Migration
             $table->increments('id');
 
             $table->string("name", 128);
+            $table->string("ai_name_key", 128);
             $table->string("classification", 64);
             $table->integer("alignment_id")->unsigned();
             $table->integer("armor_class");
