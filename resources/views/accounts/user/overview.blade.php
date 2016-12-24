@@ -18,7 +18,9 @@
         <div class="home-links">
             <a class="link" href="{{ route('profile::campaigns') }}">My Campaigns</a>
             <a class="link" href="#">Character Sheets</a>
-            <a class="link" href="{{  route('static::systems') }}">Static Content</a>
+            @if(\Auth::user()->account_type == 2)
+                <a class="link" href="{{  route('static::systems') }}">Static Content</a>
+            @endif
             <a class="link" href="#">Settings</a>
         </div>
 

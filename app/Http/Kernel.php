@@ -51,5 +51,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'dm' => \App\Http\Middleware\DungeonMaster::class,
         'IsInCampaign' => \App\Http\Middleware\IsInCampaign::class,
+        'IsStaticManager' => \App\Http\Middleware\IsStaticManager::class
     ];
 }
