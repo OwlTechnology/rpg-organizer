@@ -87,7 +87,7 @@ class ApiAiController extends Controller{
 				break;
 		}
 
-		$outputJSON = [
+		return [
 		    "speech" => $output,
 		    "displayText" => $output,
 		    "data" => [],
