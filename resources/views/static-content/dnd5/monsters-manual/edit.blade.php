@@ -13,7 +13,7 @@
         </div>
         @endif
 
-        <form class="form create" method="post" action="{{ route('static::dnd5::monsters-manual::edit.post') }}">
+        <form class="form create" method="post" action="{{ route('static::dnd5::monsters-manual::edit.post', $monster->id) }}">
             {{ csrf_field() }}
 
             <div class="form-element">
@@ -32,15 +32,15 @@
                 <label>
                     Alignment
                     <select name="alignment_id">
-                        <option value="1">Lawful Good</option>
-                        <option value="2">Chaotic Good</option>
-                        <option value="3">Neutral Good</option>
-                        <option value="4">Lawful Neutral</option>
-                        <option value="5">True Neutral</option>
-                        <option value="6">Chaotic Neutral</option>
-                        <option value="7">Lawful Evil</option>
-                        <option value="8">Neutral Evil</option>
-                        <option value="9">Chaotic Evil</option>
+                        <option value="1" {{ $monster->alignment_id == 1 ? "selected" : "" }}>Lawful Good</option>
+                        <option value="2" {{ $monster->alignment_id == 2 ? "selected" : "" }}>Chaotic Good</option>
+                        <option value="3" {{ $monster->alignment_id == 3 ? "selected" : "" }}>Neutral Good</option>
+                        <option value="4" {{ $monster->alignment_id == 4 ? "selected" : "" }}>Lawful Neutral</option>
+                        <option value="5" {{ $monster->alignment_id == 5 ? "selected" : "" }}>True Neutral</option>
+                        <option value="6" {{ $monster->alignment_id == 6 ? "selected" : "" }}>Chaotic Neutral</option>
+                        <option value="7" {{ $monster->alignment_id == 7 ? "selected" : "" }}>Lawful Evil</option>
+                        <option value="8" {{ $monster->alignment_id == 8 ? "selected" : "" }}>Neutral Evil</option>
+                        <option value="9" {{ $monster->alignment_id == 9 ? "selected" : "" }}>Chaotic Evil</option>
                     </select>
                 </label>
             </div>
