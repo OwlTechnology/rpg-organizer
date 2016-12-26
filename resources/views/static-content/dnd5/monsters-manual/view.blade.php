@@ -13,6 +13,11 @@
         </div>
 
         <div>
+            <strong>API.AI Name Key:</strong>
+            <span>{{ $monster->ai_name_key }}</span>
+        </div>
+
+        <div>
         	<strong>Classification:</strong>
         	<span>{{ $monster->classification }}</span>
         </div>

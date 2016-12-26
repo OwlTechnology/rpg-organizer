@@ -24,6 +24,12 @@
             </div>
             <div class="form-element">
                 <label>
+                    API.AI Name Key
+                    <input type="text" name="ai_name_key" maxlength="128" />
+                </label>
+            </div>
+            <div class="form-element">
+                <label>
                     Classification
                     <input type="text" name="classification" maxlength="64" />
                 </label>

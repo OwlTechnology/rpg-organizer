@@ -55,6 +55,7 @@ class Dnd5Controller extends Controller{
 
     protected function updateMonster($request, $monster){
         $monster->name = $request->input("name");
+        $monster->ai_name_key = $request->input("ai_name_key");
         $monster->classification = $request->input("classification");
         $monster->alignment_id = $request->input("alignment_id");
         $monster->armor_class = $request->input("armor_class");
