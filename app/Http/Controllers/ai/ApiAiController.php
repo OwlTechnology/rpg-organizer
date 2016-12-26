@@ -80,7 +80,9 @@ class ApiAiController extends Controller{
 		$monster = Monster::where("ai_name_key", $monsterName)->first();
 
 		if($monster){
-			$output = "A {$monster->name} is a {$monster->classification}.";
+			$alignmentName = $monster->getAlignmentName();
+
+			$output = "A {$monster->name} is a {$alignmentName} {$monster->classification}.";
 		}else{
 			$output = "I don't know much about that monster right now!";
 		}
