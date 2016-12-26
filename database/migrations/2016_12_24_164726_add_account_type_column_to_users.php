@@ -6,9 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 class AddAccountTypeColumnToUsers extends Migration
 {
     /**
-     * Run the migrations; adds the 'account_type' column to the users table so
-     * that certain users can have certain account types and associated
-     * permissions.
+     * Run the migrations.
      *
      * @return void
      */
