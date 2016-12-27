@@ -4,9 +4,15 @@ namespace App\Models\StaticContent\Dnd5;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Monster extends Model
-{
+class Monster extends Model{
+
     protected $table = 'static_dnd5_monsters';
+
+    // cannot be called "features" due to some protected word inherited from 
+    // Model
+    public function _features() {
+        return $this->hasMany("App\Models\StaticContent\Dnd5\Feature", "monster_id", "id");
+    }
 
     public function getAlignmentName() {
     	switch($this->alignment_id){

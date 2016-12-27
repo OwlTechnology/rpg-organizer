@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Models\StaticContent\Dnd5\Monster;
+use App\Models\StaticContent\Dnd5\Feature;
 
 class Dnd5Controller extends Controller{
 
@@ -24,8 +25,11 @@ class Dnd5Controller extends Controller{
     }
 
     public function viewMonster(Monster $monster) {
+        $features = $monster->_features;
+
         return view("static-content.dnd5.monsters-manual.view")->with([
-            "monster" => $monster
+            "monster" => $monster,
+            "features" => $features
         ]);
     }
 
@@ -74,6 +78,29 @@ class Dnd5Controller extends Controller{
         $monster->legendary_actions_description = $request->input("legendary_actions_description");
 
         $monster->save();
+    }
+
+    // ===== Features ===== //
+    public function newFeatureView(Monster $monster) {
+        return view('static-content.dnd5.monsters-manual.features.new')->with([
+            "monster" => $monster
+        ]);
+    }
+
+    public function newFeature(Request $request, Monster $monster) {
+        $feature = new Feature;
+
+        $feature->monster_id = $monster->id;
+        $this->updateFeature($request, $feature);
+
+        return redirect()->route("static::dnd5::monsters-manual::view", $monster->id);
+    }
+
+    protected function updateFeature($request, $feature){
+        $feature->name = $request->input("name");
+        $feature->description = $request->input("description");
+
+        $feature->save();
     }
 
 }

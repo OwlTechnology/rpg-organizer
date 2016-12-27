@@ -8,6 +8,7 @@ use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
 use App\Models\StaticContent\Dnd5\Monster;
+use App\Models\StaticContent\Dnd5\Feature;
 
 class ApiAiController extends Controller{
     

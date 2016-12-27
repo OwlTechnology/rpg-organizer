@@ -146,6 +146,29 @@
                     </div>
                 </div>
 
+                <div class="features">
+                    <h3>Features:</h3>
+
+                    @forelse($features as $feature)
+                        <div class="feature">
+                            <p>
+                                <strong><i>{{ $feature->name }}.</i></strong>
+                                {{ $feature->description }}
+                            </p>
+                        </div>
+                    @empty
+                        <div>
+                            <i>No Features Available for this Monster</i>
+                        </div>
+                    @endforelse
+
+                    <p>
+                        <a href="{{ route('static::dnd5::monsters-manual::features::new', $monster->id) }}">
+                            Add New Feature
+                        </a>
+                    </p>
+                </div>
+
                 <div>
                     <strong>Legendary Actions:</strong>
                     <p>{{ $monster->legendary_actions_description }}</p>

@@ -13,6 +13,12 @@ Route::group(["prefix" => "static", "as" => "static::", "namespace" => "StaticCo
 			Route::get('/{monster}/edit', ["as" => "edit", "uses" => "Dnd5Controller@editMonsterView"]);
 			Route::post('/{monster}/edit', ["as" => "edit.post", "uses" => "Dnd5Controller@editMonster"]);
 			Route::get('/{monster}', ["as" => "view", "uses" => "Dnd5Controller@viewMonster"]);
+
+			// Features
+			Route::group(["prefix" => "/{monster}/features", "as" => "features::"], function() {
+				Route::get('/new', ["as" => "new", "uses" => "Dnd5Controller@newFeatureView"]);
+				Route::post('/new', ["as" => "new.post", "uses" => "Dnd5Controller@newFeature"]);
+			});
 		});
 	});
 });
