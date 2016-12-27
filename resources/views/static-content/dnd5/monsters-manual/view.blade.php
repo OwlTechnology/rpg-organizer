@@ -15,8 +15,8 @@
         <h1>{{ $monster->name }}</h1>
 
         <div class="edit-wrapper">
-            <a href="{{ route('static::dnd5::monsters-manual::edit', $monster->id) }}">
-                Edit {{ $monster->name }}
+            <a class="button blue" href="{{ route('static::dnd5::monsters-manual::edit', $monster->id) }}">
+                <i class="material-icons">edit</i>
             </a>
         </div>
 
@@ -165,15 +165,48 @@
                     <p>
                         <a class="button blue" href="{{ route('static::dnd5::monsters-manual::features::new', $monster->id) }}">
                             <i class="material-icons">add</i>
-                            Add New Feature
+                            New Feature
                         </a>
                     </p>
                 </div>
 
-                <div>
-                    <h2>Legendary Actions</h2>
-                    <p>{{ $monster->legendary_actions_description }}</p>
+                <div class="actions">
+                    <h2>Actions</h2>
+
+                    @forelse($actions as $action)
+                        <div class="action">
+                            <p>
+                                <strong>
+                                    <i>
+                                        {{ $action->name }}{{ $action->denotation !== "" ? " (" . $action->denotation . ")" : "" }}.
+                                    </i>
+                                </strong>
+                                @if($action->attack_description !== "")
+                                    <i>{{ $action->attack_description }}</i>
+                                @endif
+                                {{ $action->description }}
+                            </p>
+                        </div>
+                    @empty
+                        <div>
+                            <i>No Actions Available for this Monster</i>
+                        </div>
+                    @endforelse
+
+                    <p>
+                        <a class="button blue" href="{{ route('static::dnd5::monsters-manual::actions::new', $monster->id) }}">
+                            <i class="material-icons">add</i>
+                            New Action
+                        </a>
+                    </p>
                 </div>
+
+                @if($monster->legendary_actions_description !== "")
+                    <div>
+                        <h2>Legendary Actions</h2>
+                        <p>{{ $monster->legendary_actions_description }}</p>
+                    </div>
+                @endif
             </div>
 
         </div>

@@ -19,6 +19,12 @@ Route::group(["prefix" => "static", "as" => "static::", "namespace" => "StaticCo
 				Route::get('/new', ["as" => "new", "uses" => "Dnd5Controller@newFeatureView"]);
 				Route::post('/new', ["as" => "new.post", "uses" => "Dnd5Controller@newFeature"]);
 			});
+
+			// Actions
+			Route::group(["prefix" => "/{monster}/actions", "as" => "actions::"], function() {
+				Route::get('/new', ["as" => "new", "uses" => "Dnd5Controller@newActionView"]);
+				Route::post('/new', ["as" => "new.post", "uses" => "Dnd5Controller@newAction"]);
+			});
 		});
 	});
 });

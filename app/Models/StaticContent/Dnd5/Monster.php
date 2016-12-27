@@ -14,6 +14,10 @@ class Monster extends Model{
         return $this->hasMany("App\Models\StaticContent\Dnd5\Feature", "monster_id", "id");
     }
 
+    public function _actions() {
+        return $this->hasMany("App\Models\StaticContent\Dnd5\Action", "monster_id", "id");
+    }
+
     public function getAlignmentName() {
     	switch($this->alignment_id){
     		case 1:

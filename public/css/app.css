@@ -277,6 +277,9 @@ code {
   .breadcrumbs a.breadcrumb {
     color: #0000ff; }
 
+.edit-wrapper {
+  margin: 0 0 15px 0; }
+
 .base-attribute {
   display: inline-block;
   padding: 0 0 10px 0;

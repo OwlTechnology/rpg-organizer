@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\StaticContent\Dnd5\Monster;
 use App\Models\StaticContent\Dnd5\Feature;
+use App\Models\StaticContent\Dnd5\Action;
 
 class Dnd5Controller extends Controller{
 
@@ -26,10 +27,12 @@ class Dnd5Controller extends Controller{
 
     public function viewMonster(Monster $monster) {
         $features = $monster->_features;
+        $actions = $monster->_actions;
 
         return view("static-content.dnd5.monsters-manual.view")->with([
             "monster" => $monster,
-            "features" => $features
+            "features" => $features,
+            "actions" => $actions
         ]);
     }
 
@@ -101,6 +104,31 @@ class Dnd5Controller extends Controller{
         $feature->description = $request->input("description");
 
         $feature->save();
+    }
+
+    // ===== Actions ===== //
+    public function newActionView(Monster $monster) {
+        return view('static-content.dnd5.monsters-manual.actions.new')->with([
+            "monster" => $monster
+        ]);
+    }
+
+    public function newAction(Request $request, Monster $monster){
+        $action = new Action;
+
+        $action->monster_id = $monster->id;
+        $this->updateAction($request, $action);
+
+        return redirect()->route("static::dnd5::monsters-manual::view", $monster->id);
+    }
+
+    protected function updateAction($request, $action){
+        $action->name = $request->input("name");
+        $action->attack_description = $request->input("attack_description");
+        $action->denotation = $request->input("denotation");
+        $action->description = $request->input("description");
+
+        $action->save();
     }
 
 }
