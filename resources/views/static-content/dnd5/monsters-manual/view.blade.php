@@ -155,4 +155,8 @@
         </div>
     </div>
 </div>
+
+<button class="mobile-fab blue">
+    <i class="_icon material-icons">edit</i>
+</button>
 @endsection
