@@ -99,6 +99,8 @@
 		background: #eee;
 		margin: 0 0 10px 0;
 		padding: 3px 0;
+		// momentum scrolling for iOS
+		-webkit-overflow-scrolling: touch;
 	}
 
 	.main-stats{

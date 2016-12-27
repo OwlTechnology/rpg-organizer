@@ -350,7 +350,8 @@ code {
     float: none;
     background: #eee;
     margin: 0 0 10px 0;
-    padding: 3px 0; }
+    padding: 3px 0;
+    -webkit-overflow-scrolling: touch; }
   .main-stats {
     width: 100%;
     float: none; }
