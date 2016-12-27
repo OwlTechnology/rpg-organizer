@@ -10,12 +10,6 @@ elixir(function(mix) {
     mix.sass('campaign.scss');
 
     mix.version([
-        "css/app.css",
-        "css/note.css",
-        "css/notes.css",
-        "css/newNote.css",
-        "css/me.css",
-        "css/list.css",
-        "css/campaign.css"
+        "css/app.css"
     ]);
 });

@@ -4,6 +4,8 @@
     <head>
         <title>RPG Organizer</title>
 
+        <meta name="viewport" content="width=device-width">
+
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Slabo+27px|Josefin+Slab|Roboto|Cutive+Mono" rel="stylesheet">
         <link rel='stylesheet' type='text/css' href='{{ url('css/app.css') }}' />
         @stack('stylesheets')

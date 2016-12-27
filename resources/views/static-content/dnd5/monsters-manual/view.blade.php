@@ -1,82 +1,157 @@
 @extends('master.primary')
 
 @section("content")
+<?php
+    function getMod($baseValue){
+        $value = floor(($baseValue - 10) / 2);
+
+        return $value > 0 ? "+" . $value : $value;
+    }
+?>
+
 <div class="content">
     <div class="content-body">
 
         <h1>{{ $monster->name }}</h1>
 
-        <div>
+        <div class="edit-wrapper">
             <a href="{{ route('static::dnd5::monsters-manual::edit', $monster->id) }}">
                 Edit {{ $monster->name }}
             </a>
         </div>
 
-        <div>
-            <strong>API.AI Name Key:</strong>
-            <span>{{ $monster->ai_name_key }}</span>
-        </div>
+        <div class="sheet-row-1">
 
-        <div>
-        	<strong>Classification:</strong>
-        	<span>{{ $monster->classification }}</span>
-        </div>
-        <div>
-        	<strong>Alignment:</strong>
-        	<span>{{ $monster->alignment_id }}</span>
-        </div>
-        <div>
-        	<strong>AC:</strong>
-        	<span>{{ $monster->armor_class }}</span>
-        </div>
-        <div>
-        	<strong>Hit Points:</strong>
-        	<span>{{ $monster->hit_points }}</span>
-        	<span>({{ $monster->hit_points_calculation }})</span>
-        </div>
-        <div>
-        	<strong>Speed:</strong>
-        	<span>{{ $monster->speed }}ft</span>
-        </div>
-        <div>
-        	<strong>Swim Speed:</strong>
-        	<span>{{ $monster->speed_swim }}ft</span>
-        </div>
-        <div>
-        	<strong>STR:</strong>
-        	<span>{{ $monster->base_strength }}</span>
-        </div>
-        <div>
-        	<strong>DEX:</strong>
-        	<span>{{ $monster->base_dexterity }}</span>
-        </div>
-        <div>
-        	<strong>CON:</strong>
-        	<span>{{ $monster->base_constitution }}</span>
-        </div>
-        <div>
-        	<strong>INT:</strong>
-        	<span>{{ $monster->base_intelligence }}</span>
-        </div>
-        <div>
-        	<strong>WIS:</strong>
-        	<span>{{ $monster->base_wisdom }}</span>
-        </div>
-        <div>
-        	<strong>CHA:</strong>
-        	<span>{{ $monster->base_charisma }}</span>
-        </div>
-        <div>
-        	<strong>CR:</strong>
-        	<span>{{ $monster->challenge_rating }}</span>
-        </div>
-        <div>
-        	<strong>EXP:</strong>
-        	<span>{{ $monster->average_exp }}</span>
-        </div>
-        <div>
-        	<strong>Legendary Actions:</strong>
-        	<p>{{ $monster->legendary_actions_description }}</p>
+            <div class="attributes">
+                <div class="base-attribute">
+                    <div class="name">
+                        Strength
+                    </div>
+                    <div class="value">
+                        {{ $monster->base_strength }}
+                    </div>
+                    <div class="modifier">
+                        {{ getMod($monster->base_strength) }}
+                    </div>
+                </div>
+                <div class="base-attribute">
+                    <div class="name">
+                        Dexterity
+                    </div>
+                    <div class="value">
+                        {{ $monster->base_dexterity }}
+                    </div>
+                    <div class="modifier">
+                        {{ getMod($monster->base_dexterity) }}
+                    </div>
+                </div>
+                <div class="base-attribute">
+                    <div class="name">
+                        Constitution
+                    </div>
+                    <div class="value">
+                        {{ $monster->base_constitution }}
+                    </div>
+                    <div class="modifier">
+                        {{ getMod($monster->base_constitution) }}
+                    </div>
+                </div>
+                <div class="base-attribute">
+                    <div class="name">
+                        Intelligence
+                    </div>
+                    <div class="value">
+                        {{ $monster->base_intelligence }}
+                    </div>
+                    <div class="modifier">
+                        {{ getMod($monster->base_intelligence) }}
+                    </div>
+                </div>
+                <div class="base-attribute">
+                    <div class="name">
+                        Wisdom
+                    </div>
+                    <div class="value">
+                        {{ $monster->base_wisdom }}
+                    </div>
+                    <div class="modifier">
+                        {{ getMod($monster->base_wisdom) }}
+                    </div>
+                </div>
+                <div class="base-attribute">
+                    <div class="name">
+                        Charisma
+                    </div>
+                    <div class="value">
+                        {{ $monster->base_charisma }}
+                    </div>
+                    <div class="modifier">
+                        {{ getMod($monster->base_charisma) }}
+                    </div>
+                </div>
+            </div>
+
+            <div class="main-stats">
+                <div class="stats-list">
+                    <div class="stat">
+                        <span class="name">API.AI Name Key</span>
+                        <span class="value">
+                            <code>
+                                {{ $monster->ai_name_key }}
+                            </code>
+                        </span>
+                    </div>
+
+                    <div class="stat classification">
+                        <span class="name">Classification</span>
+                        <span class="value">{{ $monster->classification }}</span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="name">Alignment</span>
+                        <span class="value">{{ $monster->getAlignmentName() }}</span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="name">AC</span>
+                        <span class="value">{{ $monster->armor_class }}</span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="name">Hit Points</span>
+                        <span class="value">
+                            <span>{{ $monster->hit_points }}</span>
+                            <span>({{ $monster->hit_points_calculation }})</span>
+                        </span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="name">Speed</span>
+                        <span class="value">{{ $monster->speed }}ft</span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="name">Swim Speed</span>
+                        <span class="value">{{ $monster->speed_swim }}ft</span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="name">CR</span>
+                        <span class="value">{{ $monster->challenge_rating }}</span>
+                    </div>
+
+                    <div class="stat">
+                        <span class="name">EXP</span>
+                        <span class="value">{{ $monster->average_exp }}</span>
+                    </div>
+                </div>
+
+                <div>
+                    <strong>Legendary Actions:</strong>
+                    <p>{{ $monster->legendary_actions_description }}</p>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
