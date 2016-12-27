@@ -156,7 +156,7 @@
     </div>
 </div>
 
-<button class="mobile-fab blue">
+<a href="{{ route('static::dnd5::monsters-manual::edit', $monster->id) }}" class="mobile-fab blue">
     <i class="_icon material-icons">edit</i>
-</button>
+</a>
 @endsection
