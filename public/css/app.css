@@ -144,7 +144,10 @@ code {
     font-size: 22px; }
 
 .button {
-  display: inline-block;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-align: center;
+  align-items: center;
   text-decoration: none;
   background: #fff;
   border: #efefef solid 1px;
@@ -153,7 +156,13 @@ code {
   color: #222;
   font-size: 14px;
   cursor: pointer;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 3px 5px rgba(0, 0, 0, 0.3); }
+  will-change: box-shadow;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  transition: all 300ms ease-out; }
+  .button:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2), 0 4px 6px rgba(0, 0, 0, 0.23); }
+  .button:active {
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23); }
   .button.blue {
     background: #2196F3;
     color: #fff;
@@ -354,7 +363,7 @@ code {
     color: #fff;
     padding: 10px 12px;
     box-sizing: border-box;
-    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.5), 0 2px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
     border: none;
     text-decoration: none; }
     .mobile-fab ._icon {

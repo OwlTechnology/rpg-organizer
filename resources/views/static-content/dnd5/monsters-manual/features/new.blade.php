@@ -26,7 +26,8 @@
                 <textarea name="description" maxlength="1024"></textarea>
             </div>
             <div class="form-element">
-                <button type="submit">
+                <button type="submit" class="button blue">
+                    <i class="material-icons">add</i>
                     Add
                 </button>
             </div>

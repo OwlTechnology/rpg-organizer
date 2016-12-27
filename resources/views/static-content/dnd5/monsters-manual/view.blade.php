@@ -147,7 +147,7 @@
                 </div>
 
                 <div class="features">
-                    <h3>Features:</h3>
+                    <h2>Features</h2>
 
                     @forelse($features as $feature)
                         <div class="feature">
@@ -163,14 +163,15 @@
                     @endforelse
 
                     <p>
-                        <a href="{{ route('static::dnd5::monsters-manual::features::new', $monster->id) }}">
+                        <a class="button blue" href="{{ route('static::dnd5::monsters-manual::features::new', $monster->id) }}">
+                            <i class="material-icons">add</i>
                             Add New Feature
                         </a>
                     </p>
                 </div>
 
                 <div>
-                    <strong>Legendary Actions:</strong>
+                    <h2>Legendary Actions</h2>
                     <p>{{ $monster->legendary_actions_description }}</p>
                 </div>
             </div>
