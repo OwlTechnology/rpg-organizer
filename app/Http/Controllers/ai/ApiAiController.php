@@ -140,6 +140,26 @@ class ApiAiController extends Controller{
 				$output = "Your average {$monster->name} has a strength of {$monster->base_strength}.";
 
 				break;
+			case "dexterity":
+				$output = "The average {$monster->name} has a dexterity of {$monster->base_dexterity}.";
+
+				break;
+			case "constitution":
+				$output = "The average {$monster->name} has a constitution of {$monster->base_constitution}.";
+
+				break;
+			case "intelligence":
+				$output = "Your average {$monster->name}'s intelligence is {$monster->base_intelligence}.";
+
+				break;
+			case "wisdom":
+				$output = "An average {$monster->name} has about {$monster->base_wisdom} wisdom.";
+
+				break;
+			case "charisma":
+				$output = "The charisma of your average {$monster->name} is {$monster->base_charisma}.";
+
+				break;
 			default:
 				$output = "Sorry, I can't tell you about that stat yet.";
 				break;
