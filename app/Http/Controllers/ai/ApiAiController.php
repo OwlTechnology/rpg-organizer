@@ -124,6 +124,18 @@ class ApiAiController extends Controller{
 				$output = "They are {$monster->getAlignmentName()}";
 
 				break;
+			case "armor_class":
+				$output = "A normal {$monster->name} has an armor class of {$monster->armor_class}.";
+
+				break;
+			case "hit_points":
+				$output = "A normal {$monster->name} has an average of {$monster->hit_points}.";
+
+				break;
+			case "classification":
+				$output = "A {$monster->name} is a {$monster->classification}.";
+
+				break;
 			default:
 				$output = "Sorry, I can't tell you about that stat yet.";
 				break;
