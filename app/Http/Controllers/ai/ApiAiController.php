@@ -136,6 +136,10 @@ class ApiAiController extends Controller{
 				$output = "A {$monster->name} is a {$monster->classification}.";
 
 				break;
+			case "strength":
+				$output = "Your average {$monster->name} has a strength of {$monster->base_strength}.";
+
+				break;
 			default:
 				$output = "Sorry, I can't tell you about that stat yet.";
 				break;
