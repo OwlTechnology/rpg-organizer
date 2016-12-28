@@ -143,6 +143,9 @@ code {
   .info-panel.large {
     font-size: 22px; }
 
+.form-element {
+  margin: 10px 0 20px; }
+
 .text-input {
   padding: 8px 10px;
   display: inline-block;

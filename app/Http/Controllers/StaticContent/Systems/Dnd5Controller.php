@@ -10,11 +10,52 @@ use App\Http\Controllers\Controller;
 use App\Models\StaticContent\Dnd5\Monster;
 use App\Models\StaticContent\Dnd5\Feature;
 use App\Models\StaticContent\Dnd5\Action;
+use App\Models\StaticContent\Dnd5\Race;
 
 class Dnd5Controller extends Controller{
 
     public function overview() {
     	return view("static-content.dnd5.overview");
+    }
+
+    public function racesList() {
+        $races = Race::all();
+
+        return view("static-content.dnd5.racesList")->with([
+            "races" => $races
+        ]);
+    }
+
+    public function newRaceView() {
+        return view("static-content.dnd5.races.new");
+    }
+
+    public function newRace(Request $request) {
+        $race = new Race;
+
+        $this->updateRace($race, $request);
+
+        return redirect()->route("static::dnd5::races::list");
+    }
+
+    protected function updateRace(Race $race, Request $request) {
+        $race->name = $request->input("name");
+        $race->api_ai_key = $request->input("api_ai_key");
+        $race->description = $request->input("description");
+        $race->age_description = $request->input("age_description");
+        $race->alignment_description = $request->input("alignment_description");
+        $race->size_id = $request->input("size_id");
+        $race->size_description = $request->input("size_description");
+        $race->speed = $request->input("speed");
+        $race->speed_description = $request->input("speed_description");
+
+        $race->save();
+    }
+
+    public function viewRace(Race $race) {
+        return view("static-content.dnd5.races.view")->with([
+            "race" => $race
+        ]);
     }
 
     public function monstersManualList() {

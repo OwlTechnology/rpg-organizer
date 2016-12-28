@@ -18,7 +18,7 @@
         <div class="home-links">
             <a class="link" href="{{ route('static::dnd5::monsters-manual::list') }}">Monster's Manual</a>
             <a class="link" href="#">Classes</a>
-            <a class="link" href="#">Races</a>
+            <a class="link" href="{{ route('static::dnd5::races::list') }}">Races</a>
             <a class="link" href="#">Weapons</a>
             <a class="link" href="#">Armor/Shields</a>
             <a class="link" href="#">Items</a>
