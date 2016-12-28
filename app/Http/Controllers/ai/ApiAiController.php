@@ -129,7 +129,7 @@ class ApiAiController extends Controller{
 
 				break;
 			case "hit_points":
-				$output = "A normal {$monster->name} has an average of {$monster->hit_points}.";
+				$output = "A normal {$monster->name} has an average of {$monster->hit_points} health.";
 
 				break;
 			case "classification":
