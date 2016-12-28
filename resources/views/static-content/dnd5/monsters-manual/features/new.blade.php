@@ -17,13 +17,13 @@
 
             <div class="form-element">
                 <label>
-                    Name
-                    <input type="text" name="name" maxlength="128" />
+                    Name<br />
+                    <input type="text" class="text-input mtrl" name="name" maxlength="128" />
                 </label>
             </div>
             <div class="form-element">
-                <label>Description</label>
-                <textarea name="description" maxlength="1024"></textarea>
+                <label>Description</label><br />
+                <textarea class="text-input mtrl" name="description" maxlength="1024"></textarea>
             </div>
             <div class="form-element">
                 <button type="submit" class="button blue">
