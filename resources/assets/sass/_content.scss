@@ -34,3 +34,61 @@
         font-size: 22px;
     }
 }
+
+// forms
+.text-input{
+    padding: 8px 10px;
+    display: inline-block;
+    box-sizing: border-box;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: all 250ms ease-out;
+
+    &.basic{
+        border: 1px solid #aaa;
+        border-radius: 5px;
+        background: #fff;
+
+        &:focus{
+            box-shadow: $shadow_2;
+        }
+    }
+
+    &.mtrl{
+        border: none;
+        border-bottom: 2px solid #aaa;
+        background: transparent;
+
+        &:hover{
+            background: rgba(255, 255, 255, 0.5);
+        }
+
+        &:focus{
+            background: transparent;
+            border-bottom: 2px solid $material_blue;
+        }
+    }
+
+    // extra mods
+    &.monospace{
+        font-family: monospace;
+    }
+
+    &.full{
+        width: 100%;
+    }
+
+    &.inherit{
+        font-size: inherit;
+        width: auto;
+    }
+}
+
+.dropdown-input{
+    font-size: 16px;
+
+    &.full{
+        width: 100%;
+    }
+}

@@ -143,6 +143,42 @@ code {
   .info-panel.large {
     font-size: 22px; }
 
+.text-input {
+  padding: 8px 10px;
+  display: inline-block;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #333;
+  outline: none;
+  transition: all 250ms ease-out; }
+  .text-input.basic {
+    border: 1px solid #aaa;
+    border-radius: 5px;
+    background: #fff; }
+    .text-input.basic:focus {
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23); }
+  .text-input.mtrl {
+    border: none;
+    border-bottom: 2px solid #aaa;
+    background: transparent; }
+    .text-input.mtrl:hover {
+      background: rgba(255, 255, 255, 0.5); }
+    .text-input.mtrl:focus {
+      background: transparent;
+      border-bottom: 2px solid #2196F3; }
+  .text-input.monospace {
+    font-family: monospace; }
+  .text-input.full {
+    width: 100%; }
+  .text-input.inherit {
+    font-size: inherit;
+    width: auto; }
+
+.dropdown-input {
+  font-size: 16px; }
+  .dropdown-input.full {
+    width: 100%; }
+
 .button {
   display: -ms-inline-flexbox;
   display: inline-flex;
@@ -299,6 +335,11 @@ code {
   .base-attribute .value {
     margin: 10px;
     font-size: 22px; }
+    .base-attribute .value input {
+      font-size: 22px;
+      text-align: center;
+      box-sizing: border-box;
+      width: 100%; }
   .base-attribute .modifier {
     padding: 5px 10px;
     border-radius: 20px;
