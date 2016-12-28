@@ -27,6 +27,8 @@ class ApiAiController extends Controller{
 	        $outputJSON = $this->handleRollIntent($req);
 		}else if($intentName === "tell-me-about-monster-intent"){
 			$outputJSON = $this->handleTellMeAboutMonsterIntent($req);
+		}else if($intentName === "monster-stat-intent"){
+			$outputJSON = $this->handleMonsterStatIntent($req);
 		}else{
 			$outputJSON = [
 			    "speech" => "Sorry I can't handle that request right now!",
@@ -94,6 +96,45 @@ class ApiAiController extends Controller{
 		    "data" => [],
 		    "contextOut" => [],
 		    "source" => "RPG Organizer"
+		];
+	}
+
+	public function handleMonsterStatIntent($req) {
+		$monsterName = $req->result->parameters->monster;
+		$statName = $req->result->parameters->monster_stat_name;
+
+		// Try to find the monster the user asked about
+		$monster = Monster::where("ai_name_key", $monsterName)->first();
+
+		if(!$monster){
+			return [
+				"speech" => "Sorry, I don't know much about that monster at this point!",
+				"displayText" => "I don't know about that monster.",
+				"data" => [],
+				"contextOut" => [],
+				"source" => "RPG Organizer"
+			];
+		}
+
+		// assuming we found the monster, let's process some requests
+		$output = "";
+
+		switch($statName){
+			case "alignment":
+				$output = "They are {$monster->getAlignmentName()}";
+
+				break;
+			default:
+				$output = "Sorry, I can't tell you about that stat yet.";
+				break;
+		}
+
+		return [
+			"speech" => $output,
+			"displayText" => $output,
+			"data" => [],
+			"contextOut" => [],
+			"source" => "RPG Organizer"
 		];
 	}
 
