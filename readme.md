@@ -4,6 +4,11 @@ RPG Organizer is a web application for keeping track of tabletop RPG games, and
 performing common actions that Game Masters and players may need while playing,
 organizing, or preparing for a tabletop RPG session/campaign.
 
+In addition, the system will have a static section storing all of the OGL
+licensed content so that the content can be accessed via Google Home, Facebook
+Bots, and other systems, as well as via an API for other developers who want
+quick access to that information.
+
 ## System Support
 
 The first system we are developing this app for is D&D 5. This is partially due
