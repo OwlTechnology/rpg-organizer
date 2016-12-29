@@ -17,18 +17,18 @@
 
             <div class="form-element">
                 <label>
-                    Username
-                    <input type="text" name="username" />
+                    Username<br />
+                    <input type="text" class="text-input mtrl" name="username" />
                 </label>
             </div>
             <div class="form-element">
                 <label>
-                    Password
-                    <input type="password" name="password" />
+                    Password<br />
+                    <input type="password" class="text-input mtrl" name="password" />
                 </label>
             </div>
             <div class="submit">
-                <button type="submit">Login</button>
+                <button class="button blue" type="submit">Login</button>
             </div>
         </form>
     </div>

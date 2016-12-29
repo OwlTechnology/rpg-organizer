@@ -17,30 +17,33 @@
 
             <div class="form-element">
                 <label>
-                    Username
-                    <input type="text" name="username" />
+                    Username<br />
+                    <input type="text" class="text-input mtrl" name="username" />
                 </label>
             </div>
             <div class="form-element">
                 <label>
-                    Email Address
-                    <input type="text" name="email" />
+                    Email Address<br />
+                    <input type="text" class="text-input mtrl" name="email" />
                 </label>
             </div>
             <div class="form-element">
                 <label>
-                    Password
-                    <input type="password" name="password" />
+                    Password<br />
+                    <input type="password" class="text-input mtrl" name="password" />
                 </label>
             </div>
             <div class="form-element">
                 <label>
-                    Confirm Password
-                    <input type="password" name="confirm-password" />
+                    Confirm Password<br />
+                    <input type="password" class="text-input mtrl" name="confirm-password" />
                 </label>
             </div>
             <div class="submit">
-                <button type="submit">Sign Up</button>
+                <button class="button blue" type="submit">
+                    <i class="material-icons">check</i>
+                    Sign Up
+                </button>
             </div>
         </form>
     </div>
