@@ -35,7 +35,7 @@
                     <label>Name</label>
                 </div>
                 <div class="input">
-                    <input type="text" class="halfwidth" name="name" />
+                    <input type="text" class="halfwidth text-input basic" name="name" />
                 </div>
             </div>
             <div class="form-element">
@@ -43,7 +43,7 @@
                     <label>Description</label>
                 </div>
                 <div class="input">
-                    <input type="text" class="fullwidth" name="description" />
+                    <input type="text" class="fullwidth text-input basic" name="description" />
                 </div>
             </div>
             <div class="form-element last">
@@ -51,7 +51,7 @@
                     <label>Content</label>
                 </div>
                 <div class="input">
-                    <textarea name="content" class="fullwidth textarea"></textarea>
+                    <textarea name="content" class="fullwidth textarea text-input basic"></textarea>
                 </div>
             </div>
             <div class="submit text-center">
