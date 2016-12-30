@@ -62,9 +62,7 @@ class CampaignsController extends Controller
     }
 
 
-    public function delete(Request $request){
-        $campaign = Campaign::find($request->id);
-
+    public function delete(Request $request, Campaign $campaign){
         // We need to also delete anything that is campaign-only, like
         // notes and locations
         Note::where("campaign", $campaign->id)->delete();

@@ -11,12 +11,15 @@
 
             <div class="form-element">
                 <label>
-                    Campaign Name
-                    <input type="text" name="campaignName"/>
+                    Campaign Name<br />
+                    <input type="text" class="text-input mtrl" name="campaignName"/>
                 </label>
             </div>
             <div class="submit">
-                <button type="submit">Create Campaign</button>
+                <button class="button blue" type="submit">
+                    <i class="material-icons">add</i>
+                    Create Campaign
+                </button>
             </div>
 
         </form>

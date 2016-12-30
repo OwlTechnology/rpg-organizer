@@ -19,7 +19,7 @@
                     </div>
                     <div class="content">
                         <div class="title">
-                            <a href="{{ route("campaign::view", $campaign->id) }}">{{ $campaign->name }}</a>
+                            <a href="{{ route('campaign::view', $campaign->id) }}">{{ $campaign->name }}</a>
                         </div>
                         <div class="description">
                             This is a campaign that the player can play where they
@@ -31,9 +31,9 @@
                         <div class="actions">
                             <button type="button"><i class="material-icons">share</i></button>
                             <button type="button"><i class="material-icons">edit</i></button>
-                            <form class="form campaignDelete" method="post" action="{{url('/campaign/delete?id='.$campaign->id)}}">
-                              {{ csrf_field() }}
-                              <button type="submit"><i class="material-icons">delete</i></button>
+                            <form class="form campaignDelete" method="post" action="{{ route('campaign::delete.post', $campaign->id) }}">
+                                {{ csrf_field() }}
+                                <button type="submit"><i class="material-icons">delete</i></button>
                             </form>
                         </div>
                     </div>
@@ -79,7 +79,7 @@
         @endif
 
         <div>
-            <a class="icon-button blue" href="{{ url('/campaigns/new') }}">
+            <a class="icon-button blue" href="{{ route('campaign::new') }}">
                 <i class="material-icons">add</i><span class="text">Create New Campaign</span>
             </a>
         </div>
