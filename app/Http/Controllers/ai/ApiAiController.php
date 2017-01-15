@@ -123,14 +123,17 @@ class ApiAiController extends Controller{
 		}else{
 			$statName = $req->result->parameters->stat_name;
 
-                        switch($statName) {
-                            case "speed":
-                                $output = "{$race->speed_description}";
-                                break;
-                            default:
-                                $output = "A {$race->name} does not have that stat.";
-                                break;
-                        }
+            switch($statName) {
+                case "speed":
+                    $output = "{$race->speed_description}";
+               		break;
+                case "alignment":
+                	$output = "{$race->alignment_description}";
+                	break;
+                default:
+                    $output = "A {$race->name} does not have that stat, or that stat is variable depending on the particular {$race->name}.";
+                    break;
+            }
 		}
 
 		return [
