@@ -104,6 +104,7 @@ class ApiAiController extends Controller{
 
 	public function handleDndRaceIntent($req) {
 		$raceKey = $req->result->parameters->race;
+		$hasStatName = isset($req->result->parameters["stat_name"]);
 
 		$race = Race::where("api_ai_key", $raceKey)->first();
 
@@ -117,7 +118,7 @@ class ApiAiController extends Controller{
 			];
 		}
 
-		$output = "{$race->description}";
+		$output = "{$race->description}" . $hasStatName ? ", and I saw you asked for a stat name" : "";
 
 		return [
 			"speech" => $output,
