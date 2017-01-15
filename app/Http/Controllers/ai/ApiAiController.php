@@ -118,7 +118,11 @@ class ApiAiController extends Controller{
 			];
 		}
 
-		$output = "{$race->description}" . $hasStatName ? ", and I saw you asked for a stat name" : "";
+		if(!$hasStatName) {
+			$output = "{$race->description}.";
+		}else{
+			$output = "I know you're asking for a stat, but I can't give it to you yet.";
+		}
 
 		return [
 			"speech" => $output,
