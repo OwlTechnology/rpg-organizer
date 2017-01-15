@@ -34,6 +34,8 @@ Route::group(["prefix" => "static", "as" => "static::", "namespace" => "StaticCo
 			Route::get('/new', ["as" => "new", "uses" => "Dnd5Controller@newRaceView"]);
 			Route::post('/new', ["as" => "new.post", "uses" => "Dnd5Controller@newRace"]);
 			Route::get('/{race}', ["as" => "view", "uses" => "Dnd5Controller@viewRace"]);
+			Route::get('/{race}/edit', ["as" => "edit", "uses" => "Dnd5Controller@editRaceView"]);
+			Route::post('/{race}/edit', ["as" => "edit.post", "uses" => "Dnd5Controller@editRace"]);
 		});
 	});
 });

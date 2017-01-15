@@ -58,6 +58,18 @@ class Dnd5Controller extends Controller{
         ]);
     }
 
+    public function editRaceView(Race $race) {
+        return view("static-content.dnd5.races.edit")->with([
+            "race" => $race
+        ]);
+    }
+
+    public function editRace(Request $request, Race $race) {
+        $this->updateRace($race, $request);
+
+        return redirect()->route("static::dnd5::races::view", $race->id);
+    }
+
     public function monstersManualList() {
         $monsters = Monster::all();
 

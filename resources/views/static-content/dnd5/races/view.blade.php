@@ -7,7 +7,7 @@
         <h1>{{ $race->name }}</h1>
 
         <div class="edit-wrapper">
-            <a class="button blue" href="#">
+            <a class="button blue" href="{{ route('static::dnd5::races::edit', $race->id) }}">
                 <i class="material-icons">edit</i>
             </a>
         </div>
