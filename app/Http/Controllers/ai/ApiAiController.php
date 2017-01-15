@@ -104,7 +104,7 @@ class ApiAiController extends Controller{
 
 	public function handleDndRaceIntent($req) {
 		$raceKey = $req->result->parameters->race;
-		$hasStatName = isset($req->result->parameters["stat_name"]);
+		$hasStatName = isset($req->result->parameters->stat_name);
 
 		$race = Race::where("api_ai_key", $raceKey)->first();
 
