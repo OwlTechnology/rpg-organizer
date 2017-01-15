@@ -160,6 +160,18 @@ class ApiAiController extends Controller{
 				$output = "The charisma of your average {$monster->name} is {$monster->base_charisma}.";
 
 				break;
+			case "speed":
+				$output = "The speed of an average {$monster->name} is {$monster->speed} feet per round.";
+
+				break;
+			case "challenge_rating":
+				$output = "The challenge rating of a {$monster->name} is {$monster->challenge_rating}.";
+
+				break;
+			case "expirience":
+				$output = "The expirience you would get from killing a {$monster->name} is {$monster->average_exp}.";
+
+				break;
 			default:
 				$output = "Sorry, I can't tell you about that stat yet.";
 				break;
