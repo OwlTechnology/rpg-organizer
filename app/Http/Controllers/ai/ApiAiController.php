@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\StaticContent\Dnd5\Monster;
 use App\Models\StaticContent\Dnd5\Feature;
+use App\Models\StaticContent\Dnd5\Race;
 
 class ApiAiController extends Controller{
     
@@ -99,6 +100,18 @@ class ApiAiController extends Controller{
 		];
 	}
 
+	public function handleDndRaceIntent($req) {
+		$raceKey = $req->result->parameters->race;
+
+		$race = Race::where("api_ai_key", $raceKey)->first();
+
+		if(!$race) {
+			return [
+				"speech" => "Sorry, I don't "
+			];
+		}
+	}
+
 	public function handleMonsterStatIntent($req) {
 		$monsterName = $req->result->parameters->monster;
 		$statName = $req->result->parameters->monster_stat_name;
@@ -168,8 +181,8 @@ class ApiAiController extends Controller{
 				$output = "The challenge rating of a {$monster->name} is {$monster->challenge_rating}.";
 
 				break;
-			case "expirience":
-				$output = "The expirience you would get from killing a {$monster->name} is {$monster->average_exp}.";
+			case "experience":
+				$output = "The experience you would get from killing a {$monster->name} is {$monster->average_exp}.";
 
 				break;
 			default:
