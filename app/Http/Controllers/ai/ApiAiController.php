@@ -182,7 +182,7 @@ class ApiAiController extends Controller{
 
 				break;
 			case "experience":
-				$output = "The experience you would get from killing a {$monster->name} is {$monster->average_exp}.";
+				$output = "You would get {$monster->average_exp} experience for killing a {$monster->name}.";
 
 				break;
 			default:
