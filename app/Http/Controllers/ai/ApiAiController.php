@@ -104,7 +104,7 @@ class ApiAiController extends Controller{
 
 	public function handleDndRaceIntent($req) {
 		$raceKey = $req->result->parameters->race;
-		$hasStatName = isset($req->result->parameters->stat_name);
+		$hasStatName = !!$req->result->parameters->stat_name;
 
 		$race = Race::where("api_ai_key", $raceKey)->first();
 
@@ -119,9 +119,18 @@ class ApiAiController extends Controller{
 		}
 
 		if(!$hasStatName) {
-			$output = "{$race->description}.";
+			$output = "{$race->description}";
 		}else{
-			$output = "I know you're asking for a stat, but I can't give it to you yet.";
+			$statName = $req->result->parameters->stat_name;
+
+                        switch($statName) {
+                            case "speed":
+                                $output = "{$race->speed_description}";
+                                break;
+                            default:
+                                $output = "A {$race->name} does not have that stat.";
+                                break;
+                        }
 		}
 
 		return [
