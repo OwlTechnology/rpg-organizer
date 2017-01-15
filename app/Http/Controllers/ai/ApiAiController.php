@@ -30,6 +30,8 @@ class ApiAiController extends Controller{
 			$outputJSON = $this->handleTellMeAboutMonsterIntent($req);
 		}else if($intentName === "monster-stat-intent"){
 			$outputJSON = $this->handleMonsterStatIntent($req);
+		}else if($intentName === "dnd-race-intent"){
+			$outputJSON = $this->handleDndRaceIntent($req);
 		}else{
 			$outputJSON = [
 			    "speech" => "Sorry I can't handle that request right now!",
@@ -107,9 +109,23 @@ class ApiAiController extends Controller{
 
 		if(!$race) {
 			return [
-				"speech" => "Sorry, I don't "
+				"speech" => "Sorry, I don't know what race you're talking about.",
+				"displayText" => "Not sure what race that is.",
+				"data" => [],
+				"contextOut" => [],
+				"source" => "RPG Organizer"
 			];
 		}
+
+		$output = "{$race->description}";
+
+		return [
+			"speech" => $output,
+			"displayText" => $output,
+			"data" => [],
+			"contextOut" => [],
+			"source" => "RPG Organizer"
+		];
 	}
 
 	public function handleMonsterStatIntent($req) {
